@@ -39,6 +39,9 @@ Este projeto é de código aberto, e encorajamos contribuições da comunidade. 
 3. Implemente melhorias ou correções.
 4. Envie um pull request.
 
+## Instalações Necessárias
+python -m pip install oracledb --upgrade
+
 ## Status do Projeto
 
 Atualmente, o projeto encontra-se em fase de desenvolvimento inicial, na versão 0.1.0.

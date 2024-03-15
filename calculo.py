@@ -1,13 +1,38 @@
-codigo_produto = input("Digite o código do produto: ")
-nome_produto = input("Digite o nome do produto: ")
-descricao_produto = input("Digite a descrição do produto: ")
-custo_produto = float(input("Digite o custo do produto: "))
+from bancodedados import conectar_bd
+
+def obter_dados_produto():
+    connection = conectar_bd()
+    cursor = connection.cursor()
+
+    cursor.execute('SELECT id_prato, nome_prato, desc_prato, custo_prato FROM Pratos')
+    row = cursor.fetchone()
+
+    cursor.close()
+    connection.close()
+
+    return row
+
+def inserir_resultados(codigo_produto, nome_produto, descricao_produto, custo_produto, preco_venda, total_despesas, valor_custo_fixo, comissao_vendas_reais, impostos_reais, receita_bruta, outros_custos, rentabilidade):
+    connection = conectar_bd()
+    cursor = connection.cursor()
+
+    # Inserir na tabela
+    cursor.execute('UPDATE Pratos SET preco_prato = :1, total_despesas = :2, valor_custo_fixo = :3, comissao_vendas = :4, impostos = :5, receita_bruta = :6, outros_custos = :7, rentabilidade = :8 WHERE id_prato = :9', (preco_venda, total_despesas, valor_custo_fixo, comissao_vendas_reais, impostos_reais, receita_bruta, outros_custos, rentabilidade, codigo_produto))
+
+    # Commit da transação
+    connection.commit()
+
+    cursor.close()
+    connection.close()
+
+codigo_produto, nome_produto, descricao_produto, custo_produto = obter_dados_produto()
+
 custo_fixo_porcentual = float(input("Digite o custo fixo/administrativo (%): "))
 comissao_vendas_porcentual = float(input("Digite a comissão de vendas (%): "))
 impostos_porcentual = float(input("Digite o imposto sobre a venda (%): "))
 margem_lucro = float(input("Digite a margem de lucro (%): "))
 
-# total das despsas
+# total das despesas
 total_despesas = custo_fixo_porcentual + comissao_vendas_porcentual + impostos_porcentual + margem_lucro
 
 #preço de venda
@@ -36,6 +61,9 @@ print("\nResultado do cadastro:")
 print("Código do produto:", codigo_produto)
 print("Nome do produto:", nome_produto)
 print("Descrição do produto:", descricao_produto)
+
+#Inserir os resultados no banco
+inserir_resultados(codigo_produto, preco_venda, total_despesas, valor_custo_fixo, comissao_vendas_reais, impostos_reais, receita_bruta, outros_custos, rentabilidade)
 
 #tbl de resultados
 print("\nTabela de Resultados:")
