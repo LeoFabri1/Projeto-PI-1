@@ -15,10 +15,17 @@ while True:
         Interface.Login() 
         try: 
             email=str(input("\nDigite Seu Email: "))
-            if email == "" or email == None:
-                raise ValueError("Email Invalido")
+            if not email:
+                raise ValueError("Erro Email")
+            else:
+                senha=str(input("\nDigite sua senha aqui: "))
+                if not senha:
+                    raise ValueError("Erro Senha")
         except ValueError as error:
-            print(error)
+            if str(error) == "Erro Email":
+                print("Erro, Email Invalido")
+            elif str(error) == "Erro Senha":
+                print("Erro, Senha Invalida")
     elif opcao == "Principais":
         print("Futura parte pratos principais")
     elif opcao == "Porcoes" or opcao == "Porçoes":
