@@ -1,18 +1,18 @@
-import Interface
+import InterfaceRestaurante
 
-Interface.Home()
+InterfaceRestaurante.Home()
 
 while True:
     opcao = str(input("\nEscolha a opçao desejada: "))
 
     if opcao == "Home":
-        Interface.Home()
+        InterfaceRestaurante.Home()
     elif opcao == "Cardapio":
-        Interface.Cardapio()
+        InterfaceRestaurante.Cardapio()
     elif opcao == "Sobre Nos" or opcao == "Sobre Nós":
-        Interface.Sobre()
+        InterfaceRestaurante.Sobre()
     elif opcao == "Login":
-        Interface.Login() 
+        InterfaceRestaurante.Login() 
         try: 
             email=str(input("\nDigite Seu Email: "))
             if not email:
