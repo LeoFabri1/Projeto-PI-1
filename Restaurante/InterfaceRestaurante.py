@@ -1,6 +1,6 @@
 def Home():
     print("**********************************************************")
-    print("                      Korean Food")
+    print("                   JungKooking Food")
     print("|    |        |        |        |         |        |     |")
     print("|HOME|        |CARDAPIO|        |SOBRE NÓS|        |LOGIN|")
     print("|    |        |        |        |         |        |     |")
@@ -12,7 +12,7 @@ def Home():
 
 def CardapioAdm():
     print("**********************************************************")
-    print("                      Korean Food")
+    print("                   JungKooking Food")
     print("|    |                 |        |                 |     |")
     print("|HOME|                 |CARDAPIO|                 |LOGIN|")
     print("|    |                 |        |                 |     |")
@@ -28,7 +28,7 @@ def CardapioAdm():
 
 def CardapioCliente():
     print("**********************************************************")
-    print("                      Korean Food")
+    print("                   JungKooking Food")
     print("|    |                 |        |                 |     |")
     print("|HOME|                 |CARDAPIO|                 |LOGIN|")
     print("|    |                 |        |                 |     |")
@@ -42,7 +42,7 @@ def CardapioCliente():
 
 def Comida():
     print("**********************************************************")
-    print("                      Korean Food")
+    print("                   JungKooking Food")
     print("|    |                 |        |                 |     |")
     print("|HOME|                 |CARDAPIO|                 |LOGIN|")
     print("|    |                 |        |                 |     |")
@@ -55,7 +55,7 @@ def Comida():
 
 def Carrinho():
     print("**********************************************************")
-    print("                      Korean Food")
+    print("                   JungKooking Food")
     print("|    |                 |        |                 |     |")
     print("|HOME|                 |CARRINHO|                 |LOGIN|")
     print("|    |                 |        |                 |     |")
@@ -72,7 +72,7 @@ def Carrinho():
 
 def Pagamento():
     print("**********************************************************")
-    print("                      Korean Food")
+    print("                   JungKooking Food")
     print("Endereço de entrega:                    Forma De Pagamento")
     print("CEP:                                                   Pix")
     print("Nome completo:                       Cartao Credito/Debito")
@@ -82,7 +82,7 @@ def Pagamento():
 
 def Login():
     print("**********************************************************")
-    print("                      Korean Food")
+    print("                   JungKooking Food")
     print("|    |")
     print("|HOME|")
     print("|    |")
@@ -97,7 +97,7 @@ def Login():
 
 def Sobre():
     print("**********************************************************")
-    print("                      Korean Food")
+    print("                   JungKooking Food")
     print("|    |                 |         |                 |     |")
     print("|HOME|                 |SOBRE NÓS|                 |LOGIN|")
     print("|    |                 |         |                 |     |")
