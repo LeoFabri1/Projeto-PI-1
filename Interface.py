@@ -10,7 +10,23 @@ def Home():
     print("        Principais             Porçoes(Acompanhamentos)")
     print("**********************************************************")
 
-def Cardapio():
+def CardapioAdm():
+    print("**********************************************************")
+    print("                      Korean Food")
+    print("|    |                 |        |                 |     |")
+    print("|HOME|                 |CARDAPIO|                 |LOGIN|")
+    print("|    |                 |        |                 |     |")
+    print("AJUSTE DE CARDAPIO")
+    print("")
+    print("               |    Adicionar Item    |")
+    print("               |     Alterar item     |")
+    print("               |     Excluir Item     |")
+    print("               |        Filtrar       |")
+    print("               |Mostrar Cardapio Atual|")
+    print("               |   Deslogar como Adm  |")
+    print("**********************************************************")
+
+def CardapioCliente():
     print("**********************************************************")
     print("                      Korean Food")
     print("|    |                 |        |                 |     |")
@@ -72,7 +88,7 @@ def Login():
     print("|    |")
     print("")
     print("ÁREA DE LOGIN")
-    print("                Email:")
+    print("              Usuario:")
     print("                Senha:")
     print("")
     print("                    'Finalizar Login'")
