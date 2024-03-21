@@ -1,18 +1,18 @@
-import InterfaceRestaurante
+import interface_restaurante
 
-InterfaceRestaurante.Home()
+interface_restaurante.home()
 
 while True:
     opcao = str(input("\nEscolha a opçao desejada: "))
 
     if opcao == "Home":
-        InterfaceRestaurante.Home()
+        interface_restaurante.home()
     elif opcao == "Cardapio":
-        InterfaceRestaurante.CardapioCliente()
+        interface_restaurante.cardapio_cliente()
     elif opcao == "Sobre Nos" or opcao == "Sobre Nós":
-        InterfaceRestaurante.Sobre()
+        interface_restaurante.sobre()
     elif opcao == "Login":
-        InterfaceRestaurante.Login() 
+        interface_restaurante.login() 
         try: 
             usuario=str(input("\nDigite Seu Usuario: "))
             if not usuario:

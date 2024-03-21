@@ -1,17 +1,17 @@
-from BancodeDados.bancodedados import conectar_bd
+from bancodedados.banco_de_dados import conectar_bd
 
-def AlterarPrato():
+def alterar_prato():
     print("****************************************************************************")
     print("Pratos")
 
-def AlterarFab():
+def alterar_fab():
     print("****************************************************************************")
     print("Fabricante")
 
-def AlterarForn():
+def alterar_forn():
     print("****************************************************************************")
     print("Fornecedor")
 
-def AlterarFunc():
+def alterar_func():
     print("****************************************************************************")
     print("Funcionario")

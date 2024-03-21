@@ -1,8 +1,8 @@
-import Cadastrar, Excluir, Alterar, Filtrar
-from Restaurante.InterfaceRestaurante import CardapioAdm
+import cadastrar, excluir, alterar, filtrar
+from restaurante.interface_restaurante import cardapio_adm
 
 #Imprime o Menu de Cadastro
-def Cadastro():
+def cadastro():
     print("****************************************************************************")
     print("                              JungKooking Estoque")
     print("|        |     |            |     |            |     |             |     |      |")
@@ -10,18 +10,18 @@ def Cadastro():
     print("|        |     |            |     |            |     |             |     |      |")
     opcao=int(input("Escolha a opção desejada: "))
     if(opcao==1):
-        Cadastrar.CadastrarPrato()
+        cadastrar.cadastrar_prato()
     elif(opcao==2):
-        Cadastrar.CadastrarFab()
+        cadastrar.cadastrar_fab()
     elif(opcao==3):
-        Cadastrar.CadastrarForn()
+        cadastrar.cadastrar_forn()
     elif(opcao==4):
-        Cadastrar.CadastrarFunc()
+        cadastrar.cadastrar_func()
     elif(opcao==5):
-        CardapioAdm()
+        cardapio_adm()
 
 #Imprime o Menu Altera
-def Altero():
+def altero():
     print("****************************************************************************")
     print("                              JungKooking Estoque")
     print("|        |     |            |     |            |     |             |     |      |")
@@ -29,18 +29,18 @@ def Altero():
     print("|        |     |            |     |            |     |             |     |      |")
     opcao=int(input("Escolha a opção desejada: "))
     if(opcao==1):
-        Alterar.AlterarPrato()
+        alterar.alterar_prato()
     elif(opcao==2):
-        Alterar.AlterarFab()
+        alterar.alterar_fab()
     elif(opcao==3):
-        Alterar.AlterarForn()
+        alterar.alterar_forn()
     elif(opcao==4):
-        Alterar.AlterarFunc()
+        alterar.alterar_forn()
     elif(opcao==5):
-        CardapioAdm()
+        cardapio_adm()
 
 #Imprime o menu de Deleçao
-def Deleto():
+def deleto():
     print("****************************************************************************")
     print("                              JungKooking Estoque")
     print("|        |     |            |     |            |     |             |     |      |")
@@ -48,18 +48,18 @@ def Deleto():
     print("|        |     |            |     |            |     |             |     |      |")
     opcao=int(input("Escolha a opção desejada: "))
     if(opcao==1):
-        Excluir.DeletarPrato()
+        excluir.deletar_prato()
     elif(opcao==2):
-        Excluir.DeletarFab()
+        excluir.deletar_fab()
     elif(opcao==3):
-        Excluir.DeletarForn()
+        excluir.deletar_forn()
     elif(opcao==4):
-        Excluir.DeletarFunc()
+        excluir.deletar_func()
     elif(opcao==5):
-        CardapioAdm()
+        cardapio_adm()
 
 #Imprime o menu de Filtragem
-def Filtro():
+def filtro():
     print("****************************************************************************")
     print("                              JungKooking Estoque")
     print("|        |     |            |     |            |     |             |     |      |")
@@ -67,14 +67,14 @@ def Filtro():
     print("|        |     |            |     |            |     |             |     |      |")
     opcao=int(input("Escolha a opção desejada: "))
     if(opcao==1):
-        Filtrar.FiltrarPrato()
+        filtrar.filtrar_prato()
     elif(opcao==2):
-        Filtrar.FiltrarFab()
+        filtrar.filtrar_fab()
     elif(opcao==3):
-        Filtrar.FiltrarForn()
+        filtrar.filtrar_forn()
     elif(opcao==4):
-        Filtrar.FiltrarFunc()
+        filtrar.filtrar_func()
     elif(opcao==5):
-        CardapioAdm()
+        cardapio_adm()
 
-CardapioAdm()
+cardapio_adm()

@@ -1,17 +1,17 @@
-from BancodeDados.bancodedados import conectar_bd
+from bancodedados.banco_de_dados import conectar_bd
 
-def DeletarPrato():
+def deletar_prato():
     print("****************************************************************************")
     print("Pratos")
 
-def DeletarFab():
+def deletar_fab():
     print("****************************************************************************")
     print("Fabricante")
 
-def DeletarForn():
+def deletar_forn():
     print("****************************************************************************")
     print("Fornecedor")
 
-def DeletarFunc():
+def deletar_func():
     print("****************************************************************************")
     print("Funcionario")

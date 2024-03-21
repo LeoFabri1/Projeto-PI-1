@@ -1,4 +1,4 @@
-from bancodedados import conectar_bd
+from bancodedados.banco_de_dados import conectar_bd
 
 def obter_dados_produto():
     connection = conectar_bd()

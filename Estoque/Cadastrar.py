@@ -1,17 +1,17 @@
-from BancodeDados.bancodedados import conectar_bd
+from bancodedados.banco_de_dados import conectar_bd
 
-def CadastrarPrato():
+def cadastrar_prato():
     print("****************************************************************************")
     print("Pratos")
 
-def CadastrarFab():
+def cadastrar_fab():
     print("****************************************************************************")
     print("Fabricante")
 
-def CadastrarForn():
+def cadastrar_forn():
     print("****************************************************************************")
     print("Fornecedor")
 
-def CadastrarFunc():
+def cadastrar_func():
     print("****************************************************************************")
     print("Funcionario")

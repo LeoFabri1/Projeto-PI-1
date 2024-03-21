@@ -1,5 +1,5 @@
-from Estoque.InterfaceEstoque import Cadastro, Altero, Deleto, Filtro
-def Home():
+from estoque.interface_estoque import cadastro, altero, deleto, filtro
+def home():
     print("**********************************************************")
     print("                   JungKooking Food")
     print("|    |        |        |        |         |        |     |")
@@ -12,7 +12,7 @@ def Home():
     print("**********************************************************")
 
 #Imprime A Pagina de Estoque
-def CardapioAdm():
+def cardapio_adm():
     print("**********************************************************")
     print("                   JungKooking Food")
     print("|    |                 |        |                 |     |")
@@ -31,19 +31,19 @@ def CardapioAdm():
         opcao = input("Digite a opçao desejada")
 
         if opcao == "1" or opcao == "Adicionar Item":
-            Cadastro()
+            cadastro()
         elif opcao == "2" or opcao == "Alterar Item":
-            Altero()
+            altero()
         elif opcao == "3" or opcao == "Excluir Item":
-            Deleto()
+            deleto()
         elif opcao == "4" or opcao == "Filtrar":
-            Filtro()
+            filtro()
         elif opcao == "5" or opcao == "Ajuste Cardapio":
-            CardapioAdm()
+            cardapio_adm()
         elif opcao == "6" or opcao == "Deslogar":
-            Home()
+            home()
 
-def CardapioCliente():
+def cardapio_cliente():
     print("**********************************************************")
     print("                   JungKooking Food")
     print("|    |                 |        |                 |     |")
@@ -58,7 +58,7 @@ def CardapioCliente():
     print("Bibimbap consiste basicamente em arroz branco, vegetais e carne misturados\nPreparados em tigela de pedra vulcânica")
     print("**********************************************************")
 
-def Comida():
+def comida():
     print("**********************************************************")
     print("                   JungKooking Food")
     print("|    |                 |        |                 |     |")
@@ -71,7 +71,7 @@ def Comida():
     print("                                     Adicionar ao carrinho")
     print("**********************************************************")
 
-def Carrinho():
+def carrinho():
     print("**********************************************************")
     print("                   JungKooking Food")
     print("|    |                 |        |                 |     |")
@@ -88,7 +88,7 @@ def Carrinho():
     print("                                          Finalizar pedido")
     print("**********************************************************")
 
-def Pagamento():
+def pagamento():
     print("**********************************************************")
     print("                   JungKooking Food")
     print("Endereço de entrega:                    Forma De Pagamento")
@@ -98,7 +98,7 @@ def Pagamento():
     print("                                       Finalizar Pagamento")
     print("**********************************************************")
 
-def Login():
+def login():
     print("**********************************************************")
     print("                   JungKooking Food")
     print("|    |")
@@ -113,7 +113,7 @@ def Login():
     print("**********************************************************")
 
 
-def Sobre():
+def sobre():
     print("**********************************************************")
     print("                   JungKooking Food")
     print("|    |                 |         |                 |     |")

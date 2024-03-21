@@ -1,17 +1,17 @@
-from BancodeDados.bancodedados import conectar_bd
+from bancodedados.banco_de_dados import conectar_bd
 
-def FiltrarPrato():
+def filtrar_prato():
     print("****************************************************************************")
     print("Pratos")
 
-def FiltrarFab():
+def filtrar_fab():
     print("****************************************************************************")
     print("Fabricante")
 
-def FiltrarForn():
+def filtrar_forn():
     print("****************************************************************************")
     print("Fornecedor")
 
-def FiltrarFunc():
+def filtrar_func():
     print("****************************************************************************")
     print("Funcionario")
