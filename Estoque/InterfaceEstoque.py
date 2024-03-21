@@ -1,47 +1,5 @@
 import Cadastrar, Excluir, Alterar, Filtrar
-
-#Imprime a pagina de login
-def Login():
-    print("**********************************************************")
-    print("                      JungKookin")
-    print("|    |")
-    print("|HOME|")
-    print("|    |")
-    print("")
-    print("ÁREA DE LOGIN")
-
-#Imprime o Menu de Estoque
-def Estoque():
-    print("****************************************************************************")
-    print("                              JungKooking Estoque")
-    print("|           |     |         |     |         |     |         |     |      |")
-    print("|1-Cadastrar|     |2-Alterar|     |3-Deletar|     |4-Filtrar|     |5-Sair|")
-    print("|           |     |         |     |         |     |         |     |      |")
-    print("")
-    print("****************************************************************************")
-    while True:
-        opcao = int(input("\nEscolha a opção desejada: "))
-
-        if(opcao == 1):
-            Cadastro()
-            break
-        elif opcao == 2:
-            Altero()
-            break
-        elif opcao == 3:
-            Deleto()
-            break
-        elif opcao == 4:
-            Filtro()
-            break
-        elif opcao == 5:
-            print("****************************************************************************")
-            print("                   Obrigado por utilizar nosso sistema!")
-            print("                          Tenha um ótimo dia!")
-            print("****************************************************************************")
-            break
-        else:
-            print("Escolha Inválida.")
+from Restaurante.InterfaceRestaurante import CardapioAdm
 
 #Imprime o Menu de Cadastro
 def Cadastro():
@@ -60,7 +18,7 @@ def Cadastro():
     elif(opcao==4):
         Cadastrar.CadastrarFunc()
     elif(opcao==5):
-        Estoque()
+        CardapioAdm()
 
 #Imprime o Menu Altera
 def Altero():
@@ -79,8 +37,9 @@ def Altero():
     elif(opcao==4):
         Alterar.AlterarFunc()
     elif(opcao==5):
-        Estoque()
+        CardapioAdm()
 
+#Imprime o menu de Deleçao
 def Deleto():
     print("****************************************************************************")
     print("                              JungKooking Estoque")
@@ -97,8 +56,9 @@ def Deleto():
     elif(opcao==4):
         Excluir.DeletarFunc()
     elif(opcao==5):
-        Estoque()
+        CardapioAdm()
 
+#Imprime o menu de Filtragem
 def Filtro():
     print("****************************************************************************")
     print("                              JungKooking Estoque")
@@ -115,6 +75,6 @@ def Filtro():
     elif(opcao==4):
         Filtrar.FiltrarFunc()
     elif(opcao==5):
-        Estoque()
+        CardapioAdm()
 
-Estoque()
+CardapioAdm()

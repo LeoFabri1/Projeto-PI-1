@@ -1,3 +1,4 @@
+from Estoque.InterfaceEstoque import Cadastro, Altero, Deleto, Filtro
 def Home():
     print("**********************************************************")
     print("                   JungKooking Food")
@@ -10,6 +11,7 @@ def Home():
     print("        Principais             Porçoes(Acompanhamentos)")
     print("**********************************************************")
 
+#Imprime A Pagina de Estoque
 def CardapioAdm():
     print("**********************************************************")
     print("                   JungKooking Food")
@@ -18,13 +20,28 @@ def CardapioAdm():
     print("|    |                 |        |                 |     |")
     print("AJUSTE DE CARDAPIO")
     print("")
-    print("               |    Adicionar Item    |")
-    print("               |     Alterar item     |")
-    print("               |     Excluir Item     |")
-    print("               |        Filtrar       |")
-    print("               |Mostrar Cardapio Atual|")
-    print("               |   Deslogar como Adm  |")
+    print("               |    1-Adicionar Item    |")
+    print("               |     2-Alterar item     |")
+    print("               |     3-Excluir Item     |")
+    print("               |        4-Filtrar       |")
+    print("               |    5-Ajuste Cardapio   |")
+    print("               |       6-Deslogar       |")
     print("**********************************************************")
+    while True:
+        opcao = input("Digite a opçao desejada")
+
+        if opcao == "1" or opcao == "Adicionar Item":
+            Cadastro()
+        elif opcao == "2" or opcao == "Alterar Item":
+            Altero()
+        elif opcao == "3" or opcao == "Excluir Item":
+            Deleto()
+        elif opcao == "4" or opcao == "Filtrar":
+            Filtro()
+        elif opcao == "5" or opcao == "Ajuste Cardapio":
+            CardapioAdm()
+        elif opcao == "6" or opcao == "Deslogar":
+            Home()
 
 def CardapioCliente():
     print("**********************************************************")
@@ -34,6 +51,7 @@ def CardapioCliente():
     print("|    |                 |        |                 |     |")
     print("CARDAPIO")
     print("")
+    #Codigo que adiciona Novos itens ao cardapio, (trazer de Cadastrar())
     print("*KIMCHI*")
     print("Kimchi é tradicionalmente feito com acelga, gengibre e pimenta\nEsse é um prato que pode ser acompanhado em todas as refeições")
     print("*BIBIMBAP*")
