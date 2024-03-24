@@ -8,6 +8,8 @@ def cadastro():
     print("|        |     |            |     |            |     |             |     |      |")
     print("|1-Prato |     |2-Fabricante|     |3-Fornecedor|     |4-Funcionario|     |5-Menu|")
     print("|        |     |            |     |            |     |             |     |      |")
+    print("****************************************************************************")
+    
     opcao=int(input("Escolha a opção desejada: "))
     if(opcao==1):
         cadastrar.cadastrar_prato()
@@ -27,6 +29,7 @@ def altero():
     print("|        |     |            |     |            |     |             |     |      |")
     print("|1-Prato |     |2-Fabricante|     |3-Fornecedor|     |4-Funcionario|     |5-Menu|")
     print("|        |     |            |     |            |     |             |     |      |")
+    print("****************************************************************************")
     opcao=int(input("Escolha a opção desejada: "))
     if(opcao==1):
         alterar.alterar_prato()
@@ -46,6 +49,7 @@ def deleto():
     print("|        |     |            |     |            |     |             |     |      |")
     print("|1-Prato |     |2-Fabricante|     |3-Fornecedor|     |4-Funcionario|     |5-Menu|")
     print("|        |     |            |     |            |     |             |     |      |")
+    print("****************************************************************************")
     opcao=int(input("Escolha a opção desejada: "))
     if(opcao==1):
         excluir.deletar_prato()
@@ -62,9 +66,11 @@ def deleto():
 def filtro():
     print("****************************************************************************")
     print("                              JungKooking Estoque")
+    print("Filtrar")
     print("|        |     |            |     |            |     |             |     |      |")
     print("|1-Prato |     |2-Fabricante|     |3-Fornecedor|     |4-Funcionario|     |5-Menu|")
     print("|        |     |            |     |            |     |             |     |      |")
+    print("****************************************************************************")
     opcao=int(input("Escolha a opção desejada: "))
     if(opcao==1):
         filtrar.filtrar_prato()
@@ -78,3 +84,19 @@ def filtro():
         cardapio_adm()
 
 cardapio_adm()
+
+def estoque()
+    print("**********************************************************")
+    print("                   JungKooking Food")
+    print("|    |                |        |                |        |")
+    print("|HOME|                |CARDAPIO|                |DESLOGAR|")
+    print("|    |                |        |                |        |")
+    print("ESTOQUE")
+    print("")
+    print("")
+    print("")
+    print("")
+    print("")
+    print("")
+    print("")
+    print("**********************************************************")
