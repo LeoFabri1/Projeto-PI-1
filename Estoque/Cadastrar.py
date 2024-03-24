@@ -7,7 +7,7 @@ def cadastrar_prato():
     #(bruto de cada ingrediente,prato e valor do prato com lucro)
     #definir os pratos com apenas a descricao e valor por item para os usuarios
 
-def descricao_prato()
+def descricao_prato():
     print("descricaoprato")
 
 def cadastrar_fab():
