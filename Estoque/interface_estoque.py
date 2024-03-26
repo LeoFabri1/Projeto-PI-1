@@ -3,12 +3,15 @@ from restaurante.interface_restaurante import cardapio_adm
 
 #Imprime o Menu de Cadastro
 def cadastro():
-    print("****************************************************************************")
-    print("                              JungKooking Estoque")
-    print("|        |     |            |     |            |     |             |     |      |")
-    print("|1-Prato |     |2-Fabricante|     |3-Fornecedor|     |4-Funcionario|     |5-Menu|")
-    print("|        |     |            |     |            |     |             |     |      |")
-    print("****************************************************************************")
+    print("**********************************************************")
+    print("                   JungKooking Estoque")
+    print("")
+    print("               |    1-Cadastrar prato   |")
+    print("               | 2-Cadastrar Fabricante |")
+    print("               | 3-Cadastrar Fornecedor |")
+    print("               | 4-Cadastrar Funcionario|")
+    print("               |   5-Ajuste de Cardapio |")
+    print("**********************************************************")
     
     opcao=int(input("Escolha a opção desejada: "))
     if(opcao==1):
@@ -24,12 +27,15 @@ def cadastro():
 
 #Imprime o Menu Altera
 def altero():
-    print("****************************************************************************")
-    print("                              JungKooking Estoque")
-    print("|        |     |            |     |            |     |             |     |      |")
-    print("|1-Prato |     |2-Fabricante|     |3-Fornecedor|     |4-Funcionario|     |5-Menu|")
-    print("|        |     |            |     |            |     |             |     |      |")
-    print("****************************************************************************")
+    print("**********************************************************")
+    print("                   JungKooking Estoque")
+    print("")
+    print("               |     1-Alterar prato    |")
+    print("               |  2-Alterar Fabricante  |")
+    print("               |  3-Alterar Fornecedor  |")
+    print("               | 4-Alterar Funcionario  |")
+    print("               |   5-Ajuste de Cardapio |")
+    print("**********************************************************")
     opcao=int(input("Escolha a opção desejada: "))
     if(opcao==1):
         alterar.alterar_prato()
@@ -44,12 +50,15 @@ def altero():
 
 #Imprime o menu de Deleçao
 def deleto():
-    print("****************************************************************************")
-    print("                              JungKooking Estoque")
-    print("|        |     |            |     |            |     |             |     |      |")
-    print("|1-Prato |     |2-Fabricante|     |3-Fornecedor|     |4-Funcionario|     |5-Menu|")
-    print("|        |     |            |     |            |     |             |     |      |")
-    print("****************************************************************************")
+    print("**********************************************************")
+    print("                   JungKooking Estoque")
+    print("")
+    print("               |     1-Deletar prato    |")
+    print("               |  2-Deletar Fabricante  |")
+    print("               |  3-Deletar Fornecedor  |")
+    print("               | 4-Deletar Funcionario  |")
+    print("               |   5-Ajuste de Cardapio |")
+    print("**********************************************************")
     opcao=int(input("Escolha a opção desejada: "))
     if(opcao==1):
         excluir.deletar_prato()
@@ -64,13 +73,15 @@ def deleto():
 
 #Imprime o menu de Filtragem
 def filtro():
-    print("****************************************************************************")
-    print("                              JungKooking Estoque")
-    print("Filtrar")
-    print("|        |     |            |     |            |     |             |     |      |")
-    print("|1-Prato |     |2-Fabricante|     |3-Fornecedor|     |4-Funcionario|     |5-Menu|")
-    print("|        |     |            |     |            |     |             |     |      |")
-    print("****************************************************************************")
+    print("**********************************************************")
+    print("                   JungKooking Estoque")
+    print("")
+    print("               |     1-Filtrar prato    |")
+    print("               |  2-Filtrar Fabricante  |")
+    print("               |  3-Filtrar Fornecedor  |")
+    print("               | 4-Filtrar Funcionario  |")
+    print("               |   5-Ajuste de Cardapio |")
+    print("**********************************************************")
     opcao=int(input("Escolha a opção desejada: "))
     if(opcao==1):
         filtrar.filtrar_prato()
@@ -125,3 +136,4 @@ def estoque():
     print("10kg Cogumelos shitake")
     print("10kg Arroz de Sushi")
     print("100 ovos")
+    print("**********************************************************")

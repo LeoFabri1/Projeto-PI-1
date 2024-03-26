@@ -1,4 +1,4 @@
-from BancodeDados.bancodedados import conectar_bd
+from bancodedados.banco_de_dados import conectar_bd
 def LoginAdm(senha,usuario):
     if usuario == "Admin":
         try:
