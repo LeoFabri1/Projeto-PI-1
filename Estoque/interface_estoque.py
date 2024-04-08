@@ -14,15 +14,15 @@ def cadastro():
     print("**********************************************************")
     
     opcao=int(input("Escolha a opção desejada: "))
-    if(opcao==1):
+    if opcao==1:
         cadastrar.cadastrar_prato()
-    elif(opcao==2):
+    elif opcao==2:
         cadastrar.cadastrar_fab()
-    elif(opcao==3):
+    elif opcao==3:
         cadastrar.cadastrar_forn()
-    elif(opcao==4):
+    elif opcao==4:
         cadastrar.cadastrar_func()
-    elif(opcao==5):
+    elif opcao==5:
         cardapio_adm()
 
 #Imprime o Menu Altera
@@ -30,22 +30,22 @@ def altero():
     print("**********************************************************")
     print("                   JungKooking Estoque")
     print("")
-    print("               |     1-Alterar prato    |")
+    print("               |     1-Alterar Prato    |")
     print("               |  2-Alterar Fabricante  |")
     print("               |  3-Alterar Fornecedor  |")
     print("               | 4-Alterar Funcionario  |")
     print("               |   5-Ajuste de Cardapio |")
     print("**********************************************************")
     opcao=int(input("Escolha a opção desejada: "))
-    if(opcao==1):
+    if opcao==1:
         alterar.alterar_prato()
-    elif(opcao==2):
+    elif opcao==2:
         alterar.alterar_fab()
-    elif(opcao==3):
+    elif opcao==3:
         alterar.alterar_forn()
-    elif(opcao==4):
+    elif opcao==4:
         alterar.alterar_forn()
-    elif(opcao==5):
+    elif opcao==5:
         cardapio_adm()
 
 #Imprime o menu de Deleçao
@@ -60,15 +60,15 @@ def deleto():
     print("               |   5-Ajuste de Cardapio |")
     print("**********************************************************")
     opcao=int(input("Escolha a opção desejada: "))
-    if(opcao==1):
+    if opcao==1:
         excluir.deletar_prato()
-    elif(opcao==2):
+    elif opcao==2:
         excluir.deletar_fab()
-    elif(opcao==3):
+    elif opcao==3:
         excluir.deletar_forn()
-    elif(opcao==4):
+    elif opcao==4:
         excluir.deletar_func()
-    elif(opcao==5):
+    elif opcao==5:
         cardapio_adm()
 
 #Imprime o menu de Filtragem
@@ -83,18 +83,62 @@ def filtro():
     print("               |   5-Ajuste de Cardapio |")
     print("**********************************************************")
     opcao=int(input("Escolha a opção desejada: "))
-    if(opcao==1):
+    if opcao==1:
         filtrar.filtrar_prato()
-    elif(opcao==2):
+    elif opcao==2:
         filtrar.filtrar_fab()
-    elif(opcao==3):
+    elif opcao==3:
         filtrar.filtrar_forn()
-    elif(opcao==4):
+    elif opcao==4:
         filtrar.filtrar_func()
-    elif(opcao==5):
+    elif opcao==5:
         cardapio_adm()
 
-cardapio_adm()
+def ger_user():
+    print("**********************************************************")
+    print("                   JungKooking Estoque")
+    print("*Printa Lista De Usuarios Existentes")
+    print("               |     1-Adicionar User   |")
+    print("               |     2-Alterar User     |")
+    print("               |     3-Deletar User     |")
+    print("               |   4-Ajuste de Cardapio |")
+    print("**********************************************************")
+    opcao=int(input("Escolha a opção desejada: "))
+    if opcao==1:
+    elif opcao==2:
+    elif opcao==3:
+    elif opcao==4:
+        cardapio_adm()
+
+def ger_perm():
+    print("**********************************************************")
+    print("                   JungKooking Estoque")
+    print("*Printa Lista De Usuarios Existentes e suas permissoes atuais")
+    print("               |  1-Adicionar Permissoes|")
+    print("               |  2-Alterar Permissoes  |")
+    print("               |  3-Deletar Permissoes  |")
+    print("               |   4-Ajuste de Cardapio |")
+    print("**********************************************************")
+    opcao=int(input("Escolha a opção desejada: "))
+    if opcao==1:
+    elif opcao==2:
+    elif opcao==3:
+    elif opcao==4:
+        cardapio_adm()
+
+def ger_logs():
+    print("**********************************************************")
+    print("                   JungKooking Estoque")
+    print("")
+    print("               |   1-Log De Auditoria   |")
+    print("               |    2-Log De Acessos    |")
+    print("               |   3-Ajuste de Cardapio |")
+    print("**********************************************************")
+    opcao=int(input("Escolha a opção desejada: "))
+    if opcao==1:
+    elif opcao==2:
+    elif opcao==3:
+        cardapio_adm()
 
 def pratos_cadastrados():
     print("**********************************************************")
@@ -137,3 +181,5 @@ def estoque():
     print("10kg Arroz de Sushi")
     print("100 ovos")
     print("**********************************************************")
+
+    

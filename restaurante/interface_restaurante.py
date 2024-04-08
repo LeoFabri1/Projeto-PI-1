@@ -25,7 +25,10 @@ def cardapio_adm():
     print("               |     3-Excluir Item     |")
     print("               |        4-Filtrar       |")
     print("               |    5-Ajuste Cardapio   |")
-    print("               |       6-Deslogar       |")
+    print("               |   6-Gerenciar Usuarios |")
+    print("               | 7-Gerenciar Permissoes |")
+    print("               |    8-Vizualizar Logs   |")
+    print("               |       9-Deslogar       |")
     print("**********************************************************")
     while True:
         opcao = input("Digite a opçao desejada")
@@ -40,7 +43,10 @@ def cardapio_adm():
             filtro()
         elif opcao == "5" or opcao == "Ajuste Cardapio":
             cardapio_adm()
-        elif opcao == "6" or opcao == "Deslogar":
+        elif opcao == "6" or opcao == "Gerenciar Usuarios":
+        elif opcao == "7" or opcao == "Gerenciar Permissoes":
+        elif opcao == "8" or opcao == "Vizualizar Logs":
+        elif opcao == "9" or opcao == "Deslogar":
             home()
 
 def cardapio_cliente():
