@@ -19,5 +19,10 @@ def cadastrar_func():
     print("****************************************************************************")
     print("Funcionario")
 
-def descricao_prato():
+def cadastrar_desc_prato():
     print("descricaoprato")
+
+def cadastrar_user():
+    
+
+def cadastrar_perm():

@@ -15,3 +15,4 @@ def filtrar_forn():
 def filtrar_func():
     print("****************************************************************************")
     print("Funcionario")
+

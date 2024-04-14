@@ -6,7 +6,7 @@ def cadastro():
     print("**********************************************************")
     print("                   JungKooking Estoque")
     print("")
-    print("               |    1-Cadastrar prato   |")
+    print("               |    1-Cadastrar Prato   |")
     print("               | 2-Cadastrar Fabricante |")
     print("               | 3-Cadastrar Fornecedor |")
     print("               | 4-Cadastrar Funcionario|")
@@ -104,10 +104,13 @@ def ger_user():
     print("               |   4-Ajuste de Cardapio |")
     print("**********************************************************")
     opcao=int(input("Escolha a opção desejada: "))
-    if opcao==1:
-    elif opcao==2:
-    elif opcao==3:
-    elif opcao==4:
+    if opcao== "1" or opcao == "Adicionar":
+        cadastrar.cadastrar_user()
+    elif opcao == "2" or opcao == "Alterar":
+        alterar.alterar_user()
+    elif opcao == "3" or opcao == "Deletar":
+        excluir.deletar_user()
+    elif opcao == "4" or opcao == "Ajuste":
         cardapio_adm()
 
 def ger_perm():
@@ -121,8 +124,11 @@ def ger_perm():
     print("**********************************************************")
     opcao=int(input("Escolha a opção desejada: "))
     if opcao==1:
+        cadastrar.cadastrar_perm()
     elif opcao==2:
+        alterar.alterar_perm()
     elif opcao==3:
+        excluir.deletar_perm()
     elif opcao==4:
         cardapio_adm()
 

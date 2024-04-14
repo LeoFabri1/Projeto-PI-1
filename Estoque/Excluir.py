@@ -15,3 +15,8 @@ def deletar_forn():
 def deletar_func():
     print("****************************************************************************")
     print("Funcionario")
+
+def deletar_user():
+    
+
+def deletar_perm():

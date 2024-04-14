@@ -15,3 +15,7 @@ def alterar_forn():
 def alterar_func():
     print("****************************************************************************")
     print("Funcionario")
+
+def alterar_user():
+    
+def alterar_perm():

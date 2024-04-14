@@ -1,4 +1,5 @@
 from estoque.interface_estoque import cadastro, altero, deleto, filtro
+import codigo_menu
 def home():
     print("**********************************************************")
     print("                   JungKooking Food")
@@ -10,6 +11,17 @@ def home():
     print("")
     print("        Principais             Porçoes(Acompanhamentos)")
     print("**********************************************************")
+    while True:
+        opcao = input("Digite a opcao desejada")
+
+        if opcao.upper() == "HOME":
+            home()
+        if opcao.upper() == "CARDAPIO":
+            cardapio_cliente()
+        if opcao.upper() == "SOBRE NOS":
+            sobre()
+        if opcao.upper() == "LOGIN":
+            codigo_menu.funcao_login()
 
 #Imprime A Pagina de Estoque
 def cardapio_adm():
