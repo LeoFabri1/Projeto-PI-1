@@ -41,6 +41,7 @@ Este projeto é de código aberto, e encorajamos contribuições da comunidade. 
 
 ## Instalações Necessárias
 python -m pip install oracledb --upgrade
+pip install bmatrix
 
 ## Status do Projeto
 

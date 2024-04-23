@@ -11,7 +11,7 @@ def funcao_login():
             if not senha:
                 raise ValueError("Erro Senha")
             
-        codigo_login.login_adm(senha, usuario)
+        return codigo_login.login_adm(senha, usuario)
 
     except ValueError as error:
         if str(error) == "Erro Usuario":

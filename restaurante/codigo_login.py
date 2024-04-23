@@ -11,7 +11,7 @@ def login_adm(senha, usuario):
 
             if resultado:
                 senha_banco = resultado[0]
-                #inserir logica para codificar a senha que esta no banco usando cifra de cesar
+                #inserir logica para codificar a senha que esta no banco usando cifra de hill
                 if senha == senha_banco:
                     print("Login bem-sucedido como administrador.\n")
                     return interface_restaurante.cardapio_adm()

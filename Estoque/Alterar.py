@@ -17,5 +17,9 @@ def alterar_func():
     print("Funcionario")
 
 def alterar_user():
+    print("****************************************************************************")
+    print("Usuario")   
     
 def alterar_perm():
+    print("****************************************************************************")
+    print("Permissoes")

@@ -17,6 +17,9 @@ def deletar_func():
     print("Funcionario")
 
 def deletar_user():
-    
+    print("****************************************************************************")
+    print("Usuario")
 
 def deletar_perm():
+    print("****************************************************************************")
+    print("Permissoes")

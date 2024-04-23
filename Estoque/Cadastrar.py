@@ -23,6 +23,9 @@ def cadastrar_desc_prato():
     print("descricaoprato")
 
 def cadastrar_user():
-    
+    print("****************************************************************************")
+    print("Usuario")
 
 def cadastrar_perm():
+    print("****************************************************************************")
+    print("Permissoes")

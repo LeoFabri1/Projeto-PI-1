@@ -142,7 +142,9 @@ def ger_logs():
     print("**********************************************************")
     opcao=int(input("Escolha a opção desejada: "))
     if opcao==1:
+        "printar log auditoria"
     elif opcao==2:
+        "printar log acessos"
     elif opcao==3:
         cardapio_adm()
 

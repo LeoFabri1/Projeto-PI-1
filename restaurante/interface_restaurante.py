@@ -1,4 +1,4 @@
-from estoque.interface_estoque import cadastro, altero, deleto, filtro
+from estoque.interface_estoque import cadastro, altero, deleto, filtro, ger_user, ger_logs, ger_perm
 import codigo_menu
 def home():
     print("**********************************************************")
@@ -56,8 +56,11 @@ def cardapio_adm():
         elif opcao == "5" or opcao == "Ajuste Cardapio":
             cardapio_adm()
         elif opcao == "6" or opcao == "Gerenciar Usuarios":
+            ger_user()
         elif opcao == "7" or opcao == "Gerenciar Permissoes":
+            ger_perm()
         elif opcao == "8" or opcao == "Vizualizar Logs":
+            ger_logs()
         elif opcao == "9" or opcao == "Deslogar":
             home()
 
