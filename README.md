@@ -2,7 +2,7 @@
 
 ## Descrição do Projeto
 
-O projeto "Site para Controle de Estoque" visa desenvolver uma plataforma eficiente e intuitiva para o gerenciamento de estoque em um mercado de produtos coreanos. Este sistema proporcionará aos gestores do mercado uma visão abrangente e em tempo real das quantidades de produtos disponíveis, permitindo uma gestão eficaz e aprimorada.
+O projeto "Site para Controle de Estoque" visa desenvolver uma plataforma eficiente e intuitiva para o gerenciamento de estoque em um restaurante de pratos coreanos. Este sistema proporcionará aos gestores do mercado uma visão abrangente e em tempo real das quantidades de produtos disponíveis, permitindo uma gestão eficaz e aprimorada.
 
 ## Funcionalidades Principais
 
@@ -45,4 +45,4 @@ pip install bmatrix
 
 ## Status do Projeto
 
-Atualmente, o projeto encontra-se em fase de desenvolvimento inicial, na versão 0.1.0.
+Atualmente, o projeto encontra-se na fase 2, na versão 1.2.0.
