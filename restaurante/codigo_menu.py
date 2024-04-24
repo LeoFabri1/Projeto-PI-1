@@ -1,4 +1,5 @@
-import interface_restaurante, codigo_login
+import interface_restaurante
+import codigo_login
 
 interface_restaurante.home()
 def funcao_login():

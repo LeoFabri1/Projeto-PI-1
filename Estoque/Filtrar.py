@@ -1,5 +1,3 @@
-from bancodedados.banco_de_dados import conectar_bd
-
 def filtrar_prato():
     print("****************************************************************************")
     print("Pratos")

@@ -1,5 +1,6 @@
-from estoque.interface_estoque import cadastro, altero, deleto, filtro, ger_user, ger_logs, ger_perm
+from estoque.interface_estoque import cadastro, altero, deleto, filtro, ger_logs, ger_perm, ger_user
 import codigo_menu
+
 def home():
     print("**********************************************************")
     print("                   JungKooking Food")
@@ -46,7 +47,7 @@ def cardapio_adm():
         opcao = input("Digite a opçao desejada")
 
         if opcao == "1" or opcao == "Adicionar Item":
-            cadastro()
+           cadastro()
         elif opcao == "2" or opcao == "Alterar Item":
             altero()
         elif opcao == "3" or opcao == "Excluir Item":
