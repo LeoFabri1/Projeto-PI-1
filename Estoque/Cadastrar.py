@@ -72,7 +72,7 @@ def cadastrar_user():
 
     #mudar de acordo com input e banco de dados banco: id_cliente, nome_cliente, email_cliente, senha_cliente
     #caso seja funcionario banco: id_login, email_login, senha_login, id_func
-    cursor.execute('INSERT INTO Login_Clientes (nome_prato, desc_prato, preco_prato) VALUES (?, ?, ?)', (nome_prato, desc_prato, preco_prato))
+    cursor.execute('INSERT INTO Login_Clientes/Login_Func (nome_prato, desc_prato, preco_prato) VALUES (?, ?, ?)', (nome_prato, desc_prato, preco_prato))
 
     connection.commit()
     connection.close
