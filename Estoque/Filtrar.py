@@ -1,4 +1,5 @@
 from BancodeDados.banco_de_dados import conectar_bd
+from BancodeDados.criptogradia import descripto
 
 def filtrar_prato():
     print("****************************************************************************")
@@ -10,7 +11,13 @@ def filtrar_prato():
 
     cursor.execute('SELECT from Pratos WHERE ...')
 
-    connection.commit()
+    resultados = cursor.fetchall()
+
+    desc_prato = descripto(resultados)
+
+    print(desc_prato)
+    
+    cursor.close
     connection.close
 
 def filtrar_fab():

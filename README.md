@@ -40,6 +40,7 @@ Este projeto é de código aberto, e encorajamos contribuições da comunidade. 
 4. Envie um pull request.
 
 ## Instalações Necessárias
+instalar extensão python
 python -m pip install oracledb --upgrade
 pip install bmatrix
 
