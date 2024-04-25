@@ -1,4 +1,4 @@
-from bancodedados.banco_de_dados import conectar_bd
+from BancodeDados.banco_de_dados import conectar_bd
 
 def cadastrar_prato():
     print("****************************************************************************")
