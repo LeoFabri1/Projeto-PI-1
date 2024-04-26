@@ -1,4 +1,4 @@
-from bancodedados.banco_de_dados import conectar_bd
+from BancodeDados.banco_de_dados import conectar_bd
 import interface_restaurante, codigo_menu
 def login_adm(senha, usuario):
     if usuario == "admin":

@@ -56,6 +56,16 @@ outros_custos = valor_custo_fixo + comissao_vendas_reais + impostos_reais
 #rentabilidade
 rentabilidade = receita_bruta - outros_custos
 
+# classificação do lucro
+if rentabilidade > preco_venda * 0.20:
+    classificacao_lucro = "Alto"
+elif rentabilidade > preco_venda * 0.10:
+    classificacao_lucro = "Lucro médio"
+elif rentabilidade > 0:
+    classificacao_lucro = "Lucro baixo"
+else:
+    classificacao_lucro = "Prejuízo"
+
 #resultados
 print("\nResultado do cadastro:")
 print("Código do produto:", codigo_produto)

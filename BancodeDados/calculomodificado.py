@@ -1,17 +1,42 @@
-codigo_produto = input("Digite o código do produto: ")
-nome_produto = input("Digite o nome do produto: ")
-descricao_produto = input("Digite a descrição do produto: ")
-custo_produto = float(input("Digite o custo do produto: "))
+from BancodeDados.banco_de_dados import conectar_bd
+
 custo_fixo_porcentual = float(input("Digite o custo fixo/administrativo (%): "))
 comissao_vendas_porcentual = float(input("Digite a comissão de vendas (%): "))
 impostos_porcentual = float(input("Digite o imposto sobre a venda (%): "))
 margem_lucro = float(input("Digite a margem de lucro (%): "))
 
+def obter_dados_produto():
+    connection = conectar_bd()
+    cursor = connection.cursor()
+
+    cursor.execute('SELECT id_prato, nome_prato, desc_prato, custo_prato FROM Pratos')
+    row = cursor.fetchone()
+
+    cursor.close()
+    connection.close()
+
+    return row
+
+def inserir_resultados(id_prato, nome_prato, desc_prato, custo_prato, preco_venda, total_despesas, valor_custo_fixo, comissao_vendas_reais, impostos_reais, receita_bruta, outros_custos, rentabilidade):
+    connection = conectar_bd()
+    cursor = connection.cursor()
+
+    # Inserir na tabela
+    cursor.execute('UPDATE Pratos SET preco_prato = :1, total_despesas = :2, valor_custo_fixo = :3, comissao_vendas = :4, impostos = :5, receita_bruta = :6, outros_custos = :7, rentabilidade = :8 WHERE id_prato = :9', (preco_venda, total_despesas, valor_custo_fixo, comissao_vendas_reais, impostos_reais, receita_bruta, outros_custos, rentabilidade, id_prato))
+
+    # Commit da transação
+    connection.commit()
+
+    cursor.close()
+    connection.close()
+
+id_prato, nome_prato, desc_prato, custo_prato = obter_dados_produto()
+
 # total das despsas
 total_despesas = custo_fixo_porcentual + comissao_vendas_porcentual + impostos_porcentual + margem_lucro
 
 #preço de venda
-preco_venda = custo_produto / (1 - total_despesas / 100)
+preco_venda = custo_prato / (1 - total_despesas / 100)
 
 # conversao valor do custo fixo em reais
 valor_custo_fixo = (custo_fixo_porcentual / 100) * preco_venda
@@ -23,7 +48,7 @@ comissao_vendas_reais = (comissao_vendas_porcentual / 100) * preco_venda
 impostos_reais = (impostos_porcentual / 100) * preco_venda
 
 #receita bruta
-receita_bruta = preco_venda - custo_produto
+receita_bruta = preco_venda - custo_prato
 
 #outros custos
 outros_custos = valor_custo_fixo + comissao_vendas_reais + impostos_reais
@@ -44,14 +69,14 @@ else:
 
 #resultados
 print("\nResultado do cadastro:")
-print("Código do produto:", codigo_produto)
-print("Nome do produto:", nome_produto)
-print("Descrição do produto:", descricao_produto)
+print("Código do produto:", id_prato)
+print("Nome do produto:", nome_prato)
+print("Descrição do produto:", desc_prato)
 
 #tbl de resultados
 print("\nTabela de Resultados:")
 print(f"A. Preço de Venda: {preco_venda:.2f} ({(preco_venda / preco_venda) * 100:.2f}%)")
-print(f"B. Custo de Aquisição (Fornecedor): {custo_produto:.2f} ({(custo_produto / preco_venda) * 100:.2f}%)")
+print(f"B. Custo de Aquisição (Fornecedor): {custo_prato:.2f} ({(id_prato / preco_venda) * 100:.2f}%)")
 print(f"C. Receita Bruta (A-B): {receita_bruta:.2f} ({(receita_bruta / preco_venda) * 100:.2f}%)")
 print(f"D. Custo Fixo/Administrativo: {valor_custo_fixo:.2f} ({(valor_custo_fixo / preco_venda) * 100:.2f}%)")
 print(f"E. Comissão de Vendas: {comissao_vendas_reais:.2f} ({(comissao_vendas_reais / preco_venda) * 100:.2f}%)")

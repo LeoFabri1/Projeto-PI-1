@@ -1,4 +1,4 @@
-from estoque.interface_estoque import cadastro, altero, deleto, filtro, ger_logs, ger_perm, ger_user
+from Estoque.interface_estoque import cadastro, altero, deleto, filtro, ger_logs, ger_perm, ger_user
 import codigo_menu
 
 def home():

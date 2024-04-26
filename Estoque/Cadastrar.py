@@ -3,9 +3,10 @@ from BancodeDados.banco_de_dados import conectar_bd
 def cadastrar_prato():
     print("****************************************************************************")
     print("Pratos")
-    nome_prato = str(input("Digite o nome do prato:"))
-    desc_prato = str(input("Digite a descricao do prato:"))
-    preco_prato = float(input("Digite o preco de custo do prato:"))
+    id_prato = int(input("Digite o id do prato: "))
+    nome_prato = str(input("Digite o nome do prato: "))
+    desc_prato = str(input("Digite a descricao do prato: "))
+    custo_prato = float(input("Digite o custo do prato: "))
     #definir uma aba em estoque para cadastrar os pratos, ingredientes, quantidades e valores
     #(bruto de cada ingrediente,prato e valor do prato com lucro)
     #definir os pratos com apenas a descricao e valor por item para os usuarios
