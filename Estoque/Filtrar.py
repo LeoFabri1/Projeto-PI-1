@@ -1,5 +1,5 @@
 from BancodeDados.banco_de_dados import conectar_bd
-from BancodeDados.criptogradia import descripto
+from BancodeDados.criptografia import descripto
 
 def filtrar_prato():
     print("****************************************************************************")
