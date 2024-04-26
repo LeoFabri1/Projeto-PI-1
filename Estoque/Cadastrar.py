@@ -1,4 +1,5 @@
 from BancodeDados.banco_de_dados import conectar_bd
+from BancodeDados.criptografia import cripto
 
 def cadastrar_prato():
     print("****************************************************************************")
@@ -11,12 +12,15 @@ def cadastrar_prato():
     #(bruto de cada ingrediente,prato e valor do prato com lucro)
     #definir os pratos com apenas a descricao e valor por item para os usuarios
 
+    #pegar desc_prato e codificar
+    desc_prato_cripto = cripto(desc_prato)
+
     #adicionar ao banco
     connection = conectar_bd()
     cursor = connection.cursor()
 
     #mudar de acordo com input e banco de dados banco: id_prato, nome_prato, desc_prato, preco_prato, categoria, custo_prato, total_despesas
-    cursor.execute('INSERT INTO Pratos (nome_prato, desc_prato, preco_prato) VALUES (?, ?, ?)', (nome_prato, desc_prato, preco_prato))
+    cursor.execute('INSERT INTO Pratos (nome_prato, desc_prato, preco_prato) VALUES (?, ?, ?)', (nome_prato, desc_prato_cripto, preco_prato))
 
     connection.commit()
     connection.close
