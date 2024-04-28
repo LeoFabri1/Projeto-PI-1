@@ -1,6 +1,7 @@
 from Estoque.interface_estoque import cadastro, altero, deleto, filtro, ger_logs, ger_perm, ger_user
 import codigo_menu
-
+from BancodeDados.criptografia import cripto
+from BancodeDados.banco_de_dados import conectar_bd
 def home():
     print("**********************************************************")
     print("                   JungKooking Food")
@@ -17,12 +18,25 @@ def home():
 
         if opcao.upper() == "HOME":
             home()
-        if opcao.upper() == "CARDAPIO":
+        elif opcao.upper() == "CARDAPIO":
             cardapio_cliente()
-        if opcao.upper() == "SOBRE NOS":
+        elif opcao.upper() == "SOBRE NOS":
             sobre()
-        if opcao.upper() == "LOGIN":
+        elif opcao.upper() == "LOGIN":
             codigo_menu.funcao_login()
+        elif opcao == "13579":
+            usuario = str(input("Digite o usuario de login do administrador para efetuar o cadastro de um novo administrador: "))
+            senha = str(input("Digite a senha do administrador para efetuar o cadastro da mesma: "))
+            senha_cripto = cripto(senha)
+
+        #adicionar ao banco
+        connection = conectar_bd()
+        cursor = connection.cursor()
+
+        cursor.execute('INSERT INTO Login_adm (usuario_adm, senha_adm) VALUES (?, ?)', (usuario, senha_cripto))
+
+        connection.commit()
+        connection.close
 
 #Imprime A Pagina de Estoque
 def cardapio_adm():
@@ -144,4 +158,3 @@ def sobre():
     print("   Somos um restaurante de Comida Coreana\nServimos diferenciados pratos em nosso estabelecimento\nO melhor estabelecimento do Brasil de Culinaria Coreana")
     print("Para nos contatar utilize o numero de WhatsApp a baixo:\n               1999999-9999")
     print("**********************************************************")
-

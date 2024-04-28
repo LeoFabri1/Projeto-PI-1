@@ -105,7 +105,7 @@ def ger_user():
     print("**********************************************************")
     opcao=int(input("Escolha a opção desejada: "))
     if opcao== "1" or opcao == "Adicionar":
-        cadastrar.cadastrar_user()
+        cadastrar.cadastrar_cliente()
     elif opcao == "2" or opcao == "Alterar":
         alterar.alterar_user()
     elif opcao == "3" or opcao == "Deletar":

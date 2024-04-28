@@ -19,3 +19,4 @@ def funcao_login():
             print("Erro, Usuario Invalido")
         elif str(error) == "Erro Senha":
             print("Erro, Senha Invalida")
+

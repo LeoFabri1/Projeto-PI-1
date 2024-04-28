@@ -57,12 +57,15 @@ def cadastrar_forn():
 def cadastrar_func():
     print("****************************************************************************")
     print("Funcionario")
+    aux_id_func = 0
+
     id_func = int(input("Digite o id do funcionario: "))
     nome_func = str(input("Digite o nome do funcionario: "))
     data_nasc_func = int(input("Digite a data de nascimento do funcionario: "))
     sal_func = float(input("Digite o salario do funcionario: "))
     data_contrato = int(input("Digite a data do contrato com o funcionario: "))
     categoria_func = str(input("Digite a categoria do funcionario: "))
+
     #adicionar ao banco
     connection = conectar_bd()
     cursor = connection.cursor()
@@ -72,62 +75,49 @@ def cadastrar_func():
     connection.commit()
     connection.close
 
-#id do funcionario para ser usado na criacao de login
-def id_func_cadastro():
+    id_login = int(input("Digite o id de login do funcionario: "))
+    email_login = str(input("Digite o email de login do funcionario: "))
+    senha_login = str(input("Digite a senha de login do funcionario: "))
+    id_func = aux_id_func
+
+    #senha funcionario criptografada
+    senha_func_cripto = cripto(senha_login)
+
+    #adicionar ao banco
     connection = conectar_bd()
     cursor = connection.cursor()
 
-    #Pegando o id do funcionario do banco
-    cursor.execute('SELECT id_func FROM Funcionarios')
-    row = cursor.fetchone()
+    cursor.execute('INSERT INTO Login_Func (id_login, email_login, senha_login, id_func) VALUES (?, ?, ?, ?)', (id_login, email_login, senha_func_cripto, aux_id_func))
 
-    cursor.close()
-    connection.close()
+    connection.commit()
+    connection.close
 
-    return row
 
-def cadastrar_user():
+def cadastrar_cliente():
     print("****************************************************************************")
     print("Usuario")
-    opcao = int(input("O usuario que deseja inserir é: 0(Funcionario)/1(Cliente)"))
-    if opcao == "0":
-        id_login = int(input("Digite o id de login do funcionario: "))
-        email_login = str(input("Digite o email de login do funcionario: "))
-        senha_login = str(input("Digite a senha de login do funcionario: "))
-        id_func = id_func_cadastro()
-        #senha funcionario criptografada
-        desc_senha_func = cripto(senha_login)
+    id_cliente = int(input("Digite o id de login do cliente: "))
+    nome_cliente = str(input("Digite o nome de login do cliente: "))
+    email_cliente = str(input("Digite o email de login do cliente: "))
+    senha_cliente = str(input("Digite a senha de login do cliente: "))
 
-        #adicionar ao banco
-        connection = conectar_bd()
-        cursor = connection.cursor()
+    #senha cliente criptografada
+    senha_cliente_cripto = cripto(senha_cliente)
 
-        cursor.execute('INSERT INTO Login_Func (id_login, email_login, senha_login, id_func) VALUES (?, ?, ?, ?)', (id_login, email_login, desc_senha_func, id_func))
+    #adicionar ao banco
+    connection = conectar_bd()
+    cursor = connection.cursor()
 
-        connection.commit()
-        connection.close
+    cursor.execute('INSERT INTO Login_Clientes (id_cliente, nome_cliente, email_cliente, senha_cliente) VALUES (?, ?, ?, ?)', (id_cliente, nome_cliente, email_cliente, senha_cliente_cripto))
 
-    elif opcao == "1":
-        id_cliente = int(input("Digite o id de login do cliente: "))
-        nome_cliente = str(input("Digite o nome de login do cliente: "))
-        email_cliente = str(input("Digite o email de login do cliente: "))
-        senha_cliente = str(input("Digite a senha de login do cliente: "))
+    connection.commit()
+    connection.close
 
-        #senha cliente criptografada
-        desc_senha_cliente = cripto(senha_cliente)
-
-        #adicionar ao banco
-        connection = conectar_bd()
-        cursor = connection.cursor()
-
-        cursor.execute('INSERT INTO Login_Clientes (id_cliente, nome_cliente, email_cliente, senha_cliente) VALUES (?, ?, ?, ?)', (id_cliente, nome_cliente, email_cliente, desc_senha_cliente))
-
-        connection.commit()
-        connection.close
-    else:
-        print("Erro, opcao inexistente, tente novamente")
-        return cadastrar_user()
-
+#nao faco ideia de como faz isso 
+#nao faco ideia de como faz isso 
+#nao faco ideia de como faz isso 
+#nao faco ideia de como faz isso 
+#nao faco ideia de como faz isso 
 #nao faco ideia de como faz isso 
 #nao faco ideia de como faz isso 
 #nao faco ideia de como faz isso 
