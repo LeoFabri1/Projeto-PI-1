@@ -1,4 +1,4 @@
-from BancodeDados.banco_de_dados import conectar_bd
+"""from BancodeDados.banco_de_dados import conectar_bd
 
 def obter_dados_produto():
     connection = conectar_bd()
@@ -85,3 +85,4 @@ print(f"E. Comissão de Vendas: {comissao_vendas_reais:.2f} ({(comissao_vendas_r
 print(f"F. Impostos: {impostos_reais:.2f} ({(impostos_reais / preco_venda) * 100:.2f}%)")
 print(f"G. Outros custos (D+E+F): {outros_custos:.2f} ({(outros_custos / preco_venda) * 100:.2f}%)")
 print(f"H. Rentabilidade (C-G): {rentabilidade:.2f} ({(rentabilidade / preco_venda) * 100:.2f}%)")
+print("Classificação do lucro:", classificacao_lucro)"""
