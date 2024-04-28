@@ -43,6 +43,7 @@ Este projeto é de código aberto, e encorajamos contribuições da comunidade. 
 instalar extensão python
 python -m pip install oracledb --upgrade
 pip install bmatrix
+pip install numpy
 
 ## Status do Projeto
 

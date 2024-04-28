@@ -1,78 +1,68 @@
 import numpy as np
 
-desc_cripto = ""
-desc_vetorfinal = []
-desc_prato = []
-matriz = [[], []]
-matriz_chave = np.array([[2, 1], [5, 3]])
-matriz_inversa = np.array([[3, -1], [-5, 2]])
+#dicionario para conversao
+dic_modulo29 = {
+    'A': 0, 'B': 1, 'C': 2, 'D': 3, 'E': 4, 'F': 5, 'G': 6, 'H': 7, 'I': 8, 'J': 9, 'K': 10, 'L': 11, 'M': 12, 'N': 13,
+    'O': 14, 'P': 15, 'Q': 16, 'R': 17, 'S': 18, 'T': 19, 'U': 20, 'V': 21, 'W': 22, 'X': 23, 'Y': 24, 'Z': 25, ' ': 26,
+    ',': 27, '.': 28
+}
 
-dic_modulo29 = [
-    {
-        "Modulo29": {
-            "A" : 1,
-            "B" : 2,
-            "C" : 3,
-            "D" : 4,
-            "E" : 5,
-            "F" : 6,
-            "G" : 7,
-            "H" : 8,
-            "I" : 9,
-            "J" : 10,
-            "K" : 11,
-            "L" : 12,
-            "M" : 13,
-            "N" : 14,
-            "O" : 15,
-            "P" : 16,
-            "Q" : 17,
-            "R" : 18,
-            "S" : 19,
-            "T" : 20,
-            "U" : 21,
-            "V" : 22,
-            "W" : 23,
-            "X" : 24,
-            "Y" : 25,
-            "Z" : 26,
-            " " : 27,
-            "," : 28,
-            "." : 29
-        }
-    }
-]
+#dicionario inverso
+dic_modulo29_inverso = {v: k for k, v in dic_modulo29.items()}
 
 def cripto(descricao):
+    #matriz chave e inicia nulo
+    matriz_chave = [2, 1, 1, 1]
+    modulo_29 = []
+    modulo_29_cripto = []
+    frase_cripto = ''
     #fazer virar par
-    if len(descricao) % 2 != 0:
-        descricao += " "
-    #transformar string em vetor
-    desc_prato = list(descricao)
-    #transforma em numero
-    for i in descricao.upper():  # Converte para maiúsculas
-        #adiciona de acordo com dicionario
-        if i in dic_modulo29:
-            desc_prato.append(dic_modulo29[i])
-    #transforma em matriz
-    for i in range(0, len(desc_prato), 2):
-        # Adiciona o primeiro elemento do par à primeira linha
-        matriz[0].append(desc_prato[i])
-        # Adiciona o segundo elemento do par à segunda linha
-        matriz[1].append(desc_prato[i + 1])
+    if len(descricao) % 2 == 1:
+        descricao += ' '
+    #converte para numero e colocar em lista
+    for l in descricao.upper():
+        if l in dic_modulo29:
+            modulo_29.append(dic_modulo29[l])
+    #vira matriz
+    matrizFrase = np.array(modulo_29).reshape(2, -1)
+    matrizChave = np.array(matriz_chave).reshape(2, -1)
     #multiplicar matriz pela chave
-    matriz_cripto = np.dot(np.array(matriz), np.array(matriz_chave))
-    #transforma em letras
-    np.mod(matriz_cripto, 29)
-    #transforma em vetor
-    desc_vetorfinal = matriz_cripto.flatten()
-    #transforma em string
-    desc_cripto = "".join(desc_vetorfinal)
+    matriz_cripto = np.matmul(matrizChave, matrizFrase)
+    #aplica modulo 29
+    for j in matriz_cripto:
+        for i in range(0, len(j)):
+            j[i] = j[i] % 29
+            modulo_29_cripto.append(j[i])
+    #converte em letras novamente
+    for n in modulo_29_cripto:
+        if n in dic_modulo29_inverso:
+            frase_cripto += dic_modulo29_inverso[n]
     #retorna a frase criptografada para ser inserida no banco
-    return desc_cripto
+    return frase_cripto
 
-def descripto():
-    #fazer decodificacao aqui
-    print('Decodificado.')
-    desc_prato_decodificado = "".join(desc_prato)#vira string
-    return desc_prato_decodificado
+def descripto(descricao):
+    #inicia nulo
+    matriz_chave = [1, -1, -1, 2]
+    modulo_29 = []
+    modulo_29_cripto = []
+    frase_cripto = ''
+    #converte em numero
+    for l in descricao.upper():
+        if l in dic_modulo29:
+            modulo_29.append(dic_modulo29[l])
+    #faz matriz
+    matrizFrase = np.array(modulo_29).reshape(2, -1)
+    matrizChave = np.array(matriz_chave).reshape(2, -1)
+    #multiplicar matriz pela chave
+    matriz_descripto = np.matmul(matrizChave, matrizFrase)
+    #aplica modulo 29
+    for j in matriz_descripto:
+        for i in range(0, len(j)):
+            j[i] = j[i] % 29
+            modulo_29_cripto.append(j[i])
+    #converte em letras
+    for n in modulo_29_cripto:
+        if n in dic_modulo29_inverso:
+            frase_cripto += dic_modulo29_inverso[n]
+    #retorna frase descriptografada
+    return frase_cripto
