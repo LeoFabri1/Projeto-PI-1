@@ -23,7 +23,7 @@ def home():
         elif opcao.upper() == "SOBRE NOS":
             sobre()
         elif opcao.upper() == "LOGIN":
-            codigo_menu.funcao_login()
+            login()
         elif opcao == "13579":
             usuario = str(input("Digite o usuario de login do administrador para efetuar o cadastro de um novo administrador: "))
             senha = str(input("Digite a senha do administrador para efetuar o cadastro da mesma: "))
@@ -61,7 +61,7 @@ def cardapio_adm():
         opcao = input("Digite a opçao desejada")
 
         if opcao == "1" or opcao == "Adicionar Item":
-           cadastro()
+            cadastro()
         elif opcao == "2" or opcao == "Alterar Item":
             altero()
         elif opcao == "3" or opcao == "Excluir Item":
@@ -147,6 +147,7 @@ def login():
     print("")
     print("                    'Finalizar Login'")
     print("**********************************************************")
+    return codigo_menu.funcao_login()
 
 
 def sobre():
