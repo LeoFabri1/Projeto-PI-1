@@ -35,10 +35,12 @@ cadastrar_prato()
 def cadastrar_fab():
     print("****************************************************************************")
     print("Fabricante")
+    #pega os dados
     id_fab = int(input("Digite o id do fabricante: "))
     nome_fab = str(input("Digite o nome do fabricante: "))
     tel_fab = int(input("Digite o telefone do fabricante: "))
     email_fab = str(input("Digite o email do fabricante: "))
+
     #adiciona ao banco
     connection = conectar_bd()
     cursor = connection.cursor()
@@ -52,6 +54,7 @@ def cadastrar_fab():
 def cadastrar_forn():
     print("****************************************************************************")
     print("Fornecedor")
+    #pega os dados
     id_forn = int(input("Digite o id do fornecedor: "))
     nome_forn = str(input("Digite o nome do fornecedor: "))
     tel_forn = int(input("Digite o telefone do fornecedor: "))
@@ -70,7 +73,7 @@ def cadastrar_func():
     print("****************************************************************************")
     print("Funcionario")
     aux_id_func = 0
-
+    #pega os dados
     id_func = int(input("Digite o id do funcionario: "))
     nome_func = str(input("Digite o nome do funcionario: "))
     data_nasc_func = int(input("Digite a data de nascimento do funcionario: "))
@@ -110,6 +113,7 @@ def cadastrar_func():
 def cadastrar_cliente():
     print("****************************************************************************")
     print("Usuario")
+    #pega os dados
     id_cliente = int(input("Digite o id de login do cliente: "))
     nome_cliente = str(input("Digite o nome de login do cliente: "))
     email_cliente = str(input("Digite o email de login do cliente: "))
@@ -132,6 +136,10 @@ def cadastrar_cliente():
 def cadastrar_perm():
     print("****************************************************************************")
     print("Permissoes")
+    #pega os dados
+    id_adm = int(input("Digite o id do administrador: "))
+    usuario_adm = str(input("Digite o usuario do administrador: "))
+    senha_adm = str(input("Digite a senha do administrador: "))
 
     #adiciona ao banco
     connection = conectar_bd()
