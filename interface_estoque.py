@@ -1,5 +1,6 @@
-import cadastrar, excluir, alterar, filtrar
-from restaurante.interface_restaurante import cardapio_adm
+from Cadastrar import cadastrar_prato, cadastrar_fab, cadastrar_forn, cadastrar_func, cadastrar_cliente, cadastrar_perm
+from interface_restaurante import cardapio_adm
+from Alterar import alterar_prato, alterar_fab, alterar_forn, alterar_func, alterar_user, alterar_perm
 
 #Imprime o Menu de Cadastro
 def cadastro():
@@ -10,18 +11,18 @@ def cadastro():
     print("               | 2-Cadastrar Fabricante |")
     print("               | 3-Cadastrar Fornecedor |")
     print("               | 4-Cadastrar Funcionario|")
-    print("               |   5-Ajuste de Cardapio |")
+    print("               |        5-Voltar        |")
     print("**********************************************************")
     
     opcao=int(input("Escolha a opção desejada: "))
     if opcao==1:
-        cadastrar.cadastrar_prato()
+        cadastrar_prato()
     elif opcao==2:
-        cadastrar.cadastrar_fab()
+        cadastrar_fab()
     elif opcao==3:
-        cadastrar.cadastrar_forn()
+        cadastrar_forn()
     elif opcao==4:
-        cadastrar.cadastrar_func()
+        cadastrar_func()
     elif opcao==5:
         cardapio_adm()
 
@@ -34,19 +35,21 @@ def altero():
     print("               |  2-Alterar Fabricante  |")
     print("               |  3-Alterar Fornecedor  |")
     print("               | 4-Alterar Funcionario  |")
-    print("               |   5-Ajuste de Cardapio |")
+    print("               |        5-Voltar        |")
     print("**********************************************************")
     opcao=int(input("Escolha a opção desejada: "))
     if opcao==1:
-        alterar.alterar_prato()
+        alterar_prato()
     elif opcao==2:
-        alterar.alterar_fab()
+        alterar_fab()
     elif opcao==3:
-        alterar.alterar_forn()
+        alterar_forn()
     elif opcao==4:
-        alterar.alterar_forn()
+        alterar_func()
     elif opcao==5:
-        cardapio_adm()
+        alterar_user()
+    elif opcao==6:
+        alterar_perm()
 
 #Imprime o menu de Deleçao
 def deleto():
@@ -57,42 +60,44 @@ def deleto():
     print("               |  2-Deletar Fabricante  |")
     print("               |  3-Deletar Fornecedor  |")
     print("               | 4-Deletar Funcionario  |")
-    print("               |   5-Ajuste de Cardapio |")
+    print("               |        5-Voltar        |")
     print("**********************************************************")
     opcao=int(input("Escolha a opção desejada: "))
     if opcao==1:
-        excluir.deletar_prato()
+        deletar_prato()
     elif opcao==2:
-        excluir.deletar_fab()
+        deletar_fab()
     elif opcao==3:
-        excluir.deletar_forn()
+        deletar_forn()
     elif opcao==4:
-        excluir.deletar_func()
+        deletar_func()
     elif opcao==5:
-        cardapio_adm()
+        deletar_cliente()
+    elif opcao ==6:
+        deletar_perm()
 
 #Imprime o menu de Filtragem
 def filtro():
     print("**********************************************************")
     print("                   JungKooking Estoque")
     print("")
-    print("               |     1-Filtrar prato    |")
-    print("               |  2-Filtrar Fabricante  |")
-    print("               |  3-Filtrar Fornecedor  |")
-    print("               | 4-Filtrar Funcionario  |")
-    print("               |   5-Ajuste de Cardapio |")
+    print("               |     1-Filtrar prato      |")
+    print("               |  2-Filtrar Fabricante    |")
+    print("               |  3-Filtrar Fornecedor    |")
+    print("               | 4-Filtrar Funcionario    |")
+    print("               |   5-Filtrar Ingredientes |")
     print("**********************************************************")
     opcao=int(input("Escolha a opção desejada: "))
     if opcao==1:
-        filtrar.filtrar_prato()
+        filtrar_prato()
     elif opcao==2:
-        filtrar.filtrar_fab()
+        filtrar_fab()
     elif opcao==3:
-        filtrar.filtrar_forn()
+        filtrar_forn()
     elif opcao==4:
-        filtrar.filtrar_func()
+        filtrar_func()
     elif opcao==5:
-        cardapio_adm()
+        filtrar_ingredientes()
 
 def ger_user():
     print("**********************************************************")
@@ -105,11 +110,11 @@ def ger_user():
     print("**********************************************************")
     opcao=int(input("Escolha a opção desejada: "))
     if opcao== "1" or opcao == "Adicionar":
-        cadastrar.cadastrar_cliente()
+        cadastrar_cliente()
     elif opcao == "2" or opcao == "Alterar":
-        alterar.alterar_user()
+        alterar_user()
     elif opcao == "3" or opcao == "Deletar":
-        excluir.deletar_user()
+        deletar_user()
     elif opcao == "4" or opcao == "Ajuste":
         cardapio_adm()
 
@@ -124,11 +129,11 @@ def ger_perm():
     print("**********************************************************")
     opcao=int(input("Escolha a opção desejada: "))
     if opcao==1:
-        cadastrar.cadastrar_perm()
+        cadastrar_perm()
     elif opcao==2:
-        alterar.alterar_perm()
+        alterar_perm()
     elif opcao==3:
-        excluir.deletar_perm()
+        deletar_perm()
     elif opcao==4:
         cardapio_adm()
 
