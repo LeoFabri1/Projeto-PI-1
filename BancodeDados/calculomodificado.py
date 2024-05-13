@@ -1,4 +1,4 @@
-from BancodeDados.banco_de_dados import conectar_bd
+from banco_de_dados import conectar_bd
 
 custo_fixo_porcentual = float(input("Digite o custo fixo/administrativo (%): "))
 comissao_vendas_porcentual = float(input("Digite a comissão de vendas (%): "))

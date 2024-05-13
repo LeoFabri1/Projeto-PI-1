@@ -47,4 +47,4 @@ pip install numpy
 
 ## Status do Projeto
 
-Atualmente, o projeto encontra-se na fase 2, na versão 1.2.0.
+Atualmente, o projeto encontra-se na fase 3, na versão 1.3.0.
