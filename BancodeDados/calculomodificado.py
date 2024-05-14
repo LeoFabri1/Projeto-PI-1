@@ -4,6 +4,7 @@ custo_fixo_porcentual = float(input("Digite o custo fixo/administrativo (%): "))
 comissao_vendas_porcentual = float(input("Digite a comissão de vendas (%): "))
 impostos_porcentual = float(input("Digite o imposto sobre a venda (%): "))
 margem_lucro = float(input("Digite a margem de lucro (%): "))
+#ao inves de margem de lucro, colocar preço venda (ai fica o preço que vc quer vender ao inves de ser em cima de margem de lucro)
 
 def obter_dados_produto():
     connection = conectar_bd()
