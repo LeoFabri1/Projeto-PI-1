@@ -1,6 +1,34 @@
 from BancodeDados.banco_de_dados import conectar_bd
 from BancodeDados.criptografia import cripto
 
+def cadastrar_ing():
+    print("****************************************************************************")
+    print("Cadastro de Ingredientes")
+    #pega os dados
+    nome_ing = str(input("Digite o nome do ingrediente: "))
+    preco_ing = int(input("Digite o preço do ingrediente: "))
+    fornecedor = int(input("Digite o id do fornecedor do ingrediente: "))
+    fabricante = int(input("Digite o id do fabricante do ingrediente: "))
+    quant_min = int(input("Digite a quantidade minima de estoque do ingrediente: "))
+    quant_max = int(input("Digite a quantidade maxima de estoque do ingrediente: "))
+    quant_est = int(input("Digite a quantidade do estoque do ingrediente: "))
+    categoria = str(input("Digite a categoria do ingrediente: "))
+    data_fab = input("Digite a data de fabricação do ingrediente: ")
+    data_val = input("Digite a data de validade do ingrediente: ")
+
+    #adiciona ao banco
+    connection = conectar_bd()
+    cursor = connection.cursor()
+
+    cursor.execute('INSERT INTO Ingredientes (id_ing, nome_ing, preco_ing, fornecedor, fabricante, quant_min, quant_max, quant_est, categoria, data_fab, data_val) VALUES (seq_id_ing.NEXTVAL, :1, :2, :3, :4, :5, :6, :7, :8, :9, :10)', (nome_ing, preco_ing, fornecedor, fabricante, quant_min, quant_max, quant_est, categoria, data_fab, data_val))
+    print("Cadastrado com sucesso!")
+
+    connection.commit()
+    connection.close()
+
+#teste
+#cadastrar_ing()
+
 def cadastrar_prato():
     print("****************************************************************************")
     print("Cadastro de Pratos")
@@ -17,14 +45,14 @@ def cadastrar_prato():
     connection = conectar_bd()
     cursor = connection.cursor()
 
-    cursor.execute('INSERT INTO Pratos (id_prato, nome_prato, desc_prato, categoria, custo_prato) VALUES (seq_id_add.NEXTVAL, :1, :2, :3, :4)', (nome_prato, desc_prato_cripto, categoria_prato, custo_prato))
+    cursor.execute('INSERT INTO Pratos (id_prato, nome_prato, desc_prato, categoria, custo_prato) VALUES (seq_id_prato.NEXTVAL, :1, :2, :3, :4)', (nome_prato, desc_prato_cripto, categoria_prato, custo_prato))
     print("Cadastrado com sucesso!")
 
     connection.commit()
     connection.close()
 
 #teste
-cadastrar_prato()
+#cadastrar_prato()
 #id = 2
 #nome = Bibimbap
 #desc = Uma tigela vibrante de arroz coberta com uma variedade de vegetais frescos, carne grelhada, ovo frito e gochujang. Misture todos os ingredientes para uma explosao de sabores e texturas. Uma refeicao coreana classica que equilibra perfeitamente o doce, o picante e o salgado em cada garfada.
@@ -43,7 +71,7 @@ def cadastrar_fab():
     connection = conectar_bd()
     cursor = connection.cursor()
 
-    cursor.execute('INSERT INTO Fabricantes (id_fab, nome_fab, tel_fab, email_fab) VALUES (seq_id_add.NEXTVAL, :1, :2, :3)', (nome_fab, tel_fab, email_fab))
+    cursor.execute('INSERT INTO Fabricantes (id_fab, nome_fab, tel_fab, email_fab) VALUES (seq_id_fab.NEXTVAL, :1, :2, :3)', (nome_fab, tel_fab, email_fab))
     print("Cadastrado com sucesso!")
 
     connection.commit()
@@ -63,7 +91,7 @@ def cadastrar_forn():
     connection = conectar_bd()
     cursor = connection.cursor()
 
-    cursor.execute('INSERT INTO Fornecedores (id_forn, nome_forn, tel_forn, email_forn) VALUES (seq_id_add.NEXTVAL, :1, :2, :3)', (nome_forn, tel_forn, email_forn))
+    cursor.execute('INSERT INTO Fornecedores (id_forn, nome_forn, tel_forn, email_forn) VALUES (seq_id_forn.NEXTVAL, :1, :2, :3)', (nome_forn, tel_forn, email_forn))
     print("Cadastrado com sucesso!")
 
     connection.commit()
@@ -77,16 +105,16 @@ def cadastrar_func():
     print("Funcionario")
     #pega os dados
     nome_func = str(input("Digite o nome do funcionario: "))
-    data_nasc_func = int(input("Digite a data de nascimento do funcionario: "))
+    data_nasc_func = str(input("Digite a data de nascimento do funcionario: "))
     sal_func = float(input("Digite o salario do funcionario: "))
-    data_contrato = int(input("Digite a data do contrato com o funcionario: "))
+    data_contrato = str(input("Digite a data do contrato com o funcionario: "))
     categoria_func = str(input("Digite a categoria do funcionario: "))
 
     #adiciona ao banco
     connection = conectar_bd()
     cursor = connection.cursor()
 
-    cursor.execute('INSERT INTO Funcionarios (id_func, nome_func, data_nasc_func, sal_func, data_contrato, categoria_func) VALUES (seq_id_add.NEXTVAL, :1, :2, :3, :4, :5)', (nome_func, data_nasc_func, sal_func, data_contrato, categoria_func))
+    cursor.execute('INSERT INTO Funcionarios (id_func, nome_func, data_nasc_func, sal_func, data_contrato, categoria_func) VALUES (seq_id_func.NEXTVAL, :1, :2, :3, :4, :5)', (nome_func, data_nasc_func, sal_func, data_contrato, categoria_func))
     print("Cadastrado com sucesso!")
 
     connection.commit()
@@ -103,7 +131,7 @@ def cadastrar_func():
     connection = conectar_bd()
     cursor = connection.cursor()
 
-    cursor.execute('INSERT INTO Login_Func (id_login, email_login, senha_login, id_func) VALUES (seq_id_add.NEXTVAL, :1, :2, :3)', (email_login, senha_func_cripto, id_func))
+    cursor.execute('INSERT INTO Login_Func (id_login, email_login, senha_login, id_func) VALUES (seq_id_login.NEXTVAL, :1, :2, :3)', (email_login, senha_func_cripto, id_func))
     print("Cadastrado com sucesso!")
 
     connection.commit()
@@ -127,7 +155,7 @@ def cadastrar_cliente():
     connection = conectar_bd()
     cursor = connection.cursor()
 
-    cursor.execute('INSERT INTO Login_Clientes (id_cliente, nome_cliente, email_cliente, senha_cliente) VALUES (seq_cliente_id.NEXTVAL, :1, :2, :3)', (nome_cliente, email_cliente, senha_cliente_cripto))
+    cursor.execute('INSERT INTO Login_Clientes (id_cliente, nome_cliente, email_cliente, senha_cliente) VALUES (seq_id_cliente.NEXTVAL, :1, :2, :3)', (nome_cliente, email_cliente, senha_cliente_cripto))
     print("Cadastrado com sucesso!")
 
     connection.commit()
@@ -150,12 +178,13 @@ def cadastrar_adm():
     connection = conectar_bd()
     cursor = connection.cursor()
 
-    cursor.execute('INSERT INTO Login_ADM (id_adm, email_adm, senha_adm, id_func) VALUES (seq_id_add.NEXTVAL, :1, :2, :3)', (email_adm, senha_cripto_adm, id_func))
-    #deletar login_func
+    cursor.execute('INSERT INTO Login_ADM (id_adm, email_adm, senha_adm, id_func) VALUES (seq_id_adm.NEXTVAL, :1, :2, :3)', (email_adm, senha_cripto_adm, id_func))
+    id_func_del = id_func
+    cursor.execute('DELETE FROM Login_Func WHERE id_func = :id_func_del', {'id_func_del': id_func_del})
     print("Cadastrado com sucesso!")
 
     connection.commit()
     connection.close()
 
 #teste
-#cadastrar_perm()
+#cadastrar_adm()

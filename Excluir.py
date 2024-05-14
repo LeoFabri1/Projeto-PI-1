@@ -1,5 +1,24 @@
 from BancodeDados.banco_de_dados import conectar_bd
-from Listar import listar_prato, listar_forn, listar_fab, listar_func, listar_adm, listar_clientes
+from Listar import listar_ing, listar_prato, listar_forn, listar_fab, listar_func, listar_adm, listar_clientes
+
+def deletar_ing():
+    print("****************************************************************************")
+    print("Ingredientes")
+    listar_ing()
+
+    id_ing_del = input("Digite o id do ingrediente que deseja deletar: ")
+
+    #deletar do banco de dados
+    connection = conectar_bd()
+    cursor = connection.cursor()
+
+    cursor.execute('DELETE FROM Ingredientes WHERE id_ing = :id_ing_del', {'id_ing_del': id_ing_del})
+
+    connection.commit()
+    connection.close()
+
+#teste
+deletar_ing()
 
 def deletar_prato():
     print("****************************************************************************")
@@ -37,7 +56,7 @@ def deletar_fab():
     connection.close()
 
 #teste
-#deletar_fab()
+deletar_fab()
 
 def deletar_forn():
     print("****************************************************************************")
@@ -56,7 +75,7 @@ def deletar_forn():
     connection.close()
 
 #teste
-#deletar_forn()
+deletar_forn()
 
 def deletar_func():
     print("****************************************************************************")
@@ -75,7 +94,7 @@ def deletar_func():
     connection.close()
 
 #teste
-#deletar_func()
+deletar_func()
 
 def deletar_clientes():
     print("****************************************************************************")
@@ -94,7 +113,7 @@ def deletar_clientes():
     connection.close()
 
 #teste
-#deletar_clientes()
+deletar_clientes()
 
 def deletar_adm():
     print("****************************************************************************")
@@ -113,4 +132,4 @@ def deletar_adm():
     connection.close()
 
 #teste
-#deletar_adm()
+deletar_adm()

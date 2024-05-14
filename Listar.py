@@ -1,6 +1,37 @@
 from BancodeDados.banco_de_dados import conectar_bd
 from BancodeDados.criptografia import descripto
 
+def listar_ing():
+    print("****************************************************************************")
+    print("Ingredientes")
+
+    #buscar do banco de dados
+    connection = conectar_bd()
+    cursor = connection.cursor()
+
+    cursor.execute('SELECT * from Ingredientes')
+
+    resultados = cursor.fetchall()
+
+    for ing in resultados:
+        print("ID do Ingrediente: ", ing[0])
+        print("Nome do Ingrediente: ", ing[1])
+        print("Preço do Ingrediente: ", ing[2])
+        print("Fornecedor do Ingrediente: ", ing[3])
+        print("Fabricante do Ingrediente: ", ing[4])
+        print("Quantidade minima do Ingrediente: ", ing[5])
+        print("Quantidade maxima do Ingrediente: ", ing[6])
+        print("Quantidade estoque do Ingrediente: ", ing[7])
+        print("Categoria do Ingrediente: ", ing[8])
+        print("Data de fabricação do Ingrediente: ", ing[9])
+        print("Data de validade do Ingrediente: ", ing[10])
+    
+    cursor.close()
+    connection.close()
+
+#teste
+#listar_ing()
+
 def listar_prato():
     print("****************************************************************************")
     print("Pratos")
@@ -97,6 +128,30 @@ def listar_func():
 
 #teste
 #listar_func()
+
+def listar_login():
+    print("****************************************************************************")
+    print("Login Funcionários")
+
+    #buscar do banco de dados
+    connection = conectar_bd()
+    cursor = connection.cursor()
+
+    cursor.execute('SELECT * from Login_Func')
+    resultados = cursor.fetchall()
+
+    for func in resultados:
+        print("ID Login do Funcionário: ", func[0])
+        print("Email do Funcionário: ", func[1])
+        senha_func_desc = descripto(func[2])
+        print("Senha do Funcionário: ", senha_func_desc)
+        print("ID do Funcionário: ", func[3])
+    
+    cursor.close()
+    connection.close()
+
+#teste
+#listar_login()
 
 def listar_clientes():
     print("****************************************************************************")
