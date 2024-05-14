@@ -97,3 +97,48 @@ def listar_func():
 
 #teste
 #listar_func()
+
+def listar_clientes():
+    print("****************************************************************************")
+    print("Usuários")
+
+    #buscar do banco de dados
+    connection = conectar_bd()
+    cursor = connection.cursor()
+
+    cursor.execute('SELECT * from Login_Clientes')
+    resultados = cursor.fetchall()
+
+    for cli in resultados:
+        print("ID do Cliente: ", cli[0])
+        print("Nome do Cliente: ", cli[1])
+        print("Email do Cliente: ", cli[2])
+        senha_cli_desc = descripto(cli[3])
+        print("Senha do Cliente: ", senha_cli_desc)
+    
+    cursor.close()
+    connection.close()
+
+#teste
+#listar_clientes()
+
+def listar_adm():
+    print("****************************************************************************")
+    print("Administradores")
+
+    #buscar do banco de dados
+    connection = conectar_bd()
+    cursor = connection.cursor()
+
+    cursor.execute('SELECT * from Login_ADM')
+    resultados = cursor.fetchall()
+
+    for adm in resultados:
+        print("ID do Administrador: ", adm[0])
+        print("Email do Administrador: ", adm[1])
+        senha_adm_desc = descripto(adm[2])
+        print("Senha do Administrador: ", senha_adm_desc)
+        print("ID Funcionário do Administrador: ", adm[3])
+    
+    cursor.close()
+    connection.close()

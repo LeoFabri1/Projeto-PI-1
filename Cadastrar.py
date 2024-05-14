@@ -24,7 +24,7 @@ def cadastrar_prato():
     connection.close()
 
 #teste
-#cadastrar_prato()
+cadastrar_prato()
 #id = 2
 #nome = Bibimbap
 #desc = Uma tigela vibrante de arroz coberta com uma variedade de vegetais frescos, carne grelhada, ovo frito e gochujang. Misture todos os ingredientes para uma explosao de sabores e texturas. Uma refeicao coreana classica que equilibra perfeitamente o doce, o picante e o salgado em cada garfada.
@@ -114,7 +114,7 @@ def cadastrar_func():
 
 def cadastrar_cliente():
     print("****************************************************************************")
-    print("Usuario")
+    print("Usuário")
     #pega os dados
     nome_cliente = str(input("Digite o nome de login do cliente: "))
     email_cliente = str(input("Digite o email de login do cliente: "))
@@ -137,19 +137,21 @@ def cadastrar_cliente():
 #cadastrar_cliente()
 
 #adicionar adm
-def cadastrar_perm():
+def cadastrar_adm():
     print("****************************************************************************")
-    print("Permissoes")
+    print("Administradores")
     #pega os dados
     id_func = int(input("Digite o id do funcionario a virar administrador: "))
     email_adm = str(input("Digite o email do administrador: "))
     senha_adm = str(input("Digite a senha do administrador: "))
+    senha_cripto_adm = cripto(senha_adm)
 
     #adiciona ao banco
     connection = conectar_bd()
     cursor = connection.cursor()
 
-    cursor.execute('INSERT INTO Login_ADM (id_adm, email_adm, senha_adm, id_func) VALUES (seq_id_add.NEXTVAL, :1, :2, :3)', (email_adm, senha_adm, id_func))
+    cursor.execute('INSERT INTO Login_ADM (id_adm, email_adm, senha_adm, id_func) VALUES (seq_id_add.NEXTVAL, :1, :2, :3)', (email_adm, senha_cripto_adm, id_func))
+    #deletar login_func
     print("Cadastrado com sucesso!")
 
     connection.commit()

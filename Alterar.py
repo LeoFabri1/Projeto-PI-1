@@ -1,79 +1,193 @@
 from BancodeDados.banco_de_dados import conectar_bd
+from BancodeDados.criptografia import cripto
+from Listar import listar_prato, listar_forn, listar_fab, listar_func, listar_adm, listar_clientes
 
 def alterar_prato():
     print("****************************************************************************")
     print("Pratos")
+    listar_prato()
 
-    #alterar dados do banco de dados
+    id_prato_alt = int(input("Digite o id do prato que deseja alterar: "))
+
+    #novos dados do prato
+    novo_id = input("Novo id do prato: ")
+    novo_nome = input("Novo nome do prato: ")
+    nova_descricao = input("Nova descrição do prato: ")
+    nova_desc_cripto = cripto(nova_descricao)
+    nova_categoria = input("Nova categoria do prato: ")
+    novo_custo = float(input("Novo preço do prato: "))
+
+    #alterar dados no banco de dados
     connection = conectar_bd()
     cursor = connection.cursor()
 
-    cursor.execute('UPDATE from Pratos WHERE ...')
+    cursor.execute('''
+        UPDATE Pratos 
+        SET id_prato = :novo_id, nome_prato = :novo_nome, desc_prato = :nova_descricao, categoria = :nova_categoria, custo_prato = :novo_custo 
+        WHERE id_prato = :id_prato_alt
+    ''', {'novo_id': novo_id, 'novo_nome': novo_nome, 'nova_descricao': nova_desc_cripto, 'nova_categoria': nova_categoria, 'novo_custo': novo_custo, 'id_prato_alt': id_prato_alt})
+
+    print("Alterado com sucesso!")
 
     connection.commit()
-    connection.close
+    connection.close()
+
+#teste
+alterar_prato()
 
 def alterar_fab():
     print("****************************************************************************")
     print("Fabricante")
+    listar_fab()
 
-    #alterar dados do banco de dados
+    id_fab_alt = int(input("Digite o id do fabricante que deseja alterar: "))
+
+    #novos dados do fabricante
+    novo_id = input("Novo id do fabricante: ")
+    novo_nome = input("Novo nome do fabricante: ")
+    novo_email = input("Novo email do fabricante: ")
+    novo_tel = input("Novo telefone do fabricante: ")
+
+    #alterar dados no banco de dados
     connection = conectar_bd()
     cursor = connection.cursor()
 
-    cursor.execute('UPDATE from Fabricantes WHERE ...')
+    cursor.execute('''
+        UPDATE Pratos 
+        SET id_fab = :novo_id, nome_fab = :novo_nome, email_fab = :novo_email, tel_fab = :novo_tel 
+        WHERE id_fab = :id_fab_alt
+    ''', {'novo_id': novo_id, 'novo_nome': novo_nome, 'novo_email': novo_email, 'novo_tel': novo_tel, 'id_fab_alt': id_fab_alt})
+
+    print("Alterado com sucesso!")
 
     connection.commit()
-    connection.close
+    connection.close()
+
+#teste
+#alterar_fab()
 
 def alterar_forn():
     print("****************************************************************************")
     print("Fornecedor")
+    listar_forn()
 
-    #alterar dados do banco de dados
+    id_forn_alt = int(input("Digite o id do fornecedor que deseja alterar: "))
+
+    #novos dados do fabricante
+    novo_id = input("Novo id do fornecedor: ")
+    novo_nome = input("Novo nome do fornecedor: ")
+    novo_email = input("Novo email do fornecedor: ")
+    novo_tel = input("Novo telefone do fornecedor: ")
+
+    #alterar dados no banco de dados
     connection = conectar_bd()
     cursor = connection.cursor()
 
-    cursor.execute('UPDATE from Fornecedores WHERE ...')
+    cursor.execute('''
+        UPDATE Pratos 
+        SET id_forn = :novo_id, nome_forn = :novo_nome, email_forn = :novo_email, tel_forn = :novo_tel 
+        WHERE id_forn = :id_forn_alt
+    ''', {'novo_id': novo_id, 'novo_nome': novo_nome, 'novo_email': novo_email, 'novo_tel': novo_tel, 'id_forn_alt': id_forn_alt})
+
+    print("Alterado com sucesso!")
 
     connection.commit()
-    connection.close
+    connection.close()
+
+#teste
+#alterar_forn()
 
 def alterar_func():
     print("****************************************************************************")
-    print("Funcionario")
+    print("Funcionários")
+    listar_func()
 
-    #alterar dados do banco de dados
+    id_func_alt = int(input("Digite o id do funcionário que deseja alterar: "))
+
+    #novos dados do fabricante
+    novo_id = input("Novo id do funcionário: ")
+    novo_nome = input("Novo nome do funcionário: ")
+    novo_data_nasc = input("Nova data nascimento do funcionário: ")
+    novo_sal = input("Novo salário do funcionário: ")
+    novo_data_cont = input("Nova data contrato do funcionário: ")
+    novo_categoria = input("Nova categoria do funcionário: ")
+
+    #alterar dados no banco de dados
     connection = conectar_bd()
     cursor = connection.cursor()
 
-    cursor.execute('UPDATE from Funcionarios WHERE ...')
+    cursor.execute('''
+        UPDATE Pratos 
+        SET id_func = :novo_id, nome_func = :novo_nome, data_nasc_func = :novo_data_nasc, sal_func = :novo_sal, data_contrato = :novo_data_cont, categoria_func = :novo_categoria
+        WHERE id_func = :id_func_alt
+    ''', {'novo_id': novo_id, 'novo_nome': novo_nome, 'novo_data_nasc': novo_data_nasc, 'novo_sal': novo_sal, 'novo_data_cont': novo_data_cont, 'novo_categoria': novo_categoria, 'id_func_alt': id_func_alt})
+
+    print("Alterado com sucesso!")
 
     connection.commit()
-    connection.close
+    connection.close()
 
-def alterar_user():
+#teste
+#alterar_func()
+
+def alterar_clientes():
     print("****************************************************************************")
-    print("Usuario")   
+    print("Usuários")   
+    listar_clientes()
 
-    #alterar dados do banco de dados
+    id_cliente_alt = int(input("Digite o id do cliente que deseja alterar: "))
+
+    #novos dados do fabricante
+    novo_id = input("Novo id do cliente: ")
+    novo_nome = input("Novo nome do cliente: ")
+    novo_email = input("Novo email do cliente: ")
+    novo_senha = input("Nova senha do cliente: ")
+
+    #alterar dados no banco de dados
     connection = conectar_bd()
     cursor = connection.cursor()
 
-    cursor.execute('UPDATE from Login_Clientes/Login_Func WHERE ...')
+    cursor.execute('''
+        UPDATE Pratos 
+        SET id_cliente = :novo_id, nome_cliente = :novo_nome, email_cliente = :novo_email, senha_cliente = :novo_senha 
+        WHERE id_cliente = :id_cliente_alt
+    ''', {'novo_id': novo_id, 'novo_nome': novo_nome, 'novo_email': novo_email, 'novo_senha': novo_senha, 'id_cliente_alt': id_cliente_alt})
+
+    print("Alterado com sucesso!")
 
     connection.commit()
-    connection.close
-    
+    connection.close()
+
+#teste
+#alterar_user()
+
 def alterar_perm():
     print("****************************************************************************")
-    print("Permissoes")
+    print("Administradores")
+    listar_adm()
 
-    #alterar dados do banco de dados
+    id_adm_alt = int(input("Digite o id do administrador que deseja alterar: "))
+
+    #novos dados do fabricante
+    novo_id = input("Novo id do administrador: ")
+    novo_email = input("Novo email do administrador: ")
+    novo_senha = input("Nova senha do administrador: ")
+    novo_id_func = input("Novo id funcionário do administrador: ")
+
+    #alterar dados no banco de dados
     connection = conectar_bd()
     cursor = connection.cursor()
 
-    cursor.execute('UPDATE from ... WHERE ...')
+    cursor.execute('''
+        UPDATE Pratos 
+        SET id_forn = :novo_id, email_forn = :novo_email, senha_adm = :novo_senha, id_func = :novo_id_func 
+        WHERE id_forn = :id_forn_alt
+    ''', {'novo_id': novo_id, 'novo_email': novo_email, 'novo_senha': novo_senha, 'novo_id_func': novo_id_func, 'id_adm_alt': id_adm_alt})
+
+    print("Alterado com sucesso!")
 
     connection.commit()
-    connection.close
+    connection.close()
+
+#teste
+#alterar_perm()
