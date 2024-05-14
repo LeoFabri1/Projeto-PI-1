@@ -17,7 +17,7 @@ def obter_dados_produto():
 
     return row
 
-def inserir_resultados(id_prato, nome_prato, desc_prato, custo_prato, preco_venda, total_despesas, valor_custo_fixo, comissao_vendas_reais, impostos_reais, receita_bruta, outros_custos, rentabilidade):
+def inserir_resultados(id_prato, preco_venda, total_despesas, valor_custo_fixo, comissao_vendas_reais, impostos_reais, receita_bruta, outros_custos, rentabilidade):
     connection = conectar_bd()
     cursor = connection.cursor()
 
