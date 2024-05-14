@@ -25,7 +25,7 @@ def listar_prato():
     connection.close()
 
 #teste
-listar_prato()
+#listar_prato()
 
 def listar_fab():
     print("****************************************************************************")
@@ -142,3 +142,6 @@ def listar_adm():
     
     cursor.close()
     connection.close()
+
+#teste
+#listar_adm()

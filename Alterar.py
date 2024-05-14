@@ -37,7 +37,7 @@ alterar_prato()
 
 def alterar_fab():
     print("****************************************************************************")
-    print("Fabricante")
+    print("Fabricantes")
     listar_fab()
 
     id_fab_alt = int(input("Digite o id do fabricante que deseja alterar: "))
@@ -68,7 +68,7 @@ def alterar_fab():
 
 def alterar_forn():
     print("****************************************************************************")
-    print("Fornecedor")
+    print("Fornecedores")
     listar_forn()
 
     id_forn_alt = int(input("Digite o id do fornecedor que deseja alterar: "))
