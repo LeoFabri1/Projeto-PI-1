@@ -47,7 +47,7 @@ def descripto(descricao):
     modulo_29_cripto = []
     frase_cripto = ''
     #converte em numero
-    for l in descricao.upper():
+    for l in descricao:
         if l in dic_modulo29:
             modulo_29.append(dic_modulo29[l])
     #faz matriz
