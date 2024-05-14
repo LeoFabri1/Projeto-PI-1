@@ -6,9 +6,9 @@ def cadastrar_prato():
     print("Cadastro de Pratos")
     #pega os dados
     id_prato = int(input("Digite o ID do prato: "))
-    nome_prato = input("Digite o nome do prato: ")
-    desc_prato = input("Digite a descrição do prato: ")
-    categoria_prato = input("Digite a categoria do prato: ")
+    nome_prato = str(input("Digite o nome do prato: "))
+    desc_prato = str(input("Digite a descrição do prato: "))
+    categoria_prato = str(input("Digite a categoria do prato: "))
     custo_prato = float(input("Digite o custo do prato: "))
 
     #criptografa a descrição do prato
