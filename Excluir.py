@@ -1,5 +1,5 @@
 from BancodeDados.banco_de_dados import conectar_bd
-from Listar import listar_ing, listar_prato, listar_forn, listar_fab, listar_func, listar_adm, listar_clientes
+from Listar import listar_login, listar_ing, listar_prato, listar_forn, listar_fab, listar_func, listar_adm, listar_clientes
 
 def deletar_ing():
     print("****************************************************************************")
@@ -114,6 +114,25 @@ def deletar_clientes():
 
 #teste
 deletar_clientes()
+
+def deletar_login():
+    print("****************************************************************************")
+    print("Login Funcionários")
+    listar_login()
+
+    id_func_del = input("Digite o id do login que deseja deletar: ")
+
+    #deletar do banco de dados
+    connection = conectar_bd()
+    cursor = connection.cursor()
+
+    cursor.execute('DELETE FROM Login_Func WHERE id_login = :id_func_del', {'id_func_del': id_func_del})
+
+    connection.commit()
+    connection.close()
+
+#teste
+deletar_login()
 
 def deletar_adm():
     print("****************************************************************************")

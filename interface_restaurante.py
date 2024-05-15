@@ -1,4 +1,4 @@
-from Estoque.interface_estoque import cadastro, altero, deleto, filtro, ger_logs, ger_perm, ger_user
+from interface_estoque import cadastro, altero, deleto, filtro, ger_logs, ger_perm, ger_user
 import codigo_menu
 from BancodeDados.criptografia import cripto
 from BancodeDados.banco_de_dados import conectar_bd

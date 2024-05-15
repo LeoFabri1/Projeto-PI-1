@@ -161,7 +161,7 @@ def alterar_clientes():
 #teste
 #alterar_user()
 
-def alterar_perm():
+def alterar_adm():
     print("****************************************************************************")
     print("Administradores")
     listar_adm()
@@ -190,4 +190,4 @@ def alterar_perm():
     connection.close()
 
 #teste
-#alterar_perm()
+#alterar_adm()
