@@ -1,115 +1,64 @@
-from interface_estoque import cadastro, altero, deleto, filtro, ger_logs, ger_perm, ger_user
-import codigo_menu
+from interface_estoque import cadastro, altero, deleto, filtro
+import menu_login
 from BancodeDados.criptografia import cripto
 from BancodeDados.banco_de_dados import conectar_bd
+from Listar import listar_prato
+import interface_adm
+
+#pagina inicial
 def home():
     print("**********************************************************")
-    print("                   JungKooking Food")
+    print("                   JungKooking Food                       ")
     print("|    |        |        |        |         |        |     |")
-    print("|HOME|        |CARDAPIO|        |SOBRE NÓS|        |LOGIN|")
+    print("|HOME|        |CARDÁPIO|        |SOBRE NÓS|        |LOGIN|")
     print("|    |        |        |        |         |        |     |")
-    print("")
-    print("EXPLORE SEU #MOMENTO COREANO")
-    print("")
-    print("        Principais             Porçoes(Acompanhamentos)")
+    print("                                                          ")
+    print("EXPLORE SEU #MOMENTO COREANO                              ")
+    print("                                                          ")
+    print("      Pratos Principais           Porções(Acompanhamentos)")
     print("**********************************************************")
     while True:
-        opcao = input("Digite a opcao desejada")
+        opcao = input("Digite a opção desejada")
 
         if opcao.upper() == "HOME":
             home()
-        elif opcao.upper() == "CARDAPIO":
+        elif opcao.upper() == "CARDAPIO" or "CARDÁPIO":
             cardapio_cliente()
         elif opcao.upper() == "SOBRE NOS":
             sobre()
         elif opcao.upper() == "LOGIN":
-            login()
-        elif opcao == "13579":
-            usuario = str(input("Digite o usuario de login do administrador para efetuar o cadastro de um novo administrador: "))
-            senha = str(input("Digite a senha do administrador para efetuar o cadastro da mesma: "))
-            senha_cripto = cripto(senha)
+            login_cadastro()
 
-        #adicionar ao banco
-        connection = conectar_bd()
-        cursor = connection.cursor()
-
-        cursor.execute('INSERT INTO Login_adm (usuario_adm, senha_adm) VALUES (?, ?)', (usuario, senha_cripto))
-
-        connection.commit()
-        connection.close
-
-#Imprime A Pagina de Estoque
-def cardapio_adm():
-    print("**********************************************************")
-    print("                   JungKooking Food")
-    print("|    |                 |        |                 |     |")
-    print("|HOME|                 |CARDAPIO|                 |LOGIN|")
-    print("|    |                 |        |                 |     |")
-    print("AJUSTE DE CARDAPIO")
-    print("")
-    print("               |    1-Adicionar Item    |")
-    print("               |     2-Alterar item     |")
-    print("               |     3-Excluir Item     |")
-    print("               |        4-Filtrar       |")
-    print("               |    5-Ajuste Cardapio   |")
-    print("               |   6-Gerenciar Usuarios |")
-    print("               | 7-Gerenciar Permissoes |")
-    print("               |    8-Vizualizar Logs   |")
-    print("               |       9-Deslogar       |")
-    print("**********************************************************")
-    while True:
-        opcao = input("Digite a opçao desejada")
-
-        if opcao == "1" or opcao == "Adicionar Item":
-            cadastro()
-        elif opcao == "2" or opcao == "Alterar Item":
-            altero()
-        elif opcao == "3" or opcao == "Excluir Item":
-            deleto()
-        elif opcao == "4" or opcao == "Filtrar":
-            filtro()
-        elif opcao == "5" or opcao == "Ajuste Cardapio":
-            cardapio_adm()
-        elif opcao == "6" or opcao == "Gerenciar Usuarios":
-            ger_user()
-        elif opcao == "7" or opcao == "Gerenciar Permissoes":
-            ger_perm()
-        elif opcao == "8" or opcao == "Vizualizar Logs":
-            ger_logs()
-        elif opcao == "9" or opcao == "Deslogar":
-            home()
-
+#pagina do cardapio
 def cardapio_cliente():
-    print("**********************************************************")
-    print("                   JungKooking Food")
+    print("*********************************************************")
+    print("                   JungKooking Food                      ")
     print("|    |                 |        |                 |     |")
     print("|HOME|                 |CARDAPIO|                 |LOGIN|")
     print("|    |                 |        |                 |     |")
-    print("CARDAPIO")
-    print("")
-    #Codigo que adiciona Novos itens ao cardapio, (trazer de Cadastrar())
-    print("*KIMCHI*")
-    print("Kimchi é tradicionalmente feito com acelga, gengibre e pimenta\nEsse é um prato que pode ser acompanhado em todas as refeições")
-    print("*BIBIMBAP*")
-    print("Bibimbap consiste basicamente em arroz branco, vegetais e carne misturados\nPreparados em tigela de pedra vulcânica")
-    print("**********************************************************")
+    print("CARDAPIO                                                 ")
+    print("                                                         ")
+    listar_prato()
+    print("*********************************************************")
 
+#pagina da comida do cardapio para adicionar ao carrinho
 def comida():
-    print("**********************************************************")
-    print("                   JungKooking Food")
+    print("*********************************************************")
+    print("                   JungKooking Food                      ")
     print("|    |                 |        |                 |     |")
     print("|HOME|                 |CARDAPIO|                 |LOGIN|")
     print("|    |                 |        |                 |     |")
     print("KIMCHI")
-    print("'FOTO'          Prato feito com acelga, gengibre e pimenta")
-    print("Escolha abaixo a quantidade que deseja pedir:")
-    print("'Caixa de escolha'                                 R$Valor")
-    print("                                     Adicionar ao carrinho")
-    print("**********************************************************")
+    print("'FOTO'         Prato feito com acelga, gengibre e pimenta")
+    print("Escolha abaixo a quantidade que deseja pedir: ")
+    print("'Caixa de escolha'                                R$Valor")
+    print("                                    Adicionar ao carrinho")
+    print("*********************************************************")
 
+#pagina do carrinho
 def carrinho():
-    print("**********************************************************")
-    print("                   JungKooking Food")
+    print("*********************************************************")
+    print("                   JungKooking Food                      ")
     print("|    |                 |        |                 |     |")
     print("|HOME|                 |CARRINHO|                 |LOGIN|")
     print("|    |                 |        |                 |     |")
@@ -118,44 +67,101 @@ def carrinho():
     print("Este são os itens que estao em seu carrinho:")
     print("Kimchi, 1 unidade  -  R$Valor")
     print("")
-    print("                                          Subtotal:R$Valor")
-    print("                                             Frete:R$Valor")
-    print("                                             Total:R$Valor")
-    print("                                          Finalizar pedido")
-    print("**********************************************************")
+    print("                                         Subtotal:R$Valor")
+    print("                                            Frete:R$Valor")
+    print("                                            Total:R$Valor")
+    print("                                         Finalizar pedido")
+    print("*********************************************************")
 
+#pagina do pagamento
 def pagamento():
-    print("**********************************************************")
-    print("                   JungKooking Food")
-    print("Endereço de entrega:                    Forma De Pagamento")
-    print("CEP:                                                   Pix")
-    print("Nome completo:                       Cartao Credito/Debito")
-    print("Numero de Celular:                                  Boleto")
-    print("                                       Finalizar Pagamento")
-    print("**********************************************************")
+    print("*********************************************************")
+    print("                   JungKooking Food                      ")
+    print("Endereço de entrega:                   Forma De Pagamento")
+    print("CEP:                                                  Pix")
+    print("Nome completo:                      Cartao Credito/Debito")
+    print("Numero de Celular:                                 Boleto")
+    print("                                      Finalizar Pagamento")
+    print("*********************************************************")
+
+#pagina escolha login ou cadastro
+def login_cadastro():
+    print("*********************************************************")
+    print("                   JungKooking Food                      ")
+    print("|     |               |        |                   |    |")
+    print("|LOGIN|               |CADASTRO|                   |HOME|")
+    print("|     |               |        |                   |    |")
+    print("                                                         ")
+    print("                   |    1-Login    |                     ")
+    print("                   |  2-Cadastro   |                     ")
+    print("                   |     3-Home    |                     ")
+    print("*********************************************************")
+    return menu_login.funcao_login()
+
+#pagina sobre o restaurante
+def sobre():
+    print("*********************************************************")
+    print("                   JungKooking Food                      ")
+    print("|    |                 |         |                |     |")
+    print("|HOME|                 |SOBRE NÓS|                |LOGIN|")
+    print("|    |                 |         |                |     |")
+    print("Somos um restaurante de Comida Coreana                   ")
+    print("Servimos diferenciados pratos em nosso estabelecimento   ")
+    print("O melhor estabelecimento do Brasil de Culinaria Coreana  ")
+    print("Para nos contatar utilize o numero de WhatsApp a baixo:  ")
+    print("                                             1999999-9999")
+    print("*********************************************************")
+
+#cadastro cliente
+def cliente():
+    print("*********************************************************")
+    print("                   JungKooking Food                      ")
+    print("|    |                 |         |                |     |")
+    print("|HOME|                 |SOBRE NÓS|                |LOGIN|")
+    print("|    |                 |         |                |     |")
+    print("                                                         ")
+    print("                 Cadastro de Cliente                     ")
+    print("Digite seu nome:                                         ")
+    print("Digite seu email:                                        ")
+    print("Digite sua senha:                                        ")
+    print("*********************************************************")
 
 def login():
     print("**********************************************************")
-    print("                   JungKooking Food")
-    print("|    |")
-    print("|HOME|")
-    print("|    |")
-    print("")
-    print("ÁREA DE LOGIN")
-    print("              Usuario:")
-    print("                Senha:")
-    print("")
-    print("                    'Finalizar Login'")
+    print("                   JungKooking Food                       ")
+    print("|    |                                          |        |")
+    print("|HOME|                                          |CADASTRO|")
+    print("|    |                                          |        |")
+    print("                    ÁREA DE LOGIN                         ")
+    print("Usuário: ")
+    print("Senha: ")
+    print("                                                          ")
+    print("                    'Finalizar Login'                     ")
     print("**********************************************************")
-    return codigo_menu.funcao_login()
 
+def menu_adm():
+    print("*********************************************************")
+    print("        JungKooking Food - Estoque Administrador         ")
+    print("                                                         ")
+    print("                  |    1-Cadastrar    |                  ")
+    print("                  |     2-Alterar     |                  ")
+    print("                  |     3-Excluir     |                  ")
+    print("                  |      4-Listar     |                  ")
+    print("                  | 5-Gerar Relatório |                  ")
+    print("                  |       6-Home      |                  ")
+    print("*********************************************************")
+    while True:
+        opcao = input("Digite a opção desejada: ")
 
-def sobre():
-    print("**********************************************************")
-    print("                   JungKooking Food")
-    print("|    |                 |         |                 |     |")
-    print("|HOME|                 |SOBRE NÓS|                 |LOGIN|")
-    print("|    |                 |         |                 |     |")
-    print("   Somos um restaurante de Comida Coreana\nServimos diferenciados pratos em nosso estabelecimento\nO melhor estabelecimento do Brasil de Culinaria Coreana")
-    print("Para nos contatar utilize o numero de WhatsApp a baixo:\n               1999999-9999")
-    print("**********************************************************")
+        if opcao == "1" or opcao == "Cadastrar":
+            interface_adm.menu_adm_cadastro()
+        elif opcao == "2" or opcao == "Alterar":
+            interface_adm.menu_adm_altero()
+        elif opcao == "3" or opcao == "Excluir":
+            interface_adm.menu_adm_deleto()
+        elif opcao == "4" or opcao == "Listar":
+            interface_adm.menu_adm_listo()
+        elif opcao == "5" or opcao == "Gerar Relatório" or "Relatório":
+            interface_adm.menu_adm_relatorio()
+        elif opcao == "6" or opcao == "Home":
+            home()

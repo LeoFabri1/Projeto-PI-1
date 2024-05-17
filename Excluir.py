@@ -18,7 +18,7 @@ def deletar_ing():
     connection.close()
 
 #teste
-deletar_ing()
+#deletar_ing()
 
 def deletar_prato():
     print("****************************************************************************")
@@ -56,7 +56,7 @@ def deletar_fab():
     connection.close()
 
 #teste
-deletar_fab()
+#deletar_fab()
 
 def deletar_forn():
     print("****************************************************************************")
@@ -75,7 +75,7 @@ def deletar_forn():
     connection.close()
 
 #teste
-deletar_forn()
+#deletar_forn()
 
 def deletar_func():
     print("****************************************************************************")
@@ -94,7 +94,7 @@ def deletar_func():
     connection.close()
 
 #teste
-deletar_func()
+#deletar_func()
 
 def deletar_clientes():
     print("****************************************************************************")
@@ -113,7 +113,7 @@ def deletar_clientes():
     connection.close()
 
 #teste
-deletar_clientes()
+#deletar_clientes()
 
 def deletar_login():
     print("****************************************************************************")
@@ -132,7 +132,7 @@ def deletar_login():
     connection.close()
 
 #teste
-deletar_login()
+#deletar_login()
 
 def deletar_adm():
     print("****************************************************************************")
@@ -151,4 +151,4 @@ def deletar_adm():
     connection.close()
 
 #teste
-deletar_adm()
+#deletar_adm()

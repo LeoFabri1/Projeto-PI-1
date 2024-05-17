@@ -2,7 +2,7 @@ from BancodeDados.banco_de_dados import conectar_bd
 from BancodeDados.criptografia import cripto
 
 def cadastrar_ing():
-    print("****************************************************************************")
+    print("*********************************************************")
     print("Cadastro de Ingredientes")
     #pega os dados
     nome_ing = str(input("Digite o nome do ingrediente: "))
@@ -30,7 +30,7 @@ def cadastrar_ing():
 #cadastrar_ing()
 
 def cadastrar_prato():
-    print("****************************************************************************")
+    print("*********************************************************")
     print("Cadastro de Pratos")
     #pega os dados
     nome_prato = str(input("Digite o nome do prato: "))
@@ -60,8 +60,8 @@ def cadastrar_prato():
 #custo = 27
 
 def cadastrar_fab():
-    print("****************************************************************************")
-    print("Fabricante")
+    print("*********************************************************")
+    print("Cadastro de Fabricante")
     #pega os dados
     nome_fab = str(input("Digite o nome do fabricante: "))
     tel_fab = int(input("Digite o telefone do fabricante: "))
@@ -81,8 +81,8 @@ def cadastrar_fab():
 #cadastrar_fab()
 
 def cadastrar_forn():
-    print("****************************************************************************")
-    print("Fornecedor")
+    print("*********************************************************")
+    print("Cadastro de Fornecedor")
     #pega os dados
     nome_forn = str(input("Digite o nome do fornecedor: "))
     tel_forn = int(input("Digite o telefone do fornecedor: "))
@@ -101,8 +101,8 @@ def cadastrar_forn():
 #cadastrar_forn()
 
 def cadastrar_func():
-    print("****************************************************************************")
-    print("Funcionario")
+    print("*********************************************************")
+    print("Cadastro de Funcionário")
     #pega os dados
     nome_func = str(input("Digite o nome do funcionario: "))
     data_nasc_func = str(input("Digite a data de nascimento do funcionario: "))
@@ -141,12 +141,12 @@ def cadastrar_func():
 #cadastrar_func()
 
 def cadastrar_cliente():
-    print("****************************************************************************")
-    print("Usuário")
+    print("*********************************************************")
+    print("Cadastro de Cliente")
     #pega os dados
-    nome_cliente = str(input("Digite o nome de login do cliente: "))
-    email_cliente = str(input("Digite o email de login do cliente: "))
-    senha_cliente = str(input("Digite a senha de login do cliente: "))
+    nome_cliente = str(input("Digite seu nome: "))
+    email_cliente = str(input("Digite seu email: "))
+    senha_cliente = str(input("Digite sua senha: "))
 
     #senha cliente criptografada
     senha_cliente_cripto = cripto(senha_cliente)
@@ -167,7 +167,7 @@ def cadastrar_cliente():
 #adicionar adm
 def cadastrar_adm():
     print("****************************************************************************")
-    print("Administradores")
+    print("Cadastro de Administrador")
     #pega os dados
     id_func = int(input("Digite o id do funcionario a virar administrador: "))
     email_adm = str(input("Digite o email do administrador: "))
