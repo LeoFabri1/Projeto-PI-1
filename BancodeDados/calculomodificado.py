@@ -1,10 +1,12 @@
 from banco_de_dados import conectar_bd
 
-custo_fixo_porcentual = float(input("Digite o custo fixo/administrativo (%): "))
-comissao_vendas_porcentual = float(input("Digite a comissão de vendas (%): "))
-impostos_porcentual = float(input("Digite o imposto sobre a venda (%): "))
-margem_lucro = float(input("Digite a margem de lucro (%): "))
-#ao inves de margem de lucro, colocar preço venda (ai fica o preço que vc quer vender ao inves de ser em cima de margem de lucro)
+custofixo = 3050
+# Custo fixo = aluguel(1500)+salarios(1000)+serviços_publicos(300)+manutencao(200)+taxas_licenciamento_regulamentacao(50)
+
+comissao_vendas_porcentual = 5
+preco_venda=float(input("PREÇO DE VENDA DESEJADO: "))
+custo_produto=float(input("CUSTO DO PRODUTO: "))
+
 
 def obter_dados_produto():
     connection = conectar_bd()
@@ -33,55 +35,37 @@ def inserir_resultados(id_prato, preco_venda, total_despesas, valor_custo_fixo, 
 
 id_prato, nome_prato, desc_prato, custo_prato = obter_dados_produto()
 
-# total das despsas
-total_despesas = custo_fixo_porcentual + comissao_vendas_porcentual + impostos_porcentual + margem_lucro
 
-#preço de venda
-preco_venda = custo_prato / (1 - total_despesas / 100)
-
-# conversao valor do custo fixo em reais
-valor_custo_fixo = (custo_fixo_porcentual / 100) * preco_venda
-
-# conversao valor da comissão de vendas em reais
 comissao_vendas_reais = (comissao_vendas_porcentual / 100) * preco_venda
 
-# conversaa valor dos impostos em reais
-impostos_reais = (impostos_porcentual / 100) * preco_venda
+custo_fixo_prato= custofixo/225
+#aqui, supoe-se que venda 15 pratos de cada tipo dos 15 pratos presentes no cardapio ate o momento, logo 225 pratos vendidos por dia
 
-#receita bruta
-receita_bruta = preco_venda - custo_prato
+imposto = 0.1*preco_venda 
 
-#outros custos
-outros_custos = valor_custo_fixo + comissao_vendas_reais + impostos_reais
+outros_custos=comissao_vendas_reais+custo_fixo_prato+imposto+custo_produto
 
-#rentabilidade
-rentabilidade = receita_bruta - outros_custos
+lucro = preco_venda-outros_custos
+
+margem = lucro/100*custo_produto
 
 # classificação do lucro
-if rentabilidade > preco_venda * 0.20:
+if margem > 20:
     classificacao_lucro = "Alto"
-elif rentabilidade > preco_venda * 0.10:
+elif margem > 10:
     classificacao_lucro = "Lucro médio"
-elif rentabilidade > 0:
+elif margem > 0:
     classificacao_lucro = "Lucro baixo"
 else:
     classificacao_lucro = "Prejuízo"
 
 
-#resultados
-print("\nResultado do cadastro:")
-print("Código do produto:", id_prato)
-print("Nome do produto:", nome_prato)
-print("Descrição do produto:", desc_prato)
-
-#tbl de resultados
-print("\nTabela de Resultados:")
-print(f"A. Preço de Venda: {preco_venda:.2f} ({(preco_venda / preco_venda) * 100:.2f}%)")
-print(f"B. Custo de Aquisição (Fornecedor): {custo_prato:.2f} ({(id_prato / preco_venda) * 100:.2f}%)")
-print(f"C. Receita Bruta (A-B): {receita_bruta:.2f} ({(receita_bruta / preco_venda) * 100:.2f}%)")
-print(f"D. Custo Fixo/Administrativo: {valor_custo_fixo:.2f} ({(valor_custo_fixo / preco_venda) * 100:.2f}%)")
-print(f"E. Comissão de Vendas: {comissao_vendas_reais:.2f} ({(comissao_vendas_reais / preco_venda) * 100:.2f}%)")
-print(f"F. Impostos: {impostos_reais:.2f} ({(impostos_reais / preco_venda) * 100:.2f}%)")
-print(f"G. Outros custos (D+E+F): {outros_custos:.2f} ({(outros_custos / preco_venda) * 100:.2f}%)")
-print(f"H. Rentabilidade (C-G): {rentabilidade:.2f} ({(rentabilidade / preco_venda) * 100:.2f}%)")
-print("Classificação do lucro:", classificacao_lucro)
+print("\n    ****** Tabela de Resultados ******\n")
+print("+---------------------------------------+")
+print("|  Preço de Venda: {:.2f}              |".format(preco_venda))
+print("|  Comissão de Vendas: {:.2f}            |".format(comissao_vendas_reais))
+print("|  Impostos: {:.2f}                     |".format(imposto))
+print("|  Outros Custos: {:.2f}                |".format(outros_custos))
+print("|  Margem de Lucro: {:.2f}              |".format(margem))
+print("|  Classificação do Lucro: {} |".format(classificacao_lucro))
+print("+---------------------------------------+")
