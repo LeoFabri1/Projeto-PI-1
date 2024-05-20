@@ -30,7 +30,7 @@ def alterar_ing():
         UPDATE Ingredientes 
         SET id_ing = :novo_id, nome_ing = :novo_nome, preco_ing = :novo_preco,
         fornecedor = :novo_forn, fabricante = :novo_fab, quant_min = :novo_min,
-        quant_max = :novo_max, quant_est = :novo_est, categoria = :nova_categoria
+        quant_max = :novo_max, quant_est = :novo_est, categoria = :nova_categoria,
         data_fab = :novo_data_fab, data_val = :novo_data_val 
         WHERE id_ing = :id_ing_alt
     ''', {'novo_id': novo_id, 'novo_nome': novo_nome, 'novo_preco': novo_preco, 
@@ -266,3 +266,5 @@ def alterar_adm():
 
 #teste
 #alterar_adm()
+
+alterar_ing()

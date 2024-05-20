@@ -71,3 +71,5 @@ def login_adm(senha, usuario):
                     return funcao_login()
     except ValueError as error:
         print("Erro ao verificar login:", error)
+
+

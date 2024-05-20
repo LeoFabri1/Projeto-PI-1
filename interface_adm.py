@@ -3,6 +3,7 @@ from interface_restaurante import menu_adm
 from Alterar import alterar_login, alterar_ing, alterar_cliente, alterar_prato, alterar_fab, alterar_forn, alterar_func, alterar_adm
 from Excluir import deletar_clientes, deletar_prato, deletar_fab, deletar_forn, deletar_func, deletar_login, deletar_ing, deletar_adm
 from Listar import listar_login, listar_adm, listar_clientes, listar_fab, listar_forn, listar_func, listar_ing, listar_prato
+from Relatorios import gerar_relatorio_vendas, validar_data
 
 def menu_adm_cadastro():
   print("*********************************************************")
@@ -153,5 +154,30 @@ def menu_adm_listo():
     elif opcao == 9:
       menu_adm()
 
-def menu_adm_relatorio():
-  print("Relatórios")
+
+#menu para o relatorio de vendas que esta no arquivo relatorios
+def menu():
+  while True:
+    opcao=input("Deseja gerar o relatorio de vendas? (s/n): ")
+    if opcao.lower()=='s':
+      while True:
+        data_venda=input("Digite a data que deseja acessar ao relatorio no formato AAAA-MM-DD: ")
+        if validar_data(data_venda):
+          gerar_relatorio_vendas(data_venda)
+          break
+        else:
+        
+          print("Formato de data invalido. pOR favor, digite a data no formato AAAA-MM-DD.")
+    elif opcao.lower()=='n':
+      print("Operaçao cancelada.")
+      break
+    else:
+      print("Opçao invalida. Por favor digite 's' para sim ou 'n' para nao")
+
+
+#menu()
+
+
+           
+
+
