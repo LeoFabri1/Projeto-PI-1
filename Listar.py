@@ -9,7 +9,7 @@ def listar_ing():
     connection = conectar_bd()
     cursor = connection.cursor()
 
-    cursor.execute('SELECT * from Ingredientes')
+    cursor.execute('SELECT * from Ingredientes ORDER BY id_ing')
 
     resultados = cursor.fetchall()
 
@@ -30,7 +30,7 @@ def listar_ing():
     connection.close()
 
 #teste
-#listar_ing()
+listar_ing()
 
 def listar_prato():
     print("****************************************************************************")
@@ -40,7 +40,7 @@ def listar_prato():
     connection = conectar_bd()
     cursor = connection.cursor()
 
-    cursor.execute('SELECT * from Pratos')
+    cursor.execute('SELECT * from Pratos ORDER BY id_prato')
 
     resultados = cursor.fetchall()
 
@@ -66,7 +66,7 @@ def listar_fab():
     connection = conectar_bd()
     cursor = connection.cursor()
 
-    cursor.execute('SELECT * from Fabricantes')
+    cursor.execute('SELECT * from Fabricantes ORDER BY id_fab')
     resultados = cursor.fetchall()
 
     for fab in resultados:
@@ -89,7 +89,7 @@ def listar_forn():
     connection = conectar_bd()
     cursor = connection.cursor()
 
-    cursor.execute('SELECT * from Fornecedores')
+    cursor.execute('SELECT * from Fornecedores ORDER BY id_forn')
     resultados = cursor.fetchall()
 
     for forn in resultados:
@@ -112,7 +112,7 @@ def listar_func():
     connection = conectar_bd()
     cursor = connection.cursor()
 
-    cursor.execute('SELECT * from Funcionarios')
+    cursor.execute('SELECT * from Funcionarios ORDER BY id_func')
     resultados = cursor.fetchall()
 
     for func in resultados:
@@ -137,7 +137,7 @@ def listar_login():
     connection = conectar_bd()
     cursor = connection.cursor()
 
-    cursor.execute('SELECT * from Login_Func')
+    cursor.execute('SELECT * from Login_Func ORDER BY id_login')
     resultados = cursor.fetchall()
 
     for func in resultados:
@@ -161,7 +161,7 @@ def listar_clientes():
     connection = conectar_bd()
     cursor = connection.cursor()
 
-    cursor.execute('SELECT * from Login_Clientes')
+    cursor.execute('SELECT * from Login_Clientes ORDER BY id_cliente')
     resultados = cursor.fetchall()
 
     for cli in resultados:
@@ -185,7 +185,7 @@ def listar_adm():
     connection = conectar_bd()
     cursor = connection.cursor()
 
-    cursor.execute('SELECT * from Login_ADM')
+    cursor.execute('SELECT * from Login_ADM ORDER BY id_adm')
     resultados = cursor.fetchall()
 
     for adm in resultados:
