@@ -32,16 +32,16 @@ def cadastrar_ing():
 def cadastrar_prato():
     print("*********************************************************")
     print("Cadastro de Pratos")
-    #pega os dados
+    # Pega os dados
     nome_prato = str(input("Digite o nome do prato: "))
     desc_prato = str(input("Digite a descrição do prato: "))
     categoria_prato = str(input("Digite a categoria do prato: "))
     custo_prato = float(input("Digite o custo do prato: "))
 
-    #criptografa a descrição do prato
+    # Criptografa a descrição do prato
     desc_prato_cripto = cripto(desc_prato)
 
-    #adiciona ao banco
+    # Adiciona ao banco
     connection = conectar_bd()
     cursor = connection.cursor()
 
@@ -51,6 +51,102 @@ def cadastrar_prato():
     connection.commit()
     connection.close()
 
+    # Obtém o ID do prato cadastrado
+    connection = conectar_bd()
+    cursor = connection.cursor()
+
+    cursor.execute('SELECT id_prato FROM Pratos WHERE nome_prato = :1 AND desc_prato = :2 AND categoria = :3 AND custo_prato = :4', (nome_prato, desc_prato_cripto, categoria_prato, custo_prato))
+    id_prato = cursor.fetchone()[0]
+
+    connection.close()
+
+    calcular_margem(id_prato, custo_prato)
+
+
+def calcular_margem(id_prato, custo_produto):
+    # Custos fixos
+    custo_fixo = 3050
+
+    # Preço de venda
+    preco_venda = float(input("PREÇO DE VENDA DESEJADO: "))
+
+    # Cálculo específico para este produto
+    custo_fixo_prato = custo_fixo / 225
+    imposto = 0.1 * preco_venda
+    outros_custos = custo_fixo_prato + imposto + custo_produto
+    lucro = preco_venda - outros_custos
+    margem = (lucro / preco_venda) * 100
+
+    # Classificação do lucro
+    if margem > 20:
+        classificacao_lucro = "Alto"
+    elif margem > 10:
+        classificacao_lucro = "Lucro médio"
+    elif margem > 0:
+        classificacao_lucro = "Lucro baixo"
+    else:
+        classificacao_lucro = "Prejuízo"
+
+    inserir_resultados(id_prato, preco_venda, custo_fixo_prato, imposto, margem)
+    exibir_tabela_resultados(preco_venda, imposto, outros_custos, margem, classificacao_lucro)
+
+
+# Funções adicionais para manipulação do banco de dados e exibição dos resultados
+def obter_dados_produto():
+    connection = conectar_bd()
+    cursor = connection.cursor()
+
+    cursor.execute('SELECT id_prato, nome_prato, desc_prato, custo_prato FROM Pratos')
+    rows = cursor.fetchall()
+
+    cursor.close()
+    connection.close()
+
+    return rows
+
+def inserir_resultados(id_prato, preco_venda, custo_fixo, imposto, margem):
+    connection = conectar_bd()
+    cursor = connection.cursor()
+
+    # Inserir na tabela
+    cursor.execute('UPDATE Pratos SET preco_venda = :1, custo_fixo = :2, impostos = :3, margem_lucro = :4 WHERE id_prato = :5', (preco_venda, custo_fixo, imposto, margem, id_prato))
+
+    # Commit da transação
+    connection.commit()
+
+    cursor.close()
+    connection.close()
+
+def exibir_tabela_resultados(preco_venda, imposto, outros_custos, margem, classificacao_lucro):
+    # Dicionário de cores para classificação de lucro
+    cores = {
+        "Alto": "\033[92m",  # Verde
+        "Lucro médio": "\033[93m",  # Amarelo
+        "Lucro baixo": "\033[91m",  # Vermelho
+        "Prejuízo": "\033[91m"  # Vermelho
+    }
+
+    # Reseta a cor após o texto ser exibido
+    reset_cor = "\033[0m"
+
+    print("\n    ****** Tabela de Resultados ******\n")
+    print("+-------------------------------------------------+")
+    print("| {:<15} | {:<13} | {:<11} |".format("Preço de Venda", "Impostos", "Outros Custos"))
+    print("+-------------------------------------------------+")
+    print("| R$ {:<12.2f} | R$ {:<10.2f} | R$ {:<10.2f} |".format(preco_venda, imposto, outros_custos))
+    print("+-------------------------------------------------+")
+    print("| {:<47} |".format("            Margem de Lucro"))
+    print("+-------------------------------------------------+")
+    print("| {:<45.1f}%  |".format(margem))
+    print("+-------------------------------------------------+")
+    print("| {:<47} |".format("           Classificação do Lucro"))
+    print("+-------------------------------------------------+")
+    print("| {:<56} |".format(cores.get(classificacao_lucro, "") + classificacao_lucro + reset_cor))
+    print("+-------------------------------------------------+")
+
+
+#teste
+cadastrar_prato()
 #teste
 #cadastrar_prato()
 #id = 2

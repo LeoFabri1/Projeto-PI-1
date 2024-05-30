@@ -1,24 +1,41 @@
 from BancodeDados.banco_de_dados import conectar_bd
 import datetime
-# adicinar o id prato na tabela de pagamentos e coloca-la como foreign key para poder relcionar no relatorio de vendas
+
 def gerar_relatorio_vendas(data_venda):
     try:
-        
         connection = conectar_bd()
         cursor = connection.cursor()
-        cursor.execute("SELECT p.nome_prato, pa.data_pagamento, pa.valor_pagamento FROM pratos p JOIN pagamentos pa ON pa.id_prato = p.id_prato WHERE pa.data_pagamento = :data_venda",{'data_venda' : data_venda})
+        cursor.execute("""
+            SELECT TO_CHAR(pa.data_pagamento, 'YYYY-MM-DD') as data_pagamento, 
+                   p.nome_prato, 
+                   pa.valor_pagamento 
+            FROM pratos p 
+            JOIN pagamentos pa ON pa.id_prato = p.id_prato 
+            WHERE pa.data_pagamento = TO_DATE(:data_venda, 'YYYY-MM-DD')
+            """, {'data_venda': data_venda})
         vendas = cursor.fetchall()
+        
         cursor.close()
         connection.close()
 
-        print("Relatório de Vendas - Data: ",data_venda)
-        print("Data | Prato | Valor  | ")
+        # Adicionando depuração para verificar os dados recuperados
+        print(f"Dados recuperados para a data {data_venda}: {vendas}")
+
+        if not vendas:
+            print(f"\nNão há lançamentos de vendas para a data: {data_venda}\n")
+            return
+
+        # Exibindo o relatório
+        print(f"\nRelatório de Vendas - Data: {data_venda}\n")
         for venda in vendas:
-            print(*venda, sep=" | ")
+            print(f"Data: {venda[0]}, Prato: {venda[1]}, Valor: {venda[2]}")
+
+        # Calculando o total das vendas
+        total_vendas = sum(venda[2] for venda in vendas)
+        print(f"\nTotal de vendas: {total_vendas}")
+
     except Exception as e:
-        print("Erro ao gerar relatório de vendas:", e)
-
-
+        print("\nErro ao gerar relatório de vendas:\n", e)
 
 def validar_data(data):
     try:
@@ -27,9 +44,8 @@ def validar_data(data):
     except ValueError:
         return False
 
-
-
-data_venda=input("Digite a data que deseja acesso ao relatorio no formato AAAA-MM-DD: ")
-gerar_relatorio_vendas(data_venda)
-       
-
+data = input("Qual a data? \n")
+if validar_data(data):
+    gerar_relatorio_vendas(data)
+else:
+    print("Data inválida. Por favor, insira a data no formato YYYY-MM-DD.\n")
