@@ -1,6 +1,7 @@
 from BancodeDados.banco_de_dados import conectar_bd
 import datetime
-
+from tabulate import tabulate
+# pip install tabulate
 def gerar_relatorio_vendas(data_venda):
     try:
         connection = conectar_bd()
@@ -25,15 +26,18 @@ def gerar_relatorio_vendas(data_venda):
             print(f"\nNão há lançamentos de vendas para a data: {data_venda}\n")
             return
 
-        # Exibindo o relatório
-        print(f"\nRelatório de Vendas - Data: {data_venda}\n")
-        for venda in vendas:
-            print(f"Data: {venda[0]}, Prato: {venda[1]}, Valor: {venda[2]}")
-
+        # Definindo cabeçalho e linhas
+        headers = ["Data", "Prato", "Valor"]
+        
         # Calculando o total das vendas
         total_vendas = sum(venda[2] for venda in vendas)
-        print(f"\nTotal de vendas: {total_vendas}")
 
+        # Adicionando uma linha para o total na tabela
+        vendas.append(("Total", "", total_vendas))
+
+        # Exibindo o relatório
+        print(f"\nRelatório de Vendas - Data: {data_venda}\n")
+        print(tabulate(vendas, headers=headers, tablefmt="grid"))
     except Exception as e:
         print("\nErro ao gerar relatório de vendas:\n", e)
 

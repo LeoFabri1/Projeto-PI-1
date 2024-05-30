@@ -44,6 +44,7 @@ instalar extensão python
 python -m pip install oracledb --upgrade
 pip install bmatrix
 pip install numpy
+pip install tabulate
 
 ## Status do Projeto
 
