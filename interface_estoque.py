@@ -1,5 +1,6 @@
 from Cadastrar import cadastrar_ing, cadastrar_prato, cadastrar_fab, cadastrar_forn, cadastrar_func, cadastrar_cliente, cadastrar_adm
 from interface_restaurante import cardapio_adm
+from BancodeDados.banco_de_dados import conectar_bd
 from Alterar import alterar_clientes, alterar_prato, alterar_fab, alterar_forn, alterar_func, alterar_adm
 from Excluir import deletar_clientes, deletar_prato, deletar_fab, deletar_forn, deletar_func, deletar_login, deletar_ing, deletar_adm
 from Listar import listar_login, listar_adm, listar_clientes, listar_fab, listar_forn, listar_func, listar_ing, listar_prato
@@ -51,16 +52,29 @@ def estoque():
     print("|    |                |        |                |        |")
     print("Estoque de Ingredientes")
     print("")
-    print("10kg Carne Moida")
-    print("10kg Rabanete Coreano")
-    print("10kg Espinafre")
-    print("10kg Brotos Feijao Mungo")
-    print("10kg Cenoura")
-    print("10kg Abobrinha")
-    print("10kg Cogumelos shitake")
-    print("10kg Arroz de Sushi")
-    print("100 ovos")
-    print("**********************************************************")
+    connection = conectar_bd()
+    cursor = connection.cursor()
+
+    nome_tabela = "INGREDIENTES"
+
+    query = f"SELECT ID_ING, NOME_ING, PRECO_ING, FORNECEDOR, FABRICANTE, QUANT_EST, CATEGORIA, DATA_FAB, DATA_VAL FROM {nome_tabela}"
+
+    cursor.execute(query)
+
+    for row in cursor:
+        id_ing, nome_ing, preco_ing, fornecedor, fabricante, quant_est, categoria, data_fab, data_val = row
+        print(f"INGREDIENTE: {id_ing}")
+        print(f"Fornecedor: {fornecedor}")
+        print(f"Fabricante: {fabricante} Fabricado em {data_fab.strftime('%d/%m/%Y')}")
+        print(f"Categoria do produto: {categoria}")
+        print(f"{quant_est}kg {nome_ing}: Preço Por KG: R${preco_ing}")
+        print(f"Vencimento do Lote: {data_val.strftime('%d/%m/%Y')}")
+        print("")
+        print("**********************************************************")
+
+    cursor.close()
+    connection.close()
+
 
 
 
