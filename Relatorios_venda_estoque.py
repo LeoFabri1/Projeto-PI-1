@@ -2,6 +2,30 @@ from BancodeDados.banco_de_dados import conectar_bd
 import datetime
 from tabulate import tabulate
 # pip install tabulate
+
+def consultar_estoque():
+    try:
+        connection = conectar_bd()
+        cursor = connection.cursor()
+        cursor.execute("""
+            SELECT id_ing, nome_ing, quant_est, data_fab, data_val
+            FROM Ingredientes
+            """)
+        estoque = cursor.fetchall()
+        
+        cursor.close()
+        connection.close()
+
+        # Adicionando depuração para verificar os dados recuperados
+        print("\nDados recuperados do estoque:\n\n")
+        print(tabulate(estoque, headers=["ID", "Nome", "Quantidade", "Data de Fabricação", "Data de Validade"], tablefmt="grid"))
+        
+    except Exception as e:
+        print("\nErro ao consultar o estoque:\n", e)
+
+# Chamando a função para consultar o estoque
+consultar_estoque()
+
 def gerar_relatorio_vendas(data_venda):
     try:
         connection = conectar_bd()
@@ -19,8 +43,7 @@ def gerar_relatorio_vendas(data_venda):
         cursor.close()
         connection.close()
 
-        # Adicionando depuração para verificar os dados recuperados
-        print(f"Dados recuperados para a data {data_venda}: {vendas}")
+        
 
         if not vendas:
             print(f"\nNão há lançamentos de vendas para a data: {data_venda}\n")
@@ -48,7 +71,7 @@ def validar_data(data):
     except ValueError:
         return False
 
-data = input("Qual a data? \n")
+data = input("\n\nQual a data a ser consultada?\nDigite no formato YYYY-MM-DD: ")
 if validar_data(data):
     gerar_relatorio_vendas(data)
 else:

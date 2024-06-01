@@ -37,7 +37,7 @@ def deletar_prato():
     connection.close()
 
 #teste
-#deletar_prato()
+deletar_prato()
 
 def deletar_fab():
     print("****************************************************************************")

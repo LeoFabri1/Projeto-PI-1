@@ -146,7 +146,7 @@ def exibir_tabela_resultados(preco_venda, imposto, outros_custos, margem, classi
 
 
 #teste
-#cadastrar_prato()
+cadastrar_prato()
 #teste
 #cadastrar_prato()
 #id = 2
@@ -269,7 +269,7 @@ def cadastrar_cliente():
 
 
 #teste
-#cadastrar_cliente()
+# cadastrar_cliente()
 
 #adicionar adm
 def cadastrar_adm():
