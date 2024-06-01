@@ -146,7 +146,7 @@ def exibir_tabela_resultados(preco_venda, imposto, outros_custos, margem, classi
 
 
 #teste
-cadastrar_prato()
+#cadastrar_prato()
 #teste
 #cadastrar_prato()
 #id = 2
@@ -236,26 +236,37 @@ def cadastrar_func():
 #teste
 #cadastrar_func()
 
+#cadastro cliente
 def cadastrar_cliente():
     print("*********************************************************")
-    print("Cadastro de Cliente")
-    #pega os dados
+    print("                   JungKooking Food                      ")
+    print("|    |                 |         |                |     |")
+    print("|HOME|                 |SOBRE NÓS|                |LOGIN|")
+    print("|    |                 |         |                |     |")
+    print("                                                         ")
+    print("                 Cadastro de Cliente                     ")
+    print("")
+    print("Nome:                                                    ")
+    print("Email:                                                   ")
+    print("Senha:                                                   ")
+    print("*********************************************************")
     nome_cliente = str(input("Digite seu nome: "))
     email_cliente = str(input("Digite seu email: "))
     senha_cliente = str(input("Digite sua senha: "))
+    senha_ver = str(input("Digite sua senha mais uma vez: "))
+    if senha_cliente != senha_ver:
+        print("Senhas nao batem, digite suas informacoes novamente.")
+        return cadastrar_cliente()
+    else:
+        senha_cripto = cripto(senha_cliente)
+        connection = conectar_bd()
+        cursor = connection.cursor()
+        cursor.execute('INSERT INTO login_cliente (id_cliente, nome_cliente, email_cliente, senha_cliente) VALUES (seq_id_cliente.NEXTVAL, :1, :2, :3)', (nome_cliente, email_cliente, senha_cripto))
+        print("Cliente Cadastrado com sucesso!")
 
-    #senha cliente criptografada
-    senha_cliente_cripto = cripto(senha_cliente)
+        connection.commit()
+        connection.close()
 
-    #adiciona ao banco
-    connection = conectar_bd()
-    cursor = connection.cursor()
-
-    cursor.execute('INSERT INTO Login_Clientes (id_cliente, nome_cliente, email_cliente, senha_cliente) VALUES (seq_id_cliente.NEXTVAL, :1, :2, :3)', (nome_cliente, email_cliente, senha_cliente_cripto))
-    print("Cadastrado com sucesso!")
-
-    connection.commit()
-    connection.close()
 
 #teste
 #cadastrar_cliente()
@@ -284,3 +295,4 @@ def cadastrar_adm():
 
 #teste
 #cadastrar_adm()
+

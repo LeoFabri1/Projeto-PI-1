@@ -1,5 +1,5 @@
 from BancodeDados.banco_de_dados import conectar_bd
-from Listar import listar_login, listar_ing, listar_prato, listar_forn, listar_fab, listar_func, listar_adm, listar_clientes
+from Listar import listar_login, listar_ing, listar_prato_adm, listar_forn, listar_fab, listar_func, listar_adm, listar_clientes
 
 def deletar_ing():
     print("****************************************************************************")
@@ -23,7 +23,7 @@ def deletar_ing():
 def deletar_prato():
     print("****************************************************************************")
     print("Pratos")
-    listar_prato()
+    listar_prato_adm()
 
     id_prato_del = input("Digite o id do prato que deseja deletar: ")
 

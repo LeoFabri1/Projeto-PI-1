@@ -1,13 +1,13 @@
-import interface_restaurante
+from interface_restaurante import home, login
 import codigo_login
 from Cadastrar import cadastrar_cliente
 
-interface_restaurante.home()
+home()
 def funcao_login():
     try: 
         opcao = int(input("Digite a opção desejada: "))
         if opcao == 1:
-            interface_restaurante.login()
+            login()
             usuario=str(input("\nDigite o email do usuário: "))
             if not usuario:
                 raise ValueError("Erro Usuario")
@@ -18,10 +18,9 @@ def funcao_login():
                 
             return codigo_login.login_adm(senha, usuario)
         elif opcao == 2:
-            interface_restaurante.cliente()
             cadastrar_cliente()
         else:
-            interface_restaurante.home()
+            home()
 
     except ValueError as error:
         if str(error) == "Erro Usuario":

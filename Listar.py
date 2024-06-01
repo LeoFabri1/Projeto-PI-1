@@ -30,9 +30,9 @@ def listar_ing():
     connection.close()
 
 #teste
-listar_ing()
+#listar_ing()
 
-def listar_prato():
+def listar_prato_adm():
     print("****************************************************************************")
     print("Pratos")
 
@@ -55,8 +55,6 @@ def listar_prato():
     cursor.close()
     connection.close()
 
-#teste
-#listar_prato()
 
 def listar_fab():
     print("****************************************************************************")

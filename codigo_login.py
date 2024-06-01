@@ -4,14 +4,13 @@ from interface_func import menu_func
 from interface_cliente import menu_cliente
 from menu_login import funcao_login
 from BancodeDados.criptografia import descripto
-
 def login_adm(senha, usuario):
     try:
         email = usuario
         connection = conectar_bd()
         #verifica se é adm
         cursor = connection.cursor()
-        cursor.executecursor.execute('SELECT senha_adm FROM Login_ADM login WHERE email_adm = :email', {'email': email})
+        cursor.execute('SELECT senha_adm FROM Login_ADM login WHERE email_adm = :email', {'email': email})
         resultadoadm = cursor.fetchone()
         #verifica se tem no banco
         if resultadoadm:
@@ -47,14 +46,15 @@ def login_adm(senha, usuario):
                     return funcao_login()
             else:
                 #verifica se é cliente
-                cursor.execute('SELECT senha_cliente FROM Login_Clientes WHERE email_cliente = :email', {'email': email})
+                cursor.execute('SELECT senha_cliente, nome_cliente FROM LOGIN_CLIENTE WHERE email_cliente = :email', {'email': email})
                 resultadocliente = cursor.fetchone()
                 #verifica se tem no banco
                 if resultadocliente:
                     senha_cli = descripto(resultadocliente[0])
+                    nome_cliente = resultadocliente[1]
                     #verifica se senha está correta
                     if senha == senha_cli:
-                        print("Login de cliente bem-sucedido!")
+                        print(f"Login bem-sucedido! Bem-vindo, {nome_cliente}")
                         cursor.close()
                         connection.close()
                         return menu_cliente()
@@ -71,5 +71,3 @@ def login_adm(senha, usuario):
                     return funcao_login()
     except ValueError as error:
         print("Erro ao verificar login:", error)
-
-

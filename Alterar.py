@@ -1,6 +1,6 @@
 from BancodeDados.banco_de_dados import conectar_bd
 from BancodeDados.criptografia import cripto
-from Listar import listar_login, listar_prato, listar_forn, listar_fab, listar_func, listar_adm, listar_clientes, listar_ing
+from Listar import listar_login, listar_prato_adm, listar_forn, listar_fab, listar_func, listar_adm, listar_clientes, listar_ing
 
 def alterar_ing():
     print("*********************************************************")
@@ -49,7 +49,7 @@ def alterar_ing():
 def alterar_prato():
     print("****************************************************************************")
     print("Pratos")
-    listar_prato()
+    listar_prato_adm()
 
     id_prato_alt = int(input("Digite o id do prato que deseja alterar: "))
 
