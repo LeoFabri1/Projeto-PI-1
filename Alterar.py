@@ -267,4 +267,4 @@ def alterar_adm():
 #teste
 #alterar_adm()
 
-alterar_ing()
+#alterar_ing()

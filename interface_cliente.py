@@ -73,4 +73,4 @@ def listar_prato_cliente():
     connection.close()
     escolher_prato()
 
-listar_prato_cliente()
+#listar_prato_cliente()
