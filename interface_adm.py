@@ -4,9 +4,9 @@ from Excluir import deletar_clientes, deletar_prato, deletar_fab, deletar_forn, 
 from Listar import listar_login, listar_adm, listar_clientes, listar_fab, listar_forn, listar_func, listar_ing, listar_prato_adm
 from Relatorios import gerar_relatorio_vendas, validar_data
 from logs import print_logs_auditoria, print_logs_acesso
-from interface_restaurante import home
 
 def menu_adm():
+    from interface_restaurante import home
     """INTERFACE MENU ADMINISTRADOR
     
     RETORNA:
@@ -48,7 +48,7 @@ def menu_adm():
       elif opcao == "7" or opcao == "Home":
         home()
       else:
-        print("Opcao inexistente")
+        print("Opção inexistente.")
         continue
 
 def menu_adm_cadastro():
@@ -101,7 +101,7 @@ def menu_adm_cadastro():
     elif opcao == "8":
       menu_adm()
     else:
-      print("Opcao inexistente")
+      print("Opção inexistente.")
       continue
 
 def menu_adm_altero():
@@ -159,7 +159,7 @@ def menu_adm_altero():
     elif opcao == "9":
       menu_adm()
     else:
-      print("Opcao inexistente")
+      print("Opção inexistente.")
       continue
 
 def menu_adm_deleto():
@@ -216,7 +216,7 @@ def menu_adm_deleto():
     elif opcao == "9":
       menu_adm()
     else:
-      print("Opcao inexistente")
+      print("Opção inexistente.")
       continue
 
 def menu_adm_listo():
@@ -273,7 +273,7 @@ def menu_adm_listo():
     elif opcao == "9":
       menu_adm()
     else:
-      print("Opcao inexistente")
+      print("Opção inexistente.")
       continue
 
 #menu para o relatorio de vendas que esta no arquivo relatorios
@@ -307,7 +307,7 @@ def menu_adm_relatorio():
       print("Operaçao cancelada.")
       break
     else:
-      print("Opçao invalida. Por favor digite 's' para sim ou 'n' para nao")
+      print("Opção inválida. Por favor digite 's' para sim ou 'n' para nao")
 
 def ger_logs():
 
