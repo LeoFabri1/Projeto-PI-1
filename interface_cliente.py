@@ -1,5 +1,6 @@
 from BancodeDados.criptografia import descripto
 from BancodeDados.banco_de_dados import conectar_bd
+from logs import log_compra
 def menu_cliente():
     print("*********************************************************")
     print("                   JungKooking Food                      ")
@@ -60,7 +61,6 @@ def pagamento(prato, preco):
     
     celular = int(input("Digite aqui seu numero de celular: "))
     endereco = str(input("Digite aqui o endereco de entrega: "))
-    data = input(str("Data Pagamento (AAAA-MM-DD): "))
     preco_prato = int(preco)
     nome_prato = prato
     pgto = str(input("Digite a forma de pagamento acima desejada (Pix ou Cartao): "))
@@ -70,10 +70,13 @@ def pagamento(prato, preco):
         connection = conectar_bd()
         cursor = connection.cursor()
 
-        cursor.execute('INSERT INTO Pagamentos (id_pagamento, celular_cliente, data_pagamento, valor_pagamento, tipo_pagamento, prato_vendido) VALUES (seq_id_pag.NEXTVAL, :1, :2, :3, :4, :5)', (celular, data, preco_prato, pgto, nome_prato))
-        
+        cursor.execute('INSERT INTO Pagamentos (id_pagamento, celular_cliente, data_pagamento, valor_pagamento, tipo_pagamento, prato_vendido, endereco_entrega) VALUES (seq_id_pag.NEXTVAL, :1, SYSTIMESTAMP, :2, :3, :4, :5)', (celular, preco_prato, pgto, nome_prato, endereco))
+        connection.commit()
+
         cursor.close()
         connection.close()
+
+        log_compra(connection, celular, preco_prato, pgto, nome_prato, endereco)
     else:
         print("Forma de pagamento inválida. Por favor, escolha entre Pix ou Cartao.")
 

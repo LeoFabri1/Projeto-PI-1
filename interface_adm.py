@@ -3,7 +3,7 @@ from Alterar import alterar_login, alterar_ing, alterar_cliente, alterar_prato, 
 from Excluir import deletar_clientes, deletar_prato, deletar_fab, deletar_forn, deletar_func, deletar_login, deletar_ing, deletar_adm
 from Listar import listar_login, listar_adm, listar_clientes, listar_fab, listar_forn, listar_func, listar_ing, listar_prato_adm
 from Relatorios import gerar_relatorio_vendas, validar_data
-from logs import print_logs_auditoria, print_logs_acesso
+from logs import print_logs_auditoria, print_logs_acesso, print_logs_compras
 
 def menu_adm():
     from interface_restaurante import home
@@ -325,7 +325,8 @@ def ger_logs():
     print("")
     print("               |   1-Log De Auditoria   |")
     print("               |    2-Log De Acessos    |")
-    print("               |  3-Menu Administrador  |")
+    print("               |     3-Log de Compras   |")
+    print("               |  4-Menu Administrador  |")
     print("**********************************************************")
     opcao=str(input("Escolha a opção desejada: "))
     op = opcao.upper()
@@ -334,5 +335,7 @@ def ger_logs():
         print_logs_auditoria()
     elif opcao == "2" or op == "ACESSOS" or op == "LOG ACESSOS" or op == "LOG DE ACESSOS":
         print_logs_acesso()
-    elif opcao == "3" or op == "MENU" or op == "SAIR":
+    elif opcao == "3" or op == "COMPRAS" or op == "LOG COMPRAS" or op == "LOG DE COMPRAS":
+        print_logs_compras()
+    elif opcao == "4" or op == "MENU" or op == "SAIR":
         menu_adm()
