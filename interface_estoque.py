@@ -50,4 +50,3 @@ def estoque():
     print("Estoque de Ingredientes")
     print("")
     listar_ing()
-

@@ -5,7 +5,7 @@ from Listar import listar_login, listar_prato_adm, listar_forn, listar_fab, list
 def alterar_ing():
     print("*********************************************************")
     print("Alterar dados - Ingredientes")
-    listar_ing()
+    listar_ing()#lista ingredientes para escolher qual alterar
 
     id_ing_alt = int(input("Digite o id do ingrediente que deseja alterar: "))
 
@@ -23,9 +23,10 @@ def alterar_ing():
     novo_data_val = input("Nova data validade do ingrediente: ")
 
     #adiciona ao banco
-    connection = conectar_bd()
+    connection = conectar_bd()#conecta no banco
     cursor = connection.cursor()
 
+    #altera todos os dados do ingrediente escolhido
     cursor.execute('''
         UPDATE Ingredientes 
         SET id_ing = :novo_id, nome_ing = :novo_nome, preco_ing = :novo_preco,
@@ -40,16 +41,13 @@ def alterar_ing():
 
     print("Alterado com sucesso!")
 
-    connection.commit()
-    connection.close()
-
-#teste
-#alterar_ing()
+    connection.commit()#salva alterações
+    connection.close()#fecha conecxão
 
 def alterar_prato():
     print("****************************************************************************")
     print("Pratos")
-    listar_prato_adm()
+    listar_prato_adm()#lista pratos para escolher qual alterar
 
     id_prato_alt = int(input("Digite o id do prato que deseja alterar: "))
 
@@ -62,9 +60,10 @@ def alterar_prato():
     novo_custo = float(input("Novo preço do prato: "))
 
     #alterar dados no banco de dados
-    connection = conectar_bd()
+    connection = conectar_bd()#conecta no banco
     cursor = connection.cursor()
 
+    #altera todos os dados do prato escolhido
     cursor.execute('''
         UPDATE Pratos 
         SET id_prato = :novo_id, nome_prato = :novo_nome, desc_prato = :nova_descricao, categoria = :nova_categoria, custo_prato = :novo_custo 
@@ -73,16 +72,13 @@ def alterar_prato():
 
     print("Alterado com sucesso!")
 
-    connection.commit()
-    connection.close()
-
-#teste
-#alterar_prato()
+    connection.commit()#salva alterações
+    connection.close()#fecha conecxão
 
 def alterar_fab():
     print("****************************************************************************")
     print("Fabricantes")
-    listar_fab()
+    listar_fab()#lista fabricantes para escolher qual alterar
 
     id_fab_alt = int(input("Digite o id do fabricante que deseja alterar: "))
 
@@ -93,9 +89,10 @@ def alterar_fab():
     novo_tel = input("Novo telefone do fabricante: ")
 
     #alterar dados no banco de dados
-    connection = conectar_bd()
+    connection = conectar_bd()#conecta no banco
     cursor = connection.cursor()
 
+    #altera todos os dados do fabricante escolhido
     cursor.execute('''
         UPDATE Fabricantes 
         SET id_fab = :novo_id, nome_fab = :novo_nome, email_fab = :novo_email, tel_fab = :novo_tel 
@@ -104,16 +101,13 @@ def alterar_fab():
 
     print("Alterado com sucesso!")
 
-    connection.commit()
-    connection.close()
-
-#teste
-#alterar_fab()
+    connection.commit()#salva alterações
+    connection.close()#fecha conecxão
 
 def alterar_forn():
     print("****************************************************************************")
     print("Fornecedores")
-    listar_forn()
+    listar_forn()#lista fornecedores para escolher qual alterar
 
     id_forn_alt = int(input("Digite o id do fornecedor que deseja alterar: "))
 
@@ -124,9 +118,10 @@ def alterar_forn():
     novo_tel = input("Novo telefone do fornecedor: ")
 
     #alterar dados no banco de dados
-    connection = conectar_bd()
+    connection = conectar_bd()#conecta no banco
     cursor = connection.cursor()
 
+    #altera todos os dados do fornecedor escolhido
     cursor.execute('''
         UPDATE Fornecedores 
         SET id_forn = :novo_id, nome_forn = :novo_nome, email_forn = :novo_email, tel_forn = :novo_tel 
@@ -135,16 +130,13 @@ def alterar_forn():
 
     print("Alterado com sucesso!")
 
-    connection.commit()
-    connection.close()
-
-#teste
-#alterar_forn()
+    connection.commit()#salva alterações
+    connection.close()#fecha conecxão
 
 def alterar_func():
     print("****************************************************************************")
     print("Funcionários")
-    listar_func()
+    listar_func()#lista funcionarios para escolher qual alterar
 
     id_func_alt = int(input("Digite o id do funcionário que deseja alterar: "))
 
@@ -157,9 +149,10 @@ def alterar_func():
     novo_categoria = input("Nova categoria do funcionário: ")
 
     #alterar dados no banco de dados
-    connection = conectar_bd()
+    connection = conectar_bd()#conecta no banco
     cursor = connection.cursor()
 
+    #altera todos os dados do funcionario escolhido
     cursor.execute('''
         UPDATE Funcionários 
         SET id_func = :novo_id, nome_func = :novo_nome, data_nasc_func = :novo_data_nasc, sal_func = :novo_sal, data_contrato = :novo_data_cont, categoria_func = :novo_categoria
@@ -168,16 +161,13 @@ def alterar_func():
 
     print("Alterado com sucesso!")
 
-    connection.commit()
-    connection.close()
-
-#teste
-#alterar_func()
+    connection.commit()#salva alterações
+    connection.close()#fecha conecxão
 
 def alterar_login():
     print("****************************************************************************")
     print("Login Funcionário")
-    listar_login()
+    listar_login()#lista login funcionarios para escolher qual alterar
 
     id_login_alt = int(input("Digite o id do funcionário que deseja alterar: "))
 
@@ -188,9 +178,10 @@ def alterar_login():
     novo_id_func = input("Novo id do funcionário do login: ")
 
     #alterar dados no banco de dados
-    connection = conectar_bd()
+    connection = conectar_bd()#conecta no banco
     cursor = connection.cursor()
 
+    #altera todos os dados do login funcionario escolhido
     cursor.execute('''
         UPDATE Login_Func 
         SET id_login = :novo_id, email_login = :novo_email, senha_login = :nova_senha, id_func = :novo_id_func
@@ -199,16 +190,13 @@ def alterar_login():
 
     print("Alterado com sucesso!")
 
-    connection.commit()
-    connection.close()
+    connection.commit()#salva alterações
+    connection.close()#fecha conecxão
 
-#teste
-#alterar_login()
-
-def alterar_clientes():
+def alterar_cliente():
     print("****************************************************************************")
     print("Usuários")   
-    listar_clientes()
+    listar_clientes()#lista login clientes para escolher qual alterar
 
     id_cliente_alt = int(input("Digite o id do cliente que deseja alterar: "))
 
@@ -219,9 +207,10 @@ def alterar_clientes():
     novo_senha = input("Nova senha do cliente: ")
 
     #alterar dados no banco de dados
-    connection = conectar_bd()
+    connection = conectar_bd()#conecta no banco
     cursor = connection.cursor()
 
+    #altera todos os dados do login cliente escolhido
     cursor.execute('''
         UPDATE Login_Clientes 
         SET id_cliente = :novo_id, nome_cliente = :novo_nome, email_cliente = :novo_email, senha_cliente = :novo_senha 
@@ -230,16 +219,13 @@ def alterar_clientes():
 
     print("Alterado com sucesso!")
 
-    connection.commit()
-    connection.close()
-
-#teste
-#alterar_user()
+    connection.commit()#salva alterações
+    connection.close()#fecha conecxão
 
 def alterar_adm():
     print("****************************************************************************")
     print("Administradores")
-    listar_adm()
+    listar_adm()#lista administradores para escolher qual alterar
 
     id_adm_alt = int(input("Digite o id do administrador que deseja alterar: "))
 
@@ -250,9 +236,10 @@ def alterar_adm():
     novo_id_func = input("Novo id funcionário do administrador: ")
 
     #alterar dados no banco de dados
-    connection = conectar_bd()
+    connection = conectar_bd()#conecta no banco
     cursor = connection.cursor()
 
+    #altera todos os dados do administrador escolhido
     cursor.execute('''
         UPDATE Login_ADM 
         SET id_forn = :novo_id, email_forn = :novo_email, senha_adm = :novo_senha, id_func = :novo_id_func 
@@ -261,10 +248,5 @@ def alterar_adm():
 
     print("Alterado com sucesso!")
 
-    connection.commit()
-    connection.close()
-
-#teste
-#alterar_adm()
-
-#alterar_ing()
+    connection.commit()#salva alterações
+    connection.close()#fecha conecxão

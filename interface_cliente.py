@@ -5,29 +5,39 @@ def menu_cliente():
 
 #pagina da comida do cardapio para adicionar ao carrinho
 def escolher_prato():
-    prato_escolhido = input("Digite o nome do prato que deseja adicionar ao carrinho: ")
+    while True:
+        prato_escolhido = input("Digite o nome do prato que deseja adicionar ao carrinho ou SAIR para voltar: ").strip()
+        prato_esc = prato_escolhido.upper()
 
-    connection = conectar_bd()
-    
-    cursor = connection.cursor()
-    query = 'SELECT * FROM PRATOS WHERE nome_prato = :nome_prato'
-    cursor.execute(query, nome_prato=prato_escolhido)
-    prato = cursor.fetchone()
+        if prato_esc == "SAIR":
+            print("Voltando ao inicio...")
+            break
 
-    if prato:
-        print("\nPrato escolhido:")
-        print("Nome do Prato: ", prato[1])
-        desc_descripto = descripto(prato[2])
-        print("Descrição do Prato: ", desc_descripto)
-        print("Categoria do Prato: ", prato[3])
-        print("Valor do Prato: ", prato[5])
-        print("")
-        pagamento()
-    else:
-        print("Prato não encontrado.")
+        connection = conectar_bd()
+        
+        try:
+            cursor = connection.cursor()
+            query = 'SELECT * FROM PRATOS WHERE nome_prato = :nome_prato'
+            cursor.execute(query, {"nome_prato": prato_escolhido})
+            prato = cursor.fetchone()
 
-    cursor.close()
-    connection.close()
+            if prato:
+                print("\nPrato escolhido:")
+                print("Nome do Prato: ", prato[1])
+                desc_descripto = descripto(prato[2])
+                print("Descrição do Prato: ", desc_descripto)
+                print("Categoria do Prato: ", prato[3])
+                print("Valor do Prato: ", prato[5])
+                print("")
+                pagamento()
+                break
+            else:
+                print("Prato não encontrado.")
+        except Exception as e:
+            print(f"Ocorreu um erro: {e}")
+        finally:
+            cursor.close()
+            connection.close()
 
 #pagina do pagamento
 def pagamento():
@@ -40,15 +50,14 @@ def pagamento():
     print("                                      Finalizar Pagamento")
     print("*********************************************************")
     
-    celular = int(input("Digite aqui seu numero de celular:"))
-    endereco = str(input("Digite aqui o endereco de entrega:"))
-    pgto = str(input("Digite a forma de pagamento acima desejada (Pix ou Cartao):"))
-    if pgto != "Pix" or "pix" and pgto != "Cartao" or "cartao":
-        print("Forma de pagamento inválida. Por favor, escolha entre Pix ou Cartao.")
+    celular = int(input("Digite aqui seu numero de celular: "))
+    endereco = str(input("Digite aqui o endereco de entrega: "))
+    pgto = str(input("Digite a forma de pagamento acima desejada (Pix ou Cartao): "))
+    pag = pgto.upper()
+    if pag == "PIX" or "CARTAO":
+        print(f"Pagamento finalizado via {pag} com entrega no endereço {endereco}. Voce recebera um SMS de confirmacao no numero {celular}")
     else:
-      print(f"Pagamento finalizado via {pgto} com entrega no endereço {endereco}. Voce recebera um SMS de confirmacao no numero {celular}")
-    
-
+        print("Forma de pagamento inválida. Por favor, escolha entre Pix ou Cartao.")
 
 def listar_prato_cliente():
     print("****************************************************************************")
@@ -72,5 +81,3 @@ def listar_prato_cliente():
     cursor.close()
     connection.close()
     escolher_prato()
-
-#listar_prato_cliente()

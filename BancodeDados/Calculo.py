@@ -7,7 +7,6 @@ id=int(input("Qual id do prato deseja modificar? "))
 preco_venda=float(input("PREÇO DE VENDA DESEJADO: "))
 custo_produto=float(input("CUSTO DO PRODUTO: "))
 
-
 def obter_dados_produto():
     connection = conectar_bd()
     cursor = connection.cursor()

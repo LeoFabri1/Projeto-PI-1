@@ -29,9 +29,6 @@ def listar_ing():
     cursor.close()
     connection.close()
 
-#teste
-#listar_ing()
-
 def listar_prato_adm():
     print("****************************************************************************")
     print("Pratos")
@@ -55,7 +52,6 @@ def listar_prato_adm():
     cursor.close()
     connection.close()
 
-
 def listar_fab():
     print("****************************************************************************")
     print("Fabricante")
@@ -76,9 +72,6 @@ def listar_fab():
     cursor.close()
     connection.close()
 
-#teste
-#listar_fab()
-
 def listar_forn():
     print("****************************************************************************")
     print("Fornecedor")
@@ -98,9 +91,6 @@ def listar_forn():
     
     cursor.close()
     connection.close()
-
-#teste
-#listar_forn()
 
 def listar_func():
     print("****************************************************************************")
@@ -124,9 +114,6 @@ def listar_func():
     cursor.close()
     connection.close()
 
-#teste
-#listar_func()
-
 def listar_login():
     print("****************************************************************************")
     print("Login Funcionários")
@@ -147,9 +134,6 @@ def listar_login():
     
     cursor.close()
     connection.close()
-
-#teste
-#listar_login()
 
 def listar_clientes():
     print("****************************************************************************")
@@ -172,9 +156,6 @@ def listar_clientes():
     cursor.close()
     connection.close()
 
-#teste
-#listar_clientes()
-
 def listar_adm():
     print("****************************************************************************")
     print("Administradores")
@@ -195,6 +176,3 @@ def listar_adm():
     
     cursor.close()
     connection.close()
-
-#teste
-#listar_adm()

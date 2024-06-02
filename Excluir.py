@@ -17,9 +17,6 @@ def deletar_ing():
     connection.commit()
     connection.close()
 
-#teste
-#deletar_ing()
-
 def deletar_prato():
     print("****************************************************************************")
     print("Pratos")
@@ -35,9 +32,6 @@ def deletar_prato():
 
     connection.commit()
     connection.close()
-
-#teste
-deletar_prato()
 
 def deletar_fab():
     print("****************************************************************************")
@@ -55,9 +49,6 @@ def deletar_fab():
     connection.commit()
     connection.close()
 
-#teste
-#deletar_fab()
-
 def deletar_forn():
     print("****************************************************************************")
     print("Fornecedores")
@@ -73,9 +64,6 @@ def deletar_forn():
 
     connection.commit()
     connection.close()
-
-#teste
-#deletar_forn()
 
 def deletar_func():
     print("****************************************************************************")
@@ -93,9 +81,6 @@ def deletar_func():
     connection.commit()
     connection.close()
 
-#teste
-#deletar_func()
-
 def deletar_clientes():
     print("****************************************************************************")
     print("Usuários")
@@ -111,9 +96,6 @@ def deletar_clientes():
 
     connection.commit()
     connection.close()
-
-#teste
-#deletar_clientes()
 
 def deletar_login():
     print("****************************************************************************")
@@ -131,9 +113,6 @@ def deletar_login():
     connection.commit()
     connection.close()
 
-#teste
-#deletar_login()
-
 def deletar_adm():
     print("****************************************************************************")
     print("Administradores")
@@ -149,6 +128,3 @@ def deletar_adm():
 
     connection.commit()
     connection.close()
-
-#teste
-#deletar_adm()

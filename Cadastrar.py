@@ -1,6 +1,7 @@
 from BancodeDados.banco_de_dados import conectar_bd
 from BancodeDados.criptografia import cripto
 
+#cadastrar ingrediente
 def cadastrar_ing():
     print("*********************************************************")
     print("Cadastro de Ingredientes")
@@ -26,9 +27,7 @@ def cadastrar_ing():
     connection.commit()
     connection.close()
 
-#teste
-#cadastrar_ing()
-
+#cadastrar prato
 def cadastrar_prato():
     print("*********************************************************")
     print("Cadastro de Pratos")
@@ -62,7 +61,7 @@ def cadastrar_prato():
 
     calcular_margem(id_prato, custo_prato)
 
-
+#calcular margem
 def calcular_margem(id_prato, custo_produto):
     # Custos fixos
     custo_fixo = 3050
@@ -90,7 +89,6 @@ def calcular_margem(id_prato, custo_produto):
     inserir_resultados(id_prato, preco_venda, custo_fixo_prato, imposto, margem)
     exibir_tabela_resultados(preco_venda, imposto, outros_custos, margem, classificacao_lucro)
 
-
 # Funções adicionais para manipulação do banco de dados e exibição dos resultados
 def obter_dados_produto():
     connection = conectar_bd()
@@ -104,6 +102,7 @@ def obter_dados_produto():
 
     return rows
 
+#inserir resultados
 def inserir_resultados(id_prato, preco_venda, custo_fixo, imposto, margem):
     connection = conectar_bd()
     cursor = connection.cursor()
@@ -117,6 +116,7 @@ def inserir_resultados(id_prato, preco_venda, custo_fixo, imposto, margem):
     cursor.close()
     connection.close()
 
+#exibir tabela
 def exibir_tabela_resultados(preco_venda, imposto, outros_custos, margem, classificacao_lucro):
     # Dicionário de cores para classificação de lucro
     cores = {
@@ -144,17 +144,7 @@ def exibir_tabela_resultados(preco_venda, imposto, outros_custos, margem, classi
     print("| {:<56} |".format(cores.get(classificacao_lucro, "") + classificacao_lucro + reset_cor))
     print("+-------------------------------------------------+")
 
-
-#teste
-cadastrar_prato()
-#teste
-#cadastrar_prato()
-#id = 2
-#nome = Bibimbap
-#desc = Uma tigela vibrante de arroz coberta com uma variedade de vegetais frescos, carne grelhada, ovo frito e gochujang. Misture todos os ingredientes para uma explosao de sabores e texturas. Uma refeicao coreana classica que equilibra perfeitamente o doce, o picante e o salgado em cada garfada.
-#categoria = Prato Principal
-#custo = 27
-
+#cadastrar fabricante
 def cadastrar_fab():
     print("*********************************************************")
     print("Cadastro de Fabricante")
@@ -173,9 +163,7 @@ def cadastrar_fab():
     connection.commit()
     connection.close()
 
-#teste
-#cadastrar_fab()
-
+#cadastrar fornecedor
 def cadastrar_forn():
     print("*********************************************************")
     print("Cadastro de Fornecedor")
@@ -193,9 +181,7 @@ def cadastrar_forn():
     connection.commit()
     connection.close()
 
-#teste
-#cadastrar_forn()
-
+#cadastrar funcionario e login funcionario
 def cadastrar_func():
     print("*********************************************************")
     print("Cadastro de Funcionário")
@@ -233,10 +219,7 @@ def cadastrar_func():
     connection.commit()
     connection.close()
 
-#teste
-#cadastrar_func()
-
-#cadastro cliente
+#cadastrar cliente
 def cadastrar_cliente():
     print("*********************************************************")
     print("                   JungKooking Food                      ")
@@ -261,17 +244,13 @@ def cadastrar_cliente():
         senha_cripto = cripto(senha_cliente)
         connection = conectar_bd()
         cursor = connection.cursor()
-        cursor.execute('INSERT INTO login_cliente (id_cliente, nome_cliente, email_cliente, senha_cliente) VALUES (seq_id_cliente.NEXTVAL, :1, :2, :3)', (nome_cliente, email_cliente, senha_cripto))
+        cursor.execute('INSERT INTO login_clientes (id_cliente, nome_cliente, email_cliente, senha_cliente) VALUES (seq_id_cliente.NEXTVAL, :1, :2, :3)', (nome_cliente, email_cliente, senha_cripto))
         print("Cliente Cadastrado com sucesso!")
 
         connection.commit()
         connection.close()
 
-
-#teste
-# cadastrar_cliente()
-
-#adicionar adm
+#cadastrar administrador
 def cadastrar_adm():
     print("****************************************************************************")
     print("Cadastro de Administrador")
@@ -292,7 +271,3 @@ def cadastrar_adm():
 
     connection.commit()
     connection.close()
-
-#teste
-#cadastrar_adm()
-

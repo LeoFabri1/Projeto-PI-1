@@ -14,7 +14,6 @@ def log_auditoria(connection, tipo_user, id_user, acao):
     except Exception as error:
         print(f"Ocorreu um erro ao registrar o log de auditoria: {error}")
 
-
 def log_accesso(connection, tipo_user, id_user, email, acao):
     try:
         connection=conectar_bd()

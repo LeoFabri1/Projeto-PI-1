@@ -21,13 +21,10 @@ O projeto "Site para Controle de Estoque" visa desenvolver uma plataforma eficie
 5. **Rentabilidade do Produto:**
    - Determine em que faixa de lucro o produto se encontra, classificando a rentabilidade como alto, médio, baixo ou prejuízo.
 
-6. **Alertas de Estoque Mínimo:**
-   - Receba notificações automáticas quando os níveis de estoque atingirem um limite mínimo, evitando problemas de desabastecimento.
-
-7. **Relatórios de Desempenho:**
+6. **Relatórios de Desempenho:**
    - Acesse relatórios detalhados sobre movimentações de estoque, vendas e desempenho de produtos, auxiliando em tomadas de decisão estratégicas.
 
-8. **Interface Amigável:**
+7. **Interface Amigável:**
    - Desfrute de uma interface intuitiva e fácil de usar, projetada para simplificar a interação e a gestão diária do estoque.
 
 ## Como Contribuir
@@ -42,10 +39,8 @@ Este projeto é de código aberto, e encorajamos contribuições da comunidade. 
 ## Instalações Necessárias
 instalar extensão python
 python -m pip install oracledb --upgrade
-pip install bmatrix
 pip install numpy
 pip install tabulate
 
 ## Status do Projeto
-
-Atualmente, o projeto encontra-se na fase 3, na versão 1.3.0.
+Atualmente, o projeto encontra-se na fase final estando completamente funcional, na versão 1.4.0.
