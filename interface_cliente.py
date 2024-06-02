@@ -1,7 +1,15 @@
 from BancodeDados.criptografia import descripto
 from BancodeDados.banco_de_dados import conectar_bd
 def menu_cliente():
-  print("Menu Cliente")
+    print("*********************************************************")
+    print("                   JungKooking Food                      ")
+    print("|    |                 |        |                 |     |")
+    print("|HOME|                 |CARDAPIO|                 |LOGIN|")
+    print("|    |                 |        |                 |     |")
+    print("CARDAPIO                                                 ")
+    print("                                                         ")
+    listar_prato_cliente()
+    print("*********************************************************")
 
 #pagina da comida do cardapio para adicionar ao carrinho
 def escolher_prato():
@@ -29,7 +37,7 @@ def escolher_prato():
                 print("Categoria do Prato: ", prato[3])
                 print("Valor do Prato: ", prato[5])
                 print("")
-                pagamento()
+                pagamento(prato[1], prato[5])
                 break
             else:
                 print("Prato não encontrado.")
@@ -40,7 +48,7 @@ def escolher_prato():
             connection.close()
 
 #pagina do pagamento
-def pagamento():
+def pagamento(prato, preco):
     print("*********************************************************")
     print("                   JungKooking Food                      ")
     print("Endereço de entrega:                   Forma De Pagamento")
@@ -52,10 +60,20 @@ def pagamento():
     
     celular = int(input("Digite aqui seu numero de celular: "))
     endereco = str(input("Digite aqui o endereco de entrega: "))
+    data = input(str("Data Pagamento (AAAA-MM-DD): "))
+    preco_prato = int(preco)
+    nome_prato = prato
     pgto = str(input("Digite a forma de pagamento acima desejada (Pix ou Cartao): "))
     pag = pgto.upper()
     if pag == "PIX" or "CARTAO":
         print(f"Pagamento finalizado via {pag} com entrega no endereço {endereco}. Voce recebera um SMS de confirmacao no numero {celular}")
+        connection = conectar_bd()
+        cursor = connection.cursor()
+
+        cursor.execute('INSERT INTO Pagamentos (id_pagamento, celular_cliente, data_pagamento, valor_pagamento, tipo_pagamento, prato_vendido) VALUES (seq_id_pag.NEXTVAL, :1, :2, :3, :4, :5)', (celular, data, preco_prato, pgto, nome_prato))
+        
+        cursor.close()
+        connection.close()
     else:
         print("Forma de pagamento inválida. Por favor, escolha entre Pix ou Cartao.")
 

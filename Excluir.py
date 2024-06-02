@@ -14,6 +14,8 @@ def deletar_ing():
 
     cursor.execute('DELETE FROM Ingredientes WHERE id_ing = :id_ing_del', {'id_ing_del': id_ing_del})
 
+    print("Deletado com sucesso!")
+
     connection.commit()
     connection.close()
 
@@ -29,6 +31,8 @@ def deletar_prato():
     cursor = connection.cursor()
 
     cursor.execute('DELETE FROM Pratos WHERE id_prato = :id_prato_del', {'id_prato_del': id_prato_del})
+
+    print("Deletado com sucesso!")
 
     connection.commit()
     connection.close()
@@ -46,6 +50,8 @@ def deletar_fab():
 
     cursor.execute('DELETE FROM Fabricantes WHERE id_fab = :id_fab_del', {'id_fab_del': id_fab_del})
 
+    print("Deletado com sucesso!")
+
     connection.commit()
     connection.close()
 
@@ -61,6 +67,8 @@ def deletar_forn():
     cursor = connection.cursor()
 
     cursor.execute('DELETE FROM Fornecedores WHERE id_forn = :id_forn_del', {'id_forn_del': id_forn_del})
+
+    print("Deletado com sucesso!")
 
     connection.commit()
     connection.close()
@@ -78,6 +86,8 @@ def deletar_func():
 
     cursor.execute('DELETE FROM Funcionarios WHERE id_func = :id_func_del', {'id_func_del': id_func_del})
 
+    print("Deletado com sucesso!")
+
     connection.commit()
     connection.close()
 
@@ -93,6 +103,8 @@ def deletar_clientes():
     cursor = connection.cursor()
 
     cursor.execute('DELETE FROM Login_Clientes WHERE id_cliente = :id_cli_del', {'id_cli_del': id_cli_del})
+
+    print("Deletado com sucesso!")
 
     connection.commit()
     connection.close()
@@ -110,6 +122,8 @@ def deletar_login():
 
     cursor.execute('DELETE FROM Login_Func WHERE id_login = :id_func_del', {'id_func_del': id_func_del})
 
+    print("Deletado com sucesso!")
+
     connection.commit()
     connection.close()
 
@@ -125,6 +139,8 @@ def deletar_adm():
     cursor = connection.cursor()
 
     cursor.execute('DELETE FROM Login_ADM WHERE id_adm = :id_adm_del', {'id_adm_del': id_adm_del})
+
+    print("Deletado com sucesso!")
 
     connection.commit()
     connection.close()
