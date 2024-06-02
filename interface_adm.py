@@ -31,25 +31,25 @@ def menu_adm():
       print("                  | 6-Gerar Relatório |                  ")
       print("                  |       7-Home      |                  ")
       print("*********************************************************")
-      opcao = input("Digite a opção desejada: ").upper
+      opcao = str(input("Digite a opção desejada: "))
+      op = opcao.upper()
 
-      if opcao == "1" or opcao == "CADASTRAR":
+      if opcao == "1" or op == "CADASTRAR":
         menu_adm_cadastro()
-      elif opcao == "2" or opcao == "ALTERAR":
+      elif opcao == "2" or op == "ALTERAR":
         menu_adm_altero()
-      elif opcao == "3" or opcao == "EXCLUIR":
+      elif opcao == "3" or op == "EXCLUIR":
         menu_adm_deleto()
-      elif opcao == "4" or opcao == "LISTAR":
+      elif opcao == "4" or op == "LISTAR":
         menu_adm_listo()
-      elif opcao == "5" or opcao in ("GERENCIAR LOGS", "LOGS"):
+      elif opcao == "5" or op == "GERENCIAR LOGS" or op == "LOGS":
         ger_logs()
-      elif opcao == "6" or opcao in ("Gerar Relatório", "Relatório"):
+      elif opcao == "6" or op == "GERAR RELATÓRIO" or op == "RELATÓRIO" or op == "RELATORIO" or op == "GERAR RELATORIO":
         menu_adm_relatorio()
-      elif opcao == "7" or opcao == "Home":
+      elif opcao == "7" or op == "HOME" or op == "SAIR":
         home()
       else:
         print("Opção inexistente.")
-        continue
 
 def menu_adm_cadastro():
   """INTERFACE MENU DE CADASTRO ADMINISTRADOR
@@ -82,27 +82,27 @@ def menu_adm_cadastro():
     print("           |    7-Cadastrar  Administrador   |           ")
     print("           |       8-Menu Administrador      |           ")
     print("*********************************************************")
-    opcao = int(input("Digite a opção desejada: "))
+    opcao = str(input("Digite a opção desejada: "))
+    op = opcao.upper()
 
-    if opcao == "1":
+    if opcao == "1" or op == "INGREDIENTE" or op == "ING":
       cadastrar_ing()
-    elif opcao == "2":
+    elif opcao == "2" or op == "PRATO":
       cadastrar_prato()
-    elif opcao == "3":
+    elif opcao == "3" or op == "FABRICANTE" or op == "FAB":
       cadastrar_fab()
-    elif opcao == "4":
+    elif opcao == "4" or op == "FORNECEDOR" or op == "FORN":
       cadastrar_forn()
-    elif opcao == "5":
+    elif opcao == "5" or op == "FUNCIONARIO" or op == "FUNC" or op == "FUNCIONÁRIO":
       cadastrar_func()
-    elif opcao == "6":
+    elif opcao == "6" or op == "CLIENTE" or op == "CLI":
       cadastrar_cliente()
-    elif opcao == "7":
+    elif opcao == "7" or op == "ADMINISTRADOR" or op == "ADM":
       cadastrar_adm()
-    elif opcao == "8":
+    elif opcao == "8" or op == "HOME" or op == "SAIR":
       menu_adm()
     else:
       print("Opção inexistente.")
-      continue
 
 def menu_adm_altero():
 
@@ -138,29 +138,29 @@ def menu_adm_altero():
     print("            |  8-Alterar Login Funcionário  |            ")
     print("            |      9-Menu Administrador     |            ")
     print("*********************************************************")
-    opcao = int(input("Digite a opção desejada: "))
+    opcao = str(input("Digite a opção desejada: "))
+    op = opcao.upper()
 
-    if opcao == "1":
+    if opcao == "1" or op == "INGREDIENTE" or op == "ING":
       alterar_ing()
-    elif opcao == "2":
+    elif opcao == "2" or op == "PRATO":
       alterar_prato()
-    elif opcao == "3":
+    elif opcao == "3" or op == "FABRICANTE" or op == "FAB":
       alterar_fab()
-    elif opcao == "4":
+    elif opcao == "4" or op == "FORNECEDOR" or op == "FORN":
       alterar_forn()
-    elif opcao == "5":
+    elif opcao == "5" or op == "FUNCIONARIO" or op == "FUNC" or op == "FUNCIONÁRIO":
       alterar_func()
-    elif opcao == "6":
+    elif opcao == "6" or op == "CLIENTE" or op == "CLI":
       alterar_cliente()
-    elif opcao == "7":
+    elif opcao == "7" or op == "ADMINISTRADOR" or op == "ADM":
       alterar_adm()
-    elif opcao == "8":
+    elif opcao == "8" or op == "LOGIN" or op == "LOGIN FUNCIONARIO" or op == "LOGIN FUNCIONÁRIO" or op == "LOGIN FUNC":
       alterar_login()
-    elif opcao == "9":
+    elif opcao == "9" or op == "HOME" or op == "SAIR":
       menu_adm()
     else:
       print("Opção inexistente.")
-      continue
 
 def menu_adm_deleto():
   """INTERFACE MENU DE EXCLUSÃO ADMINISTRADOR
@@ -195,29 +195,29 @@ def menu_adm_deleto():
     print("            |  8-Excluir Login Funcionário  |            ")
     print("            |      9-Menu Administrador     |            ")
     print("*********************************************************")
-    opcao = int(input("Digite a opção desejada: "))
+    opcao = str(input("Digite a opção desejada: "))
+    op = opcao.upper()
 
-    if opcao == "1":
+    if opcao == "1" or op == "INGREDIENTE" or op == "ING":
       deletar_ing()
-    elif opcao == "2":
+    elif opcao == "2" or op == "PRATO":
       deletar_prato()
-    elif opcao == "3":
+    elif opcao == "3" or op == "FABRICANTE" or op == "FAB":
       deletar_fab()
-    elif opcao == "4":
+    elif opcao == "4" or op == "FORNECEDOR" or op == "FORN":
       deletar_forn()
-    elif opcao == "5":
+    elif opcao == "5" or op == "FUNCIONARIO" or op == "FUNC" or op == "FUNCIONÁRIO":
       deletar_func()
-    elif opcao == "6":
+    elif opcao == "6" or op == "CLIENTE" or op == "CLI":
       deletar_clientes()
-    elif opcao == "7":
+    elif opcao == "7" or op == "ADMINISTRADOR" or op == "ADM":
       deletar_adm()
-    elif opcao == "8":
+    elif opcao == "8" or op == "LOGIN" or op == "LOGIN FUNCIONARIO" or op == "LOGIN FUNCIONÁRIO" or op == "LOGIN FUNC":
       deletar_login()
-    elif opcao == "9":
+    elif opcao == "9" or op == "HOME" or op == "SAIR":
       menu_adm()
     else:
       print("Opção inexistente.")
-      continue
 
 def menu_adm_listo():
   """INTERFACE MENU DE LISTAGEM ADMINISTRADOR
@@ -252,29 +252,29 @@ def menu_adm_listo():
     print("            |  8-Listar Login Funcionário  |             ")
     print("            |     9-Menu Administrador     |             ")
     print("*********************************************************")
-    opcao = int(input("Digite a opção desejada: "))
+    opcao = str(input("Digite a opção desejada: "))
+    op = opcao.upper()
 
-    if opcao == "1":
+    if opcao == "1" or op == "INGREDIENTE" or op == "ING":
       listar_ing()
-    elif opcao == "2":
+    elif opcao == "2" or op == "PRATO":
       listar_prato_adm()
-    elif opcao == "3":
+    elif opcao == "3" or op == "FABRICANTE" or op == "FAB":
       listar_fab()
-    elif opcao == "4":
+    elif opcao == "4" or op == "FORNECEDOR" or op == "FORN":
       listar_forn()
-    elif opcao == "5":
+    elif opcao == "5" or op == "FUNCIONARIO" or op == "FUNC" or op == "FUNCIONÁRIO":
       listar_func()
-    elif opcao == "6":
+    elif opcao == "6" or op == "CLIENTE" or op == "CLI":
       listar_clientes()
-    elif opcao == "7":
+    elif opcao == "7" or op == "ADMINISTRADOR" or op == "ADM":
       listar_adm()
-    elif opcao == "8":
+    elif opcao == "8" or op == "LOGIN" or op == "LOGIN FUNCIONARIO" or op == "LOGIN FUNCIONÁRIO" or op == "LOGIN FUNC":
       listar_login()
-    elif opcao == "9":
+    elif opcao == "9" or op == "HOME" or op == "SAIR":
       menu_adm()
     else:
       print("Opção inexistente.")
-      continue
 
 #menu para o relatorio de vendas que esta no arquivo relatorios
 def menu_adm_relatorio():
@@ -293,8 +293,8 @@ def menu_adm_relatorio():
     """
   
   while True:
-    opcao=input("Deseja gerar o relatorio de vendas? (s/n): ")
-    if opcao.lower()=='s':
+    opcao=str(input("Deseja gerar o relatorio de vendas? (S/N): "))
+    if opcao.upper()=='S':
       while True:
         data_venda=input("Digite a data que deseja acessar ao relatorio no formato AAAA-MM-DD: ")
         if validar_data(data_venda):
@@ -303,11 +303,11 @@ def menu_adm_relatorio():
         else:
         
           print("Formato de data invalido. pOR favor, digite a data no formato AAAA-MM-DD.")
-    elif opcao.lower()=='n':
-      print("Operaçao cancelada.")
+    elif opcao.upper()=='N':
+      print("Operação cancelada...")
       break
     else:
-      print("Opção inválida. Por favor digite 's' para sim ou 'n' para nao")
+      print("Opção inválida. Por favor digite 'S' para sim ou 'N' para nao")
 
 def ger_logs():
 
@@ -327,11 +327,12 @@ def ger_logs():
     print("               |    2-Log De Acessos    |")
     print("               |  3-Menu Administrador  |")
     print("**********************************************************")
-    
-    opcao=int(input("Escolha a opção desejada: "))
-    if opcao=="1":
+    opcao=str(input("Escolha a opção desejada: "))
+    op = opcao.upper()
+
+    if opcao == "1" or op == "AUDITORIA" or op == "LOG AUDITORIA" or op == "LOG DE AUDITORIA":
         print_logs_auditoria()
-    elif opcao=="2":
+    elif opcao == "2" or op == "ACESSOS" or op == "LOG ACESSOS" or op == "LOG DE ACESSOS":
         print_logs_acesso()
-    elif opcao == "3":
+    elif opcao == "3" or op == "MENU" or op == "SAIR":
         menu_adm()

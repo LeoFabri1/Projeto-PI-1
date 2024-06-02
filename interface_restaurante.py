@@ -14,7 +14,7 @@ def home():
         print("                                                          ")
         print("      Pratos Principais           Porções(Acompanhamentos)")
         print("**********************************************************")
-        opcao = input("Digite a opção desejada ou sair: ").strip().upper()
+        opcao = str(input("Digite a opção desejada ou sair: ")).strip().upper()
 
         if opcao == "HOME":
             continue
@@ -26,7 +26,7 @@ def home():
             login_cadastro()
         elif opcao == "SAIR":
             print("Saindo do programa...")
-            break
+            exit()
         else:
             print("Opção inválida, tente novamente.")
 
@@ -57,13 +57,15 @@ def login_cadastro():
         print("                   |     4-Sair    |                     ")
         print("*********************************************************")
         opcao = str(input("Digite a opcao desejada: "))
-        if opcao == "1":
+        op = opcao.upper()
+
+        if opcao == "1" or op == "LOGIN":
             menu_login.funcao_login()
-        elif opcao == "2":
+        elif opcao == "2" or op == "CADASTRO":
             cadastrar_cliente()
-        elif opcao == "3":
+        elif opcao == "3" or op == "HOME":
             home()
-        elif opcao == "4":
+        elif opcao == "4" or op == "SAIRSS":
             print("Saindo do programa...")
             exit()
         else:
