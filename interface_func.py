@@ -142,7 +142,7 @@ def menu_func_listo():
       listar_fab()
     elif opcao == "4" or op == "FORNECEDOR" or op == "FORN":
       listar_forn()
-    elif opcao == 5 or op == "HOME" or op == "SAIR":
+    elif opcao == "5" or op == "HOME" or op == "SAIR":
       menu_func()
     else:
       print("Opção inexistente.")
