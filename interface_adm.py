@@ -2,7 +2,7 @@ from Cadastrar import cadastrar_ing, cadastrar_adm, cadastrar_prato, cadastrar_f
 from Alterar import alterar_login, alterar_ing, alterar_cliente, alterar_prato, alterar_fab, alterar_forn, alterar_func, alterar_adm
 from Excluir import deletar_clientes, deletar_prato, deletar_fab, deletar_forn, deletar_func, deletar_login, deletar_ing, deletar_adm
 from Listar import listar_login, listar_adm, listar_clientes, listar_fab, listar_forn, listar_func, listar_ing, listar_prato_adm
-from Relatorios import main
+from Relatorios import main, validar_data, gerar_relatorio_vendas
 from logs import print_logs_auditoria, print_logs_acesso, print_logs_compras
 
 def menu_adm():

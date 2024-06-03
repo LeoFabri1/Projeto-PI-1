@@ -4,8 +4,24 @@ from Excluir import deletar_prato, deletar_fab, deletar_forn, deletar_ing
 from Listar import listar_fab, listar_forn, listar_ing, listar_prato_adm
 
 def menu_func():
-    from interface_restaurante import home
-    while True:
+  """
+  Exibe o menu principal para os funcionários, permitindo cadastrar, alterar,
+  excluir ou listar itens do estoque, ou voltar para a página inicial.
+
+  Funções chamadas:
+  - menu_func_cadastro(): Exibe o submenu de cadastro.
+  - menu_func_altero(): Exibe o submenu de alteração.
+  - menu_func_deleto(): Exibe o submenu de exclusão.
+  - menu_func_listo(): Exibe o submenu de listagem.
+  - home(): Volta para a página inicial.
+
+  Etapas:
+  - Exibe o layout do menu principal.
+  - Solicita a opção desejada do funcionário.
+  - Direciona para a função correspondente com base na opção escolhida.
+  """
+  from interface_restaurante import home
+  while True:
       print("*********************************************************")
       print("        JungKooking Food - Estoque Funcionário           ")
       print("                                                         ")
@@ -32,6 +48,23 @@ def menu_func():
         print("Opção inexistente.")
 
 def menu_func_cadastro():
+  """
+  Exibe o submenu de cadastro para os funcionários, permitindo cadastrar
+  ingredientes, pratos, fabricantes ou fornecedores, ou voltar para o menu
+  principal do funcionário.
+
+  Funções chamadas:
+  - cadastrar_ing(): Cadastra um ingrediente.
+  - cadastrar_prato(): Cadastra um prato.
+  - cadastrar_fab(): Cadastra um fabricante.
+  - cadastrar_forn(): Cadastra um fornecedor.
+  - menu_func(): Volta para o menu principal do funcionário.
+
+  Etapas:
+  - Exibe o layout do submenu de cadastro.
+  - Solicita a opção desejada do funcionário.
+  - Direciona para a função correspondente com base na opção escolhida.
+  """
   while True:
     print("*********************************************************")
     print("        JungKooking Food - Estoque Funcionário           ")
@@ -61,6 +94,23 @@ def menu_func_cadastro():
       print("Opção inexistente.")
 
 def menu_func_altero():
+  """
+  Exibe o submenu de alteração para os funcionários, permitindo alterar
+  ingredientes, pratos, fabricantes ou fornecedores, ou voltar para o menu
+  principal do funcionário.
+
+  Funções chamadas:
+  - alterar_ing(): Altera um ingrediente.
+  - alterar_prato(): Altera um prato.
+  - alterar_fab(): Altera um fabricante.
+  - alterar_forn(): Altera um fornecedor.
+  - menu_func(): Volta para o menu principal do funcionário.
+
+  Etapas:
+  - Exibe o layout do submenu de alteração.
+  - Solicita a opção desejada do funcionário.
+  - Direciona para a função correspondente com base na opção escolhida.
+  """
   while True:
     print("*********************************************************")
     print("        JungKooking Food - Estoque Funcionário           ")
@@ -90,6 +140,23 @@ def menu_func_altero():
       print("Opção inexistente.")
 
 def menu_func_deleto():
+  """
+  Exibe o submenu de exclusão para os funcionários, permitindo excluir
+  ingredientes, pratos, fabricantes ou fornecedores, ou voltar para o menu
+  principal do funcionário.
+
+  Funções chamadas:
+  - deletar_ing(): Exclui um ingrediente.
+  - deletar_prato(): Exclui um prato.
+  - deletar_fab(): Exclui um fabricante.
+  - deletar_forn(): Exclui um fornecedor.
+  - menu_func(): Volta para o menu principal do funcionário.
+
+  Etapas:
+  - Exibe o layout do submenu de exclusão.
+  - Solicita a opção desejada do funcionário.
+  - Direciona para a função correspondente com base na opção escolhida.
+  """
   while True:
     print("*********************************************************")
     print("        JungKooking Food - Estoque Funcionário           ")
@@ -119,6 +186,23 @@ def menu_func_deleto():
       print("Opção inexistente.")
 
 def menu_func_listo():
+  """
+  Exibe o submenu de listagem para os funcionários, permitindo listar
+  ingredientes, pratos, fabricantes ou fornecedores, ou voltar para o menu
+  principal do funcionário.
+
+  Funções chamadas:
+  - listar_ing(): Lista os ingredientes.
+  - listar_prato_adm(): Lista os pratos para o administrador.
+  - listar_fab(): Lista os fabricantes.
+  - listar_forn(): Lista os fornecedores.
+  - menu_func(): Volta para o menu principal do funcionário.
+
+  Etapas:
+  - Exibe o layout do submenu de listagem.
+  - Solicita a opção desejada do funcionário.
+  - Direciona para a função correspondente com base na opção escolhida.
+  """
   while True:
     print("*********************************************************")
     print("        JungKooking Food - Estoque Funcionário           ")

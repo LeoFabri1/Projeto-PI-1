@@ -2,6 +2,17 @@ from BancodeDados.banco_de_dados import conectar_bd
 from Listar import listar_login, listar_ing, listar_prato_adm, listar_forn, listar_fab, listar_func, listar_adm, listar_clientes
 
 def deletar_ing():
+    """
+    Deleta um ingrediente do banco de dados com base no ID fornecido pelo usuário.
+
+    Funções chamadas:
+    - listar_ing(): Lista os ingredientes disponíveis.
+
+    Etapas:
+    - Lista os ingredientes disponíveis.
+    - Solicita ao usuário o ID do ingrediente a ser deletado.
+    - Executa a exclusão do ingrediente no banco de dados.
+    """
     print("****************************************************************************")
     print("Ingredientes")
     listar_ing()
@@ -20,6 +31,17 @@ def deletar_ing():
     connection.close()
 
 def deletar_prato():
+    """
+    Deleta um prato do banco de dados com base no ID fornecido pelo usuário.
+
+    Funções chamadas:
+    - listar_prato_adm(): Lista os pratos disponíveis.
+
+    Etapas:
+    - Lista os pratos disponíveis.
+    - Solicita ao usuário o ID do prato a ser deletado.
+    - Executa a exclusão do prato no banco de dados.
+    """
     print("****************************************************************************")
     print("Pratos")
     listar_prato_adm()
@@ -38,6 +60,16 @@ def deletar_prato():
     connection.close()
 
 def deletar_fab():
+    """
+    Deleta um fabricante do banco de dados com base no ID fornecido pelo usuário.
+
+    Funções chamadas:
+    - listar_fab(): Lista os fabricantes disponíveis.
+    Etapas:
+    - Lista os fabricantes disponíveis.
+    - Solicita ao usuário o ID do fabricante a ser deletado.
+    - Executa a exclusão do fabricante no banco de dados.
+    """
     print("****************************************************************************")
     print("Fabricantes")
     listar_fab()
@@ -56,6 +88,18 @@ def deletar_fab():
     connection.close()
 
 def deletar_forn():
+    """
+    Deleta um fornecedor do banco de dados com base no ID fornecido pelo usuário.
+
+    Funções chamadas:
+    - listar_forn(): Lista os fornecedores disponíveis.
+    - conectar_bd(): Estabelece a conexão com o banco de dados.
+
+    Etapas:
+    - Lista os fornecedores disponíveis.
+    - Solicita ao usuário o ID do fornecedor a ser deletado.
+    - Executa a exclusão do fornecedor no banco de dados.
+    """
     print("****************************************************************************")
     print("Fornecedores")
     listar_forn()
@@ -74,6 +118,18 @@ def deletar_forn():
     connection.close()
 
 def deletar_func():
+    """
+    Deleta um funcionário do banco de dados com base no ID fornecido pelo usuário.
+
+    Funções chamadas:
+    - listar_func(): Lista os funcionários disponíveis.
+    - conectar_bd(): Estabelece a conexão com o banco de dados.
+
+    Etapas:
+    - Lista os funcionários disponíveis.
+    - Solicita ao usuário o ID do funcionário a ser deletado.
+    - Executa a exclusão do funcionário no banco de dados.
+    """
     print("****************************************************************************")
     print("Funcionários")
     listar_func()
@@ -92,6 +148,18 @@ def deletar_func():
     connection.close()
 
 def deletar_clientes():
+    """
+    Deleta um cliente do banco de dados com base no ID fornecido pelo usuário.
+
+    Funções chamadas:
+    - listar_clientes(): Lista os clientes disponíveis.
+    - conectar_bd(): Estabelece a conexão com o banco de dados.
+
+    Etapas:
+    - Lista os clientes disponíveis.
+    - Solicita ao usuário o ID do cliente a ser deletado.
+    - Executa a exclusão do cliente no banco de dados.
+    """
     print("****************************************************************************")
     print("Usuários")
     listar_clientes()
@@ -110,6 +178,18 @@ def deletar_clientes():
     connection.close()
 
 def deletar_login():
+    """
+    Deleta um login de funcionário do banco de dados com base no ID fornecido pelo usuário.
+
+    Funções chamadas:
+    - listar_login(): Lista os logins de funcionários disponíveis.
+    - conectar_bd(): Estabelece a conexão com o banco de dados.
+
+    Etapas:
+    - Lista os logins de funcionários disponíveis.
+    - Solicita ao usuário o ID do login a ser deletado.
+    - Executa a exclusão do login no banco de dados.
+    """
     print("****************************************************************************")
     print("Login Funcionários")
     listar_login()
@@ -128,6 +208,18 @@ def deletar_login():
     connection.close()
 
 def deletar_adm():
+    """
+    Deleta um administrador do banco de dados com base no ID fornecido pelo usuário.
+
+    Funções chamadas:
+    - listar_adm(): Lista os administradores disponíveis.
+    - conectar_bd(): Estabelece a conexão com o banco de dados.
+
+    Etapas:
+    - Lista os administradores disponíveis.
+    - Solicita ao usuário o ID do administrador a ser deletado.
+    - Executa a exclusão do administrador no banco de dados.
+    """
     print("****************************************************************************")
     print("Administradores")
     listar_adm()

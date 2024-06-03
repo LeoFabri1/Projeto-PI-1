@@ -3,6 +3,19 @@ from BancodeDados.criptografia import cripto
 from Listar import listar_login, listar_prato_adm, listar_forn, listar_fab, listar_func, listar_adm, listar_clientes, listar_ing
 
 def alterar_ing():
+    """
+    Altera os dados de um ingrediente no banco de dados.
+
+    Funções chamadas:
+    - listar_ing(): Lista todos os ingredientes existentes.
+
+    Etapas:
+    - Exibe o layout para alterar dados de ingredientes.
+    - Solicita ao usuário o ID do ingrediente a ser alterado.
+    - Solicita os novos dados do ingrediente.
+    - Conecta ao banco de dados e atualiza o registro com os novos dados.
+    - Confirma a alteração e fecha a conexão com o banco.
+    """
     print("*********************************************************")
     print("Alterar dados - Ingredientes")
     listar_ing()#lista ingredientes para escolher qual alterar
@@ -45,6 +58,19 @@ def alterar_ing():
     connection.close()#fecha conecxão
 
 def alterar_prato():
+    """
+    Altera os dados de um prato no banco de dados.
+
+    Funções chamadas:
+    - listar_prato_adm(): Lista todos os pratos existentes.
+
+    Etapas:
+    - Exibe o layout para alterar dados de pratos.
+    - Solicita ao usuário o ID do prato a ser alterado.
+    - Solicita os novos dados do prato.
+    - Conecta ao banco de dados e atualiza o registro com os novos dados.
+    - Confirma a alteração e fecha a conexão com o banco.
+    """
     print("****************************************************************************")
     print("Pratos")
     listar_prato_adm()#lista pratos para escolher qual alterar
@@ -76,6 +102,19 @@ def alterar_prato():
     connection.close()#fecha conecxão
 
 def alterar_fab():
+    """
+    Altera os dados de um fabricante no banco de dados.
+
+    Funções chamadas:
+    - listar_fab(): Lista todos os fabricantes existentes.
+
+    Etapas:
+    - Exibe o layout para alterar dados de fabricantes.
+    - Solicita ao usuário o ID do fabricante a ser alterado.
+    - Solicita os novos dados do fabricante.
+    - Conecta ao banco de dados e atualiza o registro com os novos dados.
+    - Confirma a alteração e fecha a conexão com o banco.
+    """
     print("****************************************************************************")
     print("Fabricantes")
     listar_fab()#lista fabricantes para escolher qual alterar
@@ -105,6 +144,19 @@ def alterar_fab():
     connection.close()#fecha conecxão
 
 def alterar_forn():
+    """
+    Altera os dados de um fornecedor no banco de dados.
+
+    Funções chamadas:
+    - listar_forn(): Lista todos os fornecedores existentes.
+
+    Etapas:
+    - Exibe o layout para alterar dados de fornecedores.
+    - Solicita ao usuário o ID do fornecedor a ser alterado.
+    - Solicita os novos dados do fornecedor.
+    - Conecta ao banco de dados e atualiza o registro com os novos dados.
+    - Confirma a alteração e fecha a conexão com o banco.
+    """
     print("****************************************************************************")
     print("Fornecedores")
     listar_forn()#lista fornecedores para escolher qual alterar
@@ -134,6 +186,19 @@ def alterar_forn():
     connection.close()#fecha conecxão
 
 def alterar_func():
+    """
+    Altera os dados de um funcionário no banco de dados.
+
+    Funções chamadas:
+    - listar_func(): Lista todos os funcionários existentes.
+
+    Etapas:
+    - Exibe o layout para alterar dados de funcionários.
+    - Solicita ao usuário o ID do funcionário a ser alterado.
+    - Solicita os novos dados do funcionário.
+    - Conecta ao banco de dados e atualiza o registro com os novos dados.
+    - Confirma a alteração e fecha a conexão com o banco.
+    """
     print("****************************************************************************")
     print("Funcionários")
     listar_func()#lista funcionarios para escolher qual alterar
@@ -165,6 +230,19 @@ def alterar_func():
     connection.close()#fecha conecxão
 
 def alterar_login():
+    """
+    Altera os dados de login de um funcionário no banco de dados.
+
+    Funções chamadas:
+    - listar_login(): Lista todos os logins de funcionários existentes.
+
+    Etapas:
+    - Exibe o layout para alterar dados de login.
+    - Solicita ao usuário o ID do login a ser alterado.
+    - Solicita os novos dados do login.
+    - Conecta ao banco de dados e atualiza o registro com os novos dados.
+    - Confirma a alteração e fecha a conexão com o banco.
+    """
     print("****************************************************************************")
     print("Login Funcionário")
     listar_login()#lista login funcionarios para escolher qual alterar

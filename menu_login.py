@@ -11,6 +11,17 @@ import codigo_login
 #senhatestefunc
 
 def funcao_login():
+    """
+    Função responsável pelo processo de login do usuário.
+
+    Esta função solicita ao usuário que insira seu email e senha. 
+    Em seguida, valida se os campos foram preenchidos corretamente. 
+    Se o usuário não fornecer um email ou senha, a função levanta uma exceção ValueError.
+    Caso contrário, a função chama a função `login_adm` do módulo `codigo_login` para validar as credenciais do usuário.
+
+    Retorno:
+    - Chama a função `codigo_login.login_adm(senha, usuario)` que retorna o resultado do processo de login.
+    """
     try: 
         usuario=str(input("\nDigite o email do usuário: "))
         if not usuario:

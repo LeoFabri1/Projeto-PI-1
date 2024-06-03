@@ -8,6 +8,13 @@ def obter_horario_brasilia():
     return datetime.now(fuso_horario_brasilia)
 
 def log_auditoria(connection, tipo_user, id_user, acao):
+    """
+    Registra um log de auditoria no banco de dados.
+
+    Funções chamadas:
+    - conectar_bd(): Estabelece a conexão com o banco de dados.
+    - obter_horario_brasilia(): Obtém o horário atual em Brasília.
+    """
     try:
         connection = conectar_bd()
         with connection.cursor() as cursor:
@@ -20,6 +27,13 @@ def log_auditoria(connection, tipo_user, id_user, acao):
         print(f"Ocorreu um erro ao registrar o log de auditoria: {error}")
 
 def log_accesso(connection, tipo_user, id_user, email, acao):
+    """
+    Registra um log de acesso no banco de dados.
+
+    Funções chamadas:
+    - conectar_bd(): Estabelece a conexão com o banco de dados.
+    - obter_horario_brasilia(): Obtém o horário atual em Brasília.
+    """
     try:
         connection = conectar_bd()
         with connection.cursor() as cursor:
@@ -32,6 +46,13 @@ def log_accesso(connection, tipo_user, id_user, email, acao):
         print(f"Ocorreu um erro ao registrar o log de acesso: {error}")
 
 def log_compra(connection, celular, preco_prato, pgto, nome_prato, endereco):
+    """
+    Registra um log de compra no banco de dados.
+
+    Funções chamadas:
+    - conectar_bd(): Estabelece a conexão com o banco de dados.
+    - obter_horario_brasilia(): Obtém o horário atual em Brasília.
+    """
     try:
         connection = conectar_bd()
         with connection.cursor() as cursor:
@@ -44,6 +65,9 @@ def log_compra(connection, celular, preco_prato, pgto, nome_prato, endereco):
         print(f"Ocorreu um erro ao registrar o log de compra: {error}")
 
 def print_logs_auditoria():
+    """
+    Recupera e imprime os logs de auditoria do banco de dados.
+    """
     try:
         connection = conectar_bd()
         with connection.cursor() as cursor:
@@ -62,6 +86,9 @@ def print_logs_auditoria():
         connection.close()
 
 def print_logs_acesso():
+    """
+    Recupera e imprime os logs de acesso do banco de dados.
+    """
     try:
         connection = conectar_bd()
         with connection.cursor() as cursor:
@@ -80,6 +107,9 @@ def print_logs_acesso():
         connection.close()
 
 def print_logs_compras():
+    """
+    Recupera e imprime os logs de compras do banco de dados.
+    """
     try:
         connection = conectar_bd()
         with connection.cursor() as cursor:

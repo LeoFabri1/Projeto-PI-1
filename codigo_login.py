@@ -6,6 +6,21 @@ from BancodeDados.criptografia import descripto
 from logs import log_auditoria, log_accesso
 
 def login_adm(senha, usuario):
+    """
+    Verifica o login do usuário como administrador, funcionário ou cliente e direciona ao menu apropriado.
+
+    Args:
+        senha (str): A senha fornecida pelo usuário.
+        usuario (str): O email do usuário.
+
+    Funções chamadas:
+    - log_auditoria(connection, tipo_user, id_user, acao): Registra um log de auditoria.
+    - log_accesso(connection, tipo_user, id_user, email, acao): Registra um log de acesso.
+    - funcao_login(): Exibe a função de login.
+    - menu_adm(): Exibe o menu de administrador.
+    - menu_func(): Exibe o menu de funcionário.
+    - menu_cliente(): Exibe o menu de cliente.
+    """
     from menu_login import funcao_login
     try:
         email = usuario
