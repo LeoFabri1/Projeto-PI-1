@@ -66,3 +66,8 @@ def descripto(descricao):
             frase_cripto += dic_modulo29_inverso[n]
     #retorna frase descriptografada
     return frase_cripto
+
+#frase = cripto("Hello?")
+#print(frase)
+#desc = descripto(frase)
+#print(desc)
