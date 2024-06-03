@@ -43,10 +43,10 @@ def print_logs_auditoria():
     try:
         connection = conectar_bd()
         with connection.cursor() as cursor:
-            query = '''SELECT id_pagamento, tipo_user, id_user, acao, 
+            query = '''SELECT log_id, tipo_user, id_user, acao, 
                        TO_CHAR(timestamp, 'YYYY-MM-DD HH24:MI:SS') AS formatted_timestamp 
                 FROM log_auditoria 
-                ORDER BY timestamp DESC'''
+                ORDER BY log_id DESC'''
             cursor.execute(query)
             linhas = cursor.fetchall()
 
@@ -91,7 +91,7 @@ def print_logs_compras():
                     TO_CHAR(data_pagamento, 'YYYY-MM-DD') AS formatted_date, 
                     valor_pagamento, tipo_pagamento, prato_vendido, endereco_entrega 
                 FROM pagamentos
-                ORDER BY data_pagamento DESC'''
+                ORDER BY id_pagamento DESC'''
             cursor.execute(query)
             linhas = cursor.fetchall()
 
