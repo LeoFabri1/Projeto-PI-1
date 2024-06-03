@@ -66,18 +66,18 @@ def pagamento(prato, preco):
     nome_prato = prato
     pgto = str(input("Digite a forma de pagamento acima desejada (Pix ou Cartao): "))
     pag = pgto.upper()
+
     if pag == "PIX" or "CARTAO":
-        print(f"Pagamento finalizado via {pag} com entrega no endereço {endereco}. Voce recebera um SMS de confirmacao no numero {celular}")
+        
         connection = conectar_bd()
-        cursor = connection.cursor()
-
-        cursor.execute('INSERT INTO Pagamentos (id_pagamento, celular_cliente, data_pagamento, valor_pagamento, tipo_pagamento, prato_vendido, endereco_entrega) VALUES (seq_id_pag.NEXTVAL, :1, SYSTIMESTAMP, :2, :3, :4, :5)', (celular, preco_prato, pgto, nome_prato, endereco))
-        connection.commit()
-
-        cursor.close()
-        connection.close()
-
-        log_compra(connection, celular, preco_prato, pgto, nome_prato, endereco)
+        
+        try:
+            log_compra(connection, celular, preco_prato, pag, nome_prato, endereco)
+            print(f"Pagamento finalizado via {pag} com entrega no endereço {endereco}. Você receberá um SMS de confirmação no número {celular}")
+        except Exception as error:
+            print(f"Ocorreu um erro ao processar o pagamento: {error}")
+        finally:
+            connection.close()
     else:
         print("Forma de pagamento inválida. Por favor, escolha entre Pix ou Cartao.")
 
