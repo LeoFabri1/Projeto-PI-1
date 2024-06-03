@@ -55,7 +55,7 @@ def menu_func_cadastro():
       cadastrar_fab()
     elif opcao == "4" or op == "FORNECEDOR" or op == "FORN":
       cadastrar_forn()
-    elif opcao == 5 or op == "HOME" or op == "SAIR":
+    elif opcao == "5" or op == "HOME" or op == "SAIR":
       menu_func()
     else:
       print("Opção inexistente.")
@@ -84,7 +84,7 @@ def menu_func_altero():
       alterar_fab()
     elif opcao == "4" or op == "FORNECEDOR" or op == "FORN":
       alterar_forn()
-    elif opcao == 5 or op == "HOME" or op == "SAIR":
+    elif opcao == "5" or op == "HOME" or op == "SAIR":
       menu_func()
     else:
       print("Opção inexistente.")
@@ -113,7 +113,7 @@ def menu_func_deleto():
       deletar_fab()
     elif opcao == "4" or op == "FORNECEDOR" or op == "FORN":
       deletar_forn()
-    elif opcao == 5 or op == "HOME" or op == "SAIR":
+    elif opcao == "5" or op == "HOME" or op == "SAIR":
       menu_func()
     else:
       print("Opção inexistente.")
