@@ -41,6 +41,7 @@ instalar extensão python
 python -m pip install oracledb --upgrade
 pip install numpy
 pip install tabulate
+pip install pytz
 
 ## Status do Projeto
 Atualmente, o projeto encontra-se na fase final estando completamente funcional, na versão 1.4.0.
