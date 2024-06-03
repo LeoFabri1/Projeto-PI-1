@@ -10,6 +10,7 @@ def menu_cliente():
     print("CARDAPIO                                                 ")
     print("                                                         ")
     listar_prato_cliente()
+    escolher_prato()
     print("*********************************************************")
 
 #pagina da comida do cardapio para adicionar ao carrinho
@@ -101,4 +102,3 @@ def listar_prato_cliente():
     
     cursor.close()
     connection.close()
-    escolher_prato()

@@ -19,7 +19,7 @@ def home():
         if opcao == "HOME":
             continue
         elif opcao in ("CARDAPIO", "CARDÁPIO"):
-            cardapio_cliente()
+            listar_prato_cliente()
         elif opcao in ("SOBRE NOS", "SOBRE"):
             sobre()
         elif opcao == "LOGIN":
@@ -29,18 +29,6 @@ def home():
             exit()
         else:
             print("Opção inválida, tente novamente.")
-
-#pagina do cardapio
-def cardapio_cliente():
-    print("*********************************************************")
-    print("                   JungKooking Food                      ")
-    print("|    |                 |        |                 |     |")
-    print("|HOME|                 |CARDAPIO|                 |LOGIN|")
-    print("|    |                 |        |                 |     |")
-    print("CARDAPIO                                                 ")
-    print("                                                         ")
-    listar_prato_cliente()
-    print("*********************************************************")
 
 #pagina escolha login ou cadastro
 def login_cadastro():
