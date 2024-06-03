@@ -32,7 +32,7 @@ def log_compra(connection, celular, preco_prato, pgto, nome_prato, endereco):
         connection=conectar_bd()
         with connection.cursor() as cursor:
             # Inserir o log da compra
-            query = 'INSERT INTO log_compras (celular_cliente, data_pagamento, valor_pagamento, tipo_pagamento, prato_vendido, endereco_entrega) VALUES (:1, :2, SYSTIMESTAMP, :3, :4, :5)'
+            query = 'INSERT INTO pagamentos (celular_cliente, data_pagamento, valor_pagamento, tipo_pagamento, prato_vendido, endereco_entrega) VALUES (:1, :2, SYSTIMESTAMP, :3, :4, :5)'
             cursor.execute(query, (celular, preco_prato, pgto, nome_prato, endereco))
             # Confirmar a transação
             connection.commit()

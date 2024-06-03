@@ -3,6 +3,19 @@ from interface_cliente import listar_prato_cliente
 from Cadastrar import cadastrar_cliente
 #pagina inicial
 def home():
+    """
+    Exibe a interface principal da JungKooking Food e permite a navegação para
+    outras seções do sistema, como cardápio, sobre nós e login.
+
+    Opções:
+        - HOME: Recarrega a página inicial.
+        - CARDAPIO / CARDÁPIO: Lista os pratos disponíveis.
+        - SOBRE NOS / SOBRE: Exibe informações sobre o restaurante.
+        - LOGIN: Redireciona para a página de login ou cadastro.
+        - SAIR: Sai do programa.
+
+    Esta função chama outras funções conforme a opção escolhida pelo usuário.
+    """
     while True:
         print("**********************************************************")
         print("                   JungKooking Food                       ")
@@ -32,6 +45,17 @@ def home():
 
 #pagina escolha login ou cadastro
 def login_cadastro():
+    """
+        Exibe a interface de escolha para login ou cadastro de clientes na JungKooking Food.
+
+    Opções:
+        - 1 / LOGIN: Redireciona para a função de login.
+        - 2 / CADASTRO: Redireciona para a função de cadastro de clientes.
+        - 3 / HOME: Volta para a página inicial.
+        - 4 / SAIR: Sai do programa.
+
+    Esta função chama outras funções conforme a opção escolhida pelo usuário.
+    """
     while True:
         print("*********************************************************")
         print("                   JungKooking Food                      ")
@@ -61,6 +85,10 @@ def login_cadastro():
 
 #pagina sobre o restaurante
 def sobre():
+    """
+    Exibe informações sobre o restaurante JungKooking Food, incluindo uma breve
+    descrição do estabelecimento e informações de contato.
+    """
     print("*********************************************************")
     print("                   JungKooking Food                      ")
     print("|    |                 |         |                |     |")
@@ -72,17 +100,3 @@ def sobre():
     print("Para nos contatar utilize o numero de WhatsApp a baixo:  ")
     print("                                             1999999-9999")
     print("*********************************************************")
-
-#pagina login
-def login():
-    print("**********************************************************")
-    print("                   JungKooking Food                       ")
-    print("|    |                                          |        |")
-    print("|HOME|                                          |CADASTRO|")
-    print("|    |                                          |        |")
-    print("                    ÁREA DE LOGIN                         ")
-    print("Usuário: ")
-    print("Senha: ")
-    print("                                                          ")
-    print("                    'Finalizar Login'                     ")
-    print("**********************************************************")
