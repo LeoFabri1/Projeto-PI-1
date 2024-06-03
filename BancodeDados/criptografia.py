@@ -67,7 +67,8 @@ def descripto(descricao):
     #retorna frase descriptografada
     return frase_cripto
 
-#frase = cripto("Hello?")
+#frase = cripto("Hello?&#!")
 #print(frase)
 #desc = descripto(frase)
 #print(desc)
+#'!': 29, ':': 30, ';': 31, '?': 32, '@': 33, '#': 34, '$': 35, 'É': 36, 'Á': 37, 'À': 38, 'Ú': 39, '&': 40
