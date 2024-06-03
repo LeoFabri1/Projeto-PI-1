@@ -1,5 +1,15 @@
 import codigo_login
 
+#login adm
+#testeadm@gmail.com
+#senhaadm
+#login cliente
+#testecliente@gmail.com
+#senhacliente
+#login func
+#testefunc@gmail.com
+#senhatestefunc
+
 def funcao_login():
     try: 
         usuario=str(input("\nDigite o email do usuário: "))

@@ -111,24 +111,38 @@ def menu():
 def main():
     while True:
         menu()
-        opcao = input("\nEscolha uma opção: ")
+        opcao = str(input("\nEscolha uma opção: "))
+        op = opcao.upper()
 
-        if opcao == "1":
+        if opcao == "1" or op == "CONSULTAR" or op == "CONSULTAR ESTOQUE" or op == "ESTOQUE":
             consultar_estoque()
-        elif opcao == "2":
-            data = input("\n\nQual a data a ser consultada?\nDigite no formato YYYY-MM-DD: ")
-            if validar_data(data):
-                gerar_relatorio_vendas(data)
+        elif opcao == "2" or op == "VENDAS" or op == "RELATORIO VENDAS":
+            while True:
+                data = str(input("\n\nQual a data a ser consultada?\nDigite no formato YYYY-MM-DD: "))
+                saida = data.upper()
+                if saida == "SAIR":
+                    break
+                else:
+                    if validar_data(data):
+                        gerar_relatorio_vendas(data)
+                    else:
+                        print("Data inválida. Por favor, insira a data no formato YYYY-MM-DD.\n")
+        elif opcao == "3" or op == "CALCULAR LUCRO" or op == "LUCRO":
+            data_inicio = str(input("\n\nQual a data de início do período a ser consultado?\nDigite no formato YYYY-MM-DD: "))
+            sair = data_inicio.upper()
+            if sair == "SAIR":
+                break
             else:
-                print("Data inválida. Por favor, insira a data no formato YYYY-MM-DD.\n")
-        elif opcao == "3":
-            data_inicio = input("\n\nQual a data de início do período a ser consultado?\nDigite no formato YYYY-MM-DD: ")
-            data_fim = input("\nQual a data de término do período a ser consultado?\nDigite no formato YYYY-MM-DD: ")
-            if validar_data(data_inicio) and validar_data(data_fim):
-                calcular_lucro_periodo(data_inicio, data_fim)
-            else:
-                print("Data inválida. Por favor, insira as datas no formato YYYY-MM-DD.\n")
-        elif opcao == "0":
+                data_fim = str(input("\nQual a data de término do período a ser consultado?\nDigite no formato YYYY-MM-DD: "))
+                sairdois = data_fim.upper()
+                if sairdois == "SAIR":
+                    break
+                else:
+                    if validar_data(data_inicio) and validar_data(data_fim):
+                        calcular_lucro_periodo(data_inicio, data_fim)
+                    else:
+                        print("Data inválida. Por favor, insira as datas no formato YYYY-MM-DD.\n")
+        elif opcao == "0" or op == "SAIR":
             print("Saindo...")
             break
         else:
