@@ -57,8 +57,11 @@ def log_compra(connection, celular, preco_prato, pgto, nome_prato, endereco):
         connection = conectar_bd()
         with connection.cursor() as cursor:
             data_pagamento = obter_horario_brasilia()
-            query = 'INSERT INTO pagamentos (id_pagamento, celular_cliente, data_pagamento, valor_pagamento, tipo_pagamento, prato_vendido, endereco_entrega) VALUES (seq_id_pag.NEXTVAL, :1, :2, :3, :4, :5, :6)'
-            cursor.execute(query, (celular, data_pagamento, preco_prato, pgto, nome_prato, endereco))
+            query_select_id_prato = 'SELECT id_prato FROM pratos WHERE nome_prato = :1'
+            cursor.execute(query_select_id_prato, (nome_prato,))
+            id_prato = cursor.fetchone()[0]
+            query = 'INSERT INTO pagamentos (id_pagamento, celular_cliente, data_pagamento, valor_pagamento, tipo_pagamento, prato_vendido, endereco_entrega, id_prato) VALUES (seq_id_pag.NEXTVAL, :1, :2, :3, :4, :5, :6, :7)'
+            cursor.execute(query, (celular, data_pagamento, preco_prato, pgto, nome_prato, endereco, id_prato))
             connection.commit()
         print("Log de compra registrado com sucesso.")
     except Exception as error:
