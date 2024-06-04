@@ -77,7 +77,7 @@ def login_cadastro():
             cadastrar_cliente()
         elif opcao == "3" or op == "HOME":
             home()
-        elif opcao == "4" or op == "SAIRSS":
+        elif opcao == "4" or op == "SAIR":
             print("Saindo do programa...")
             exit()
         else:

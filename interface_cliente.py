@@ -42,7 +42,7 @@ def escolher_prato():
     - Chama a função para processar o pagamento.
     """
     while True:
-        prato_escolhido = input("Digite o nome do prato que deseja adicionar ao carrinho ou SAIR para voltar: ").strip()
+        prato_escolhido = str(input("Digite o nome do prato que deseja adicionar ao carrinho ou SAIR para voltar: ")).strip()
         prato_esc = prato_escolhido.upper()
 
         if prato_esc == "SAIR":
@@ -54,7 +54,7 @@ def escolher_prato():
         try:
             cursor = connection.cursor()
             query = 'SELECT * FROM PRATOS WHERE nome_prato = :nome_prato'
-            cursor.execute(query, {"nome_prato": prato_escolhido})
+            cursor.execute(query, {"nome_prato": prato_esc})
             prato = cursor.fetchone()
 
             if prato:
