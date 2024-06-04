@@ -32,7 +32,7 @@ def gerar_relatorio_vendas(data_venda):
                    pa.valor_pagamento 
             FROM pratos p 
             JOIN pagamentos pa ON pa.id_prato = p.id_prato 
-            WHERE pa.data_pagamento = TO_DATE(:data_venda, 'YYYY-MM-DD')
+            WHERE TRUNC(pa.data_pagamento) = TO_DATE(:data_venda, 'YYYY-MM-DD')
             """, {'data_venda': data_venda})
         vendas = cursor.fetchall()
         
